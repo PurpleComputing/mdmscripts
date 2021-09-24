@@ -26,7 +26,7 @@ This script is designed to silently install/update Office Suite to an MDM enroll
 ##### Command to execute:
 `sudo curl -o /tmp/office-install.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/office-install.sh && sudo chmod /tmp/office-install.sh && sudo /tmp/office-install.sh [PARAM]`
 
-Parameters [PARAM]:
+Parameters:
  full : Install the full suite
  word : Install Word
  excel : Install Excel
