@@ -22,7 +22,7 @@ This script is designed to silently install/update Google Chrome to an MDM enrol
 
 ## office-install.sh
 #### Install Microsoft Office Suite
-This script is designed to silently install/update Office Suite to an MDM enrolled Mac.
+This script is now redirected to microsoft-apps.sh
 ##### Command to execute:
 `NO LONGER USED`
 
