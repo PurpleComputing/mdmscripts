@@ -59,3 +59,11 @@ This script is designed to silently install or update 1Password 7 to an MDM enro
 This script is designed to silently install or update BT Cloud Phone to an MDM enrolled Mac.
 ##### Command to execute:
 `sudo curl -o /tmp/bt-cloud-phone.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/bt-cloud-phone.sh && sudo chmod /tmp/bt-cloud-phone.sh && sudo /tmp/bt-cloud-phone.sh`
+
+## Rosetta2.sh / Rosetta2-JAMF.sh
+#### Install Rosetta2 on required hardware
+This script is designed to silently install Rosetta2 onto an Apple Silicon MDM enrolled Mac.
+##### Command to execute:
+`sudo curl -o /tmp/Rosetta2.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2.sh && sudo chmod /tmp/Rosetta2.sh && sudo /tmp/Rosetta2.sh`
+or
+`sudo curl -o /tmp/Rosetta2-JAMF.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2-JAMF.sh && sudo chmod /tmp/Rosetta2-JAMF.sh && sudo /tmp/Rosetta2-JAMF.sh`
