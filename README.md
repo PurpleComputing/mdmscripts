@@ -47,3 +47,9 @@ Parameters:
 This script is designed to silently update Adobe Acrobat DC to an MDM enrolled Mac.
 ##### Command to execute:
 `sudo curl -o /tmp/Acrobat-DC-Update.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Acrobat-DC-Update.sh && sudo chmod /tmp/Acrobat-DC-Update.sh && sudo /tmp/Acrobat-DC-Update.sh`
+
+## 1-password.sh
+#### Install or Update 1Password 7
+This script is designed to silently install or update 1Password 7 to an MDM enrolled Mac.
+##### Command to execute:
+`sudo curl -o /tmp/1-password.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/1-password.sh && sudo chmod /tmp/1-password.sh && sudo /tmp/1-password.sh`
