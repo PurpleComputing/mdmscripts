@@ -65,5 +65,5 @@ This script is designed to silently install or update BT Cloud Phone to an MDM e
 This script is designed to silently install Rosetta2 onto an Apple Silicon MDM enrolled Mac.
 ##### Command to execute:
 `sudo curl -o /tmp/Rosetta2.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2.sh && sudo chmod /tmp/Rosetta2.sh && sudo /tmp/Rosetta2.sh`
-or
+##### or
 `sudo curl -o /tmp/Rosetta2-JAMF.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2-JAMF.sh && sudo chmod /tmp/Rosetta2-JAMF.sh && sudo /tmp/Rosetta2-JAMF.sh`
