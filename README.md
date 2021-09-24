@@ -24,7 +24,13 @@ This script is designed to silently install/update Google Chrome to an MDM enrol
 #### Install Microsoft Office Suite
 This script is designed to silently install/update Office Suite to an MDM enrolled Mac.
 ##### Command to execute:
-`sudo curl -o /tmp/office-install.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/office-install.sh && sudo chmod /tmp/office-install.sh && sudo /tmp/office-install.sh [PARAM]`
+`NO LONGER USED`
+
+## microsoft-apps.sh
+#### Install Microsoft Apps
+This script is designed to silently install/update Microsoft Apps to an MDM enrolled Mac.
+##### Command to execute:
+`sudo curl -o /tmp/microsoft-apps.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/microsoft-apps.sh && sudo chmod /tmp/microsoft-apps.sh && sudo /tmp/microsoft-apps.sh [PARAM]`
 
 Parameters:
 * `full` : Install the full suite
