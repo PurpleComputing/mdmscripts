@@ -145,9 +145,9 @@ for param in "$@"; do
         outlook)
             install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app"
             ;;
-		teams)
-			install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app"
-			;;
+	teams)
+	    install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app"
+	    ;;
         full)
             install_software "com.microsoft.office.suite.365" "Office365" "SUITE"
             ;;
