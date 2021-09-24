@@ -41,3 +41,9 @@ Parameters:
 * `outlook` : Install Outlook
 * `onenote` : Install OneNote
 * `teams` : Install Teams
+
+## Acrobat-DC-Update.sh
+#### Update Adobe Acrobat DC
+This script is designed to silently updates Adobe Acrobat DC to an MDM enrolled Mac.
+##### Command to execute:
+`sudo curl -o /tmp/Acrobat-DC-Update.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Acrobat-DC-Update.sh && sudo chmod /tmp/Acrobat-DC-Update.sh && sudo /tmp/Acrobat-DC-Update.sh`
