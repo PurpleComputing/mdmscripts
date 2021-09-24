@@ -53,3 +53,9 @@ This script is designed to silently update Adobe Acrobat DC to an MDM enrolled M
 This script is designed to silently install or update 1Password 7 to an MDM enrolled Mac.
 ##### Command to execute:
 `sudo curl -o /tmp/1-password.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/1-password.sh && sudo chmod /tmp/1-password.sh && sudo /tmp/1-password.sh`
+
+## bt-cloud-phone.sh
+#### Install or Update BT Cloud Phone
+This script is designed to silently install or update BT Cloud Phone to an MDM enrolled Mac.
+##### Command to execute:
+`sudo curl -o /tmp/bt-cloud-phone.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/bt-cloud-phone.sh && sudo chmod /tmp/bt-cloud-phone.sh && sudo /tmp/bt-cloud-phone.sh`
