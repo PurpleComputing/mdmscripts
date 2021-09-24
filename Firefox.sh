@@ -13,13 +13,14 @@
 #
 # HISTORY
 #
-#   Version: 1.3
+#   Version: 1.4
 #
-#   - Joe Farage, 18.03.2015
-#   - Chris Hansen, 14.05.2020 Some square brackets change to double square brackets
-#   - Martyn Watts, 24.05.2020 Removed Language Variables as they are not needed and results were inconsistent
-#   - Martyn Watts, 30.06.2021 Added dock icon for all users using dockutil (prerequisite)
-#   - Michael Tanner, 18.08.2021 Adapted for use with Mosyle
+#   - 1.0 Joe Farage, 18.03.2015
+#   - 1.0.1 Chris Hansen, 14.05.2020 Some square brackets change to double square brackets
+#   - 1.1 Martyn Watts, 24.05.2020 Removed Language Variables as they are not needed and results were inconsistent
+#   - 1.2 Martyn Watts, 30.06.2021 Added dock icon for all users using dockutil (prerequisite)
+#   - 1.3 Michael Tanner, 18.08.2021 Adapted for use with Mosyle
+#   - 1.4 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
 #
 ####################################################################################################
 # Script to download and install Firefox.
@@ -83,11 +84,13 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
 		newlyinstalledver=`/usr/bin/defaults read /Applications/Firefox.app/Contents/Info CFBundleShortVersionString`
 		if [[ "${latestver}" = "${newlyinstalledver}" ]]; then
 			/bin/echo "`date`: SUCCESS: Firefox has been updated to version ${newlyinstalledver}" >> ${logfile}
-			/bin/echo "`date`: Creating Dock Icon." >> ${logfile}
-			#/usr/local/bin/dockutil --remove 'Firefox' --allhomes
-			/bin/sleep 3
-			#/usr/local/bin/dockutil --add '/Applications/Firefox.app' --after 'Safari' --allhomes
-	   # /Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -windowType hud -title "Firefox Installed" -description "Firefox has been updated." &
+			if [[ -e "/usr/local/bin/dockutil" ]]; then  
+				/bin/echo "`date`: Creating Dock Icon." >> ${logfile}
+				/usr/local/bin/dockutil --remove 'Firefox' --allhomes
+				/bin/sleep 3
+				/usr/local/bin/dockutil --add '/Applications/Firefox.app' --after 'Safari' --allhomes
+			fi
+			/bin/echo "--" >> ${logfile}
 		else
 			/bin/echo "`date`: ERROR: Firefox update unsuccessful, version remains at ${currentinstalledver}." >> ${logfile}
 			/bin/echo "--" >> ${logfile}
