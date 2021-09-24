@@ -60,6 +60,12 @@ This script is designed to silently install or update BT Cloud Phone to an MDM e
 ##### Command to execute:
 `sudo curl -o /tmp/bt-cloud-phone.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/bt-cloud-phone.sh && sudo chmod /tmp/bt-cloud-phone.sh && sudo /tmp/bt-cloud-phone.sh`
 
+## scansnap-home.sh
+#### Install or Update ScanSnap Home
+This script is designed to silently install or update ScanSnap Home to an MDM enrolled Mac.
+##### Command to execute:
+`sudo curl -o /tmp/scansnap-home.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/scansnap-home.sh && sudo chmod /tmp/scansnap-home.sh && sudo /tmp/scansnap-home.sh`
+
 ## Rosetta2.sh / Rosetta2-JAMF.sh
 #### Install Rosetta2 on required hardware
 This script is designed to silently install Rosetta2 onto an Apple Silicon MDM enrolled Mac.
