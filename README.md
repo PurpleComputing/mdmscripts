@@ -40,3 +40,4 @@ Parameters:
 * `onedrive` : Install OneDrive
 * `outlook` : Install Outlook
 * `onenote` : Install OneNote
+* `teams` : Install Teams
