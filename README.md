@@ -74,3 +74,12 @@ The -JAMF version does a 'jamf recon' to update the portal - This will fail on n
 `sudo curl -o /tmp/Rosetta2.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2.sh && sudo chmod +x /tmp/Rosetta2.sh && sudo /tmp/Rosetta2.sh`
 ##### or
 `sudo curl -o /tmp/Rosetta2-JAMF.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2-JAMF.sh && sudo chmod +x /tmp/Rosetta2-JAMF.sh && sudo /tmp/Rosetta2-JAMF.sh`
+
+## computer-rename.sh [JAMF ONLY]
+#### Renames a computer based on the JAMF user and MAC address
+This script will rename a computer based on the JAMF user and MAC Address, it will need 3 Variables to be passed through
+Variable 4. A JAMF user with API permissions
+Variable 5. The password for the account in Variable 4
+Variable 6. The JAMF Host URL
+##### Command to execute:
+`sudo curl -o /tmp/computer-rename.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/computer-rename.sh && sudo chmod +x /tmp/computer-rename.sh && sudo /tmp/computer-rename.sh`
