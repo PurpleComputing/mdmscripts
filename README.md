@@ -114,3 +114,20 @@ This script will apply the policies in the order specified, populate parameter 4
 
 ##### Command to execute:
 `sudo curl -o /tmp/policy-order.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/policy-order.sh && sudo chmod +x /tmp/policy-order.sh && sudo /tmp/policy-order.sh`
+
+## add-printer.sh
+#### Uses lpadmin to create a printer
+This script will create a printer in CUPS using the standards listed here > https://www.cups.org/doc/man-lpadmin.html
+
+options used in this example script are
+
+* -p 'Destination'
+* -D 'Description'
+* -L 'Location'
+* -o 'Option [printer-is-shared=false]'
+* -E 'Encrypted connection'
+* -v 'Printer URL'
+* -m 'Driver [Only everwhere will be supported going forwards]'. 'everywhere' is the generic name for AirPrint
+
+##### Command to execute:
+`sudo curl -o /tmp/add-printer.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/add-printer.sh && sudo chmod +x /tmp/add-printer.sh && sudo /tmp/add-printer.sh`
