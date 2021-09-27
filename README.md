@@ -77,16 +77,16 @@ The -JAMF version does a 'jamf recon' to update the portal - This will fail on n
 
 ## computer-rename.sh [JAMF ONLY]
 #### Renames a computer based on the JAMF user and MAC address
-This script will rename a computer based on the JAMF user and MAC Address, it will need 3 Variables to be passed through
-* Variable 4. A JAMF user with API permissions
-* Variable 5. The password for the account in Variable 4
-* Variable 6. The JAMF Host URL
+This script will rename a computer based on the JAMF user and MAC Address, it will need 3 Parameters to be passed through
+* Parameter 4. A JAMF user with API permissions
+* Parameter 5. The password for the account in Parameter 4
+* Parameter 6. The JAMF Host URL
 ##### Command to execute:
 `sudo curl -o /tmp/computer-rename.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/computer-rename.sh && sudo chmod +x /tmp/computer-rename.sh && sudo /tmp/computer-rename.sh`
 
 ## enrollment-cleanup.sh [JAMF ONLY]
 #### Removes the downloaded and applied mobileconfig file and forces Safari to quit
-This script will rRemoves the downloaded and applied mobileconfig file and forces Safari to quit, it is required as Adobe Acrobat installer is sensitive to Safari being open and will cause a failed install.  We can't rely on the enrolling person remembering to close Safari.
+This script will remove the downloaded and applied mobileconfig file and forces Safari to quit, it is required as Adobe Acrobat installer is sensitive to Safari being open and will cause a failed install.  We can't rely on the enrolling person remembering to close Safari.
 
 ##### Command to execute:
 `sudo curl -o /tmp/enrollment-cleanup.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/enrollment-cleanup.sh && sudo chmod +x /tmp/enrollment-cleanup.sh && sudo /tmp/enrollment-cleanup.sh`
@@ -94,9 +94,19 @@ This script will rRemoves the downloaded and applied mobileconfig file and force
 ## lock-device.sh [JAMF ONLY]
 #### Renames a computer based on the JAMF user and MAC address
 This script will lock a computer using the JAMF API and can be called by an out of region smart group
-* Variable 4. A JAMF user with API permissions
-* Variable 5. The password for the account in Variable 4
-* Variable 6. The JAMF Host URL
-* Variable 7. The Passcode to lock the device with
+* Parameter 4. A JAMF user with API permissions
+* Parameter 5. The password for the account in Parameter 4
+* Parameter 6. The JAMF Host URL
+* Parameter 7. The Passcode to lock the device with
+
 ##### Command to execute:
 `sudo curl -o /tmp/lock-device.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/lock-device.sh && sudo chmod +x /tmp/lock-device.sh && sudo /tmp/lock-device.sh`
+
+## policy-order.sh [JAMF ONLY]
+#### Runs JAMF policies in a specific order
+This script will apply the policies in the order specified, populate parameter 4 with the policy id's separated with a space.
+
+* Parameter 4 with the policy IDs or their custom triggers
+
+##### Command to execute:
+`sudo curl -o /tmp/policy-order.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/policy-order.sh && sudo chmod +x /tmp/policy-order.sh && sudo /tmp/policy-order.sh`
