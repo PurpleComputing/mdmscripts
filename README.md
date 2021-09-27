@@ -66,13 +66,17 @@ This script is designed to silently install or update ScanSnap Home to an MDM en
 ##### Command to execute:
 `sudo curl -o /tmp/scansnap-home.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/scansnap-home.sh && sudo chmod +x /tmp/scansnap-home.sh && sudo /tmp/scansnap-home.sh`
 
-## Rosetta2.sh / Rosetta2-JAMF.sh
+## Rosetta2.sh
 #### Install Rosetta2 on required hardware
 This script is designed to silently install Rosetta2 onto an Apple Silicon MDM enrolled Mac.
-The -JAMF version does a 'jamf recon' to update the portal - This will fail on non JAMF platforms
 ##### Command to execute:
 `sudo curl -o /tmp/Rosetta2.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2.sh && sudo chmod +x /tmp/Rosetta2.sh && sudo /tmp/Rosetta2.sh`
-##### or
+
+## Rosetta2-JAMF.sh [JAMF ONLY]
+#### Install Rosetta2 on required hardware
+This script is designed to silently install Rosetta2 onto an Apple Silicon MDM enrolled Mac.
+This -JAMF version does a 'jamf recon' to update the portal - This will fail on non JAMF platforms
+##### Command to execute:
 `sudo curl -o /tmp/Rosetta2-JAMF.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2-JAMF.sh && sudo chmod +x /tmp/Rosetta2-JAMF.sh && sudo /tmp/Rosetta2-JAMF.sh`
 
 ## computer-rename.sh [JAMF ONLY]
