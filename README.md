@@ -131,3 +131,17 @@ options used in this example script are
 
 ##### Command to execute:
 `sudo curl -o /tmp/add-printer.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/add-printer.sh && sudo chmod +x /tmp/add-printer.sh && sudo /tmp/add-printer.sh`
+
+## software-update-settings.sh
+#### updates plist to change the App and OS software update settings
+This script will set the policies software update settings with the following settings.
+
+* AutomaticallyInstallMacOSUpdates - false
+* AutomaticCheckEnabled -bool true
+* AutomaticDownload -bool true
+* CriticalUpdateInstall -bool true
+* ConfigDataInstall -bool true
+* AutoUpdate -bool true
+
+##### Command to execute:
+`sudo curl -o /tmp/software-update-settings.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/software-update-settings.sh && sudo chmod +x /tmp/software-update-settings.sh && sudo /tmp/software-update-settings.sh`
