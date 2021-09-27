@@ -91,3 +91,12 @@ This script will rRemoves the downloaded and applied mobileconfig file and force
 ##### Command to execute:
 `sudo curl -o /tmp/enrollment-cleanup.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/enrollment-cleanup.sh && sudo chmod +x /tmp/enrollment-cleanup.sh && sudo /tmp/enrollment-cleanup.sh`
 
+## computer-rename.sh [JAMF ONLY]
+#### Renames a computer based on the JAMF user and MAC address
+This script will lock a computer using the JAMF API and can be called by an out of region smart group
+* Variable 4. A JAMF user with API permissions
+* Variable 5. The password for the account in Variable 4
+* Variable 6. The JAMF Host URL
+* Variable 7. The Passcode to lock the device with
+##### Command to execute:
+`sudo curl -o /tmp/lock-device.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/lock-device.sh && sudo chmod +x /tmp/lock-device.sh && sudo /tmp/lock-device.sh`
