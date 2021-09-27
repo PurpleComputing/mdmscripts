@@ -83,3 +83,11 @@ This script will rename a computer based on the JAMF user and MAC Address, it wi
 * Variable 6. The JAMF Host URL
 ##### Command to execute:
 `sudo curl -o /tmp/computer-rename.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/computer-rename.sh && sudo chmod +x /tmp/computer-rename.sh && sudo /tmp/computer-rename.sh`
+
+## enrollment-cleanup.sh [JAMF ONLY]
+#### Removes the downloaded and applied mobileconfig file and forces Safari to quit
+This script will rRemoves the downloaded and applied mobileconfig file and forces Safari to quit, it is required as Adobe Acrobat installer is sensitive to Safari being open and will cause a failed install.  We can't rely on the enrolling person remembering to close Safari.
+
+##### Command to execute:
+`sudo curl -o /tmp/enrollment-cleanup.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/enrollment-cleanup.sh && sudo chmod +x /tmp/enrollment-cleanup.sh && sudo /tmp/enrollment-cleanup.sh`
+
