@@ -159,3 +159,5 @@ Add the following custom command for Mosyle Attribute look up
 ###### Title: Get ZT Client ID Number for Attributes 
 ###### Event: Every "Device Info" update
 Command: `/usr/local/bin/zerotier-cli info`
+###### Show the command response as an attribute on Device Info: TICK
+Use the field below to enter the name of the attribute: ZeroTier ID
