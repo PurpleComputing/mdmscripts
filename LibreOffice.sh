@@ -82,15 +82,15 @@ if [[ "${currentinstalledver}" != "${latestver}" ]]; then
       	killall ${appName}
       fi
 		##########################################################################
-		# Uncomment this block for dmg & .app copy          					 #
+		# Uncomment this block for dmg & .app copy          			 #
 		##########################################################################
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
 		/usr/bin/hdiutil attach /tmp/${appName} -nobrowse -quiet
 		/bin/echo "`date`: Installing..." >> ${logfile}	
 		ditto -rsrc "/Volumes/${appName}/${appName}.app" "/Applications/${appName}.app"
-		/bin/sleep 10
+		/bin/sleep 30
 		/bin/echo "`date`: Unmounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep ${appName} | awk '{print $1}') -quiet
+		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep ${appName} | awk '{print $9}') -quiet
 		/bin/sleep 10
 		##########################################################################
 
