@@ -5,6 +5,7 @@
 # Usage : Install Office365 applications in the last version available on macadmins site.
 # Parameters : 
 # full : Install the full suite
+# full-oc : Install the full suite but open the Console Logs
 # word : Install Word
 # excel : Install Excel
 # powerpoint : Install Powerpoint
