@@ -5,7 +5,6 @@
 # Usage : Install Office365 applications in the last version available on macadmins site.
 # Parameters : 
 # full : Install the full suite
-# full-oc : Install the full suite but open the Console Logs
 # word : Install Word
 # excel : Install Excel
 # powerpoint : Install Powerpoint
@@ -138,31 +137,52 @@ echo "Latest version : ${LATEST_VERSION}" >> ${logfile}
 for param in "$@"; do
     case $param in 
         word)
-            install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app"
+            install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app" "noconsole"
             ;;
         excel)
-            install_software "com.microsoft.excel.standalone.365" "Excel" "/Applications/Microsoft Excel.app"
+            install_software "com.microsoft.excel.standalone.365" "Excel" "/Applications/Microsoft Excel.app" "noconsole"
             ;;
         powerpoint)
-            install_software "com.microsoft.powerpoint.standalone.365" "Powerpoint" "/Applications/Microsoft PowerPoint.app"
+            install_software "com.microsoft.powerpoint.standalone.365" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "noconsole"
             ;;
         onedrive)
-            install_software "com.microsoft.onedrive.standalone" "OneDrive" "/Applications/OneDrive.app"
+            install_software "com.microsoft.onedrive.standalone" "OneDrive" "/Applications/OneDrive.app" "noconsole"
             ;;
         onenote)
-            install_software "com.microsoft.onenote.standalone.365" "OneNote" "/Applications/Microsoft OneNote.app"
+            install_software "com.microsoft.onenote.standalone.365" "OneNote" "/Applications/Microsoft OneNote.app" "noconsole"
             ;;
         outlook)
-            install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app"
+            install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole"
             ;;
-		teams)
-	    	install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app"
-	   		;;
+	teams)
+	    install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "noconsole"
+	    ;;
         full)
-            install_software "com.microsoft.office.suite.365" "Office365" "SUITE"
+            install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "noconsole"
             ;;
+        word-oc)
+            install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app" "openconsole"
+            ;;
+        excel-oc)
+            install_software "com.microsoft.excel.standalone.365" "Excel" "/Applications/Microsoft Excel.app" "openconsole"
+            ;;
+        powerpoint-oc)
+            install_software "com.microsoft.powerpoint.standalone.365" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "openconsole"
+            ;;
+        onedrive-oc)
+            install_software "com.microsoft.onedrive.standalone" "OneDrive" "/Applications/OneDrive.app" "openconsole"
+            ;;
+        onenote-oc)
+            install_software "com.microsoft.onenote.standalone.365" "OneNote" "/Applications/Microsoft OneNote.app" "openconsole"
+            ;;
+        outlook-oc)
+            install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole"
+            ;;
+	teams-oc)
+	    install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "openconsole"
+	    ;;
         full-oc)
-        	install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "openconsole"
+            install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "openconsole"
             ;;
         *)
             echo "unknown parameter"
