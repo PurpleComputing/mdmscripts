@@ -19,7 +19,7 @@
 #   - 1.1 Michael Tanner, 28.09.2021 Implement ZeroTier Install Script
 #
 #########################################################################
-# Script to download and install 1Password 7.
+# Script to install ZeroTier and to join the organisations ZT Network.
 #
 curl -o /tmp/apps/ZT.pkg https://download.zerotier.com/dist/ZeroTier%20One.pkg
 installer -pkg /tmp/apps/ZT.pkg -target /
