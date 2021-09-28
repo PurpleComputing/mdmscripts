@@ -8,7 +8,7 @@
 #
 # SYNOPSIS
 # zerotier.sh
-#
+# FOR INITIAL DEPLOYMENT OR ENROLMENT USE ONLY
 #########################################################################
 #
 # HISTORY
