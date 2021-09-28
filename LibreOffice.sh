@@ -64,7 +64,7 @@ if [[ -e "/Applications/${appName}.app" ]]; then
       fi
 else
 	currentinstalledver="none"
-	/bin/echo "${appName} is not installed”
+	/bin/echo "${appName} is not installed"
 	/bin/echo "`date`: ${appName} is not installed" >> ${logfile}
 fi
 
