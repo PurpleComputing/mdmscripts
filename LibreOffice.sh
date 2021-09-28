@@ -13,13 +13,14 @@
 #
 # HISTORY
 #
-#   Version: 1.3
+#   Version: 1.6
 #
 #   - Joe Farage, 18.03.2015
 #   - Chris Hansen, 14.05.2020 Some square brackets change to double square brackets
 #   - Martyn Watts, 24.05.2020 Removed Language Variables as they are not needed and results were inconsistent
 #   - Martyn Watts, 30.06.2021 Added dock icon for all users using dockutil (prerequisite)
 #   - Michael Tanner, 18.08.2021 Adapted for use with Mosyle
+#   - Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer - Corrected Version numbering
 #
 ####################################################################################################
 # Script to download and install Firefox.
@@ -29,6 +30,11 @@
 dmgfile="FF.dmg"
 logfile="/Library/Logs/FirefoxInstallScript.log"
 deplog="/var/tmp/depnotify.log"
+
+if [[ $@ == "openconsole" ]]; then
+	open ${logfile}
+	open ${deplog}
+fi
 
 echo "Status: Installing Firefox" >> ${deplog}
 
