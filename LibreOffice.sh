@@ -85,7 +85,7 @@ if [[ "${currentinstalledver}" != "${latestver}" ]]; then
 		# Uncomment this block for dmg & .app copy          			 #
 		##########################################################################
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil attach /tmp/${appName} -nobrowse -quiet
+		/usr/bin/hdiutil attach "/tmp/${appName}" -nobrowse -quiet
 		/bin/sleep 30
 		/bin/echo "`date`: Installing..." >> ${logfile}	
 		ditto -rsrc "/Volumes/${appName}/${appName}.app" "/Applications/${appName}.app"
