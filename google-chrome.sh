@@ -13,7 +13,7 @@
 #
 # HISTORY
 #
-#   Version: 1.2
+#   Version: 1.3
 #
 #   - 1.0 Martyn Watts, 01.07.2021 Initial Build
 #   - 1.1-m Michael Tanner, 18.08.2021 Adapted for Mosyle
