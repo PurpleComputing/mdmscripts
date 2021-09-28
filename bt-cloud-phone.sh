@@ -13,10 +13,11 @@
 #
 # HISTORY
 #
-#   Version: 1.0
+#   Version: 1.2
 #
 #   - 1.0 Martyn Watts, 22.06.2021 Initial Build
 #   - 1.1 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
+#   - 1.2 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
 #
 ####################################################################################################
 # Script to download and install BT Cloud Phone.
@@ -30,6 +31,11 @@ forceQuit='Y'
 logfile="/Library/Logs/BTCloudPhoneInstallScript.log"
 
 deplog="/var/tmp/depnotify.log"
+
+if [[ $@ == "openconsole" ]]; then
+	open ${logfile}
+	open ${deplog}
+fi
 
 echo "Status: Installing ${appName}" >> ${deplog}
 
