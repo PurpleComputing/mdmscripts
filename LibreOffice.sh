@@ -29,12 +29,13 @@ logfile="/Library/Logs/${appName}.log"
 deplog="/var/tmp/depnotify.log"
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
+/bin/echo "Status: Installing ${appName}" >> ${deplog}
+/bin/echo "Status: Installing ${appName}" >> ${logfile}
+
 if [[ $@ == "openconsole" ]]; then
 	open ${logfile}
 	open ${deplog}
 fi
-
-/bin/echo "Status: Installing ${appName}" >> ${deplog}
 
 #  To get just the latest version number from the Release Notes URL
 /bin/echo "`date`: Getting latest version number" >> ${logfile}
@@ -43,7 +44,7 @@ latestver=$(curl -s -A ${userAgent} ${releaseNotesUrl} | grep -m 1 'dl_version_n
 
 # To get the latest download link from the Release Notes URL
 dlurl=$(curl -s -A ${userAgent} ${releaseNotesUrl} | grep -m 1 'dl_download_link' | cut -f4 -d'"')
-dlrdurl=$(curl -A ${userAgent} ${dlurl} | iconv -f windows-1251  | grep -m1 'Refresh' | cut -f4 -d'=' | cut -f1 -d'"')
+dlrdurl=$(curl -s -A ${userAgent} ${dlurl} | iconv -f windows-1251  | grep -m 1 'Refresh' | cut -f4 -d'=' | cut -f1 -d'"')
 url=$(curl -s -A ${userAgent} ${dlrdurl} | iconv -f windows-1251  | grep -m 1 'href' | cut -f2 -d'"')
 /bin/echo "`date`: Latest version number is: ${latestver}" >> ${logfile}
 /bin/echo "Latest version number is: ${latestver}"
