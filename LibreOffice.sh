@@ -84,6 +84,7 @@ if [[ "${currentinstalledver}" != "${latestver}" ]]; then
 		##########################################################################
 		# Uncomment this block for dmg & .app copy          			 #
 		##########################################################################
+		/bin/sleep 10
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
 		/usr/bin/hdiutil attach "/tmp/${appName}.dmg" -nobrowse >> ${logfile}
 		/bin/sleep 30
