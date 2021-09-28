@@ -13,7 +13,7 @@
 #
 # HISTORY
 #
-#   Version: 1.4
+#   Version: 1.6
 #
 #   - v.1.0 Joe Farage, 23.01.2015
 #   - v.1.1 Joe Farage, 08.04.2015 : support for new Adobe Acrobat DC
@@ -22,6 +22,7 @@
 #    seems to have abandoned support of the previous site.
 #   - v.1.4 Martyn Watts, 24.06.2021: removed the sed -e 's/20//' as this was breaking the 2021 downloads (Lines 47 & 63)
 #   - v.1.5 Martyn Watts, 05.07.2021: fixed the latest version lookup (Lines 41-43)
+#   - v.1.6 Martyn Watts, 28.09.2021: Added Open Console Parameter to use with TeamViewer
 #
 ####################################################################################################
 # Script to download and install Adobe Acrobat Updates.
@@ -29,6 +30,10 @@
 
 dmgfile="acrobat.dmg"
 logfile="/Library/Logs/AdobeAcrobatDCUpdateScript.log"
+
+if [[ $@ == "openconsole" ]]; then
+	open ${logfile}
+fi
 
 # Are we running on Intel?
 if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
