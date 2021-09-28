@@ -13,13 +13,13 @@
 #
 # HISTORY
 #
-#   Version: 1.4
+#   Version: 1.3
 #
 #   - 1.0 Martyn Watts, 25.06.2021 Initial Build
 #   - 1.1 Martyn Watts, 01.07.2021 Increased script feedback
 #   - 1.2 Martyn Watts, 22.09.2021 Fixed the exclusion of beta versions recently introduced into the release notes
 #   - 1.3 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
-#   - 1.3 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
+#   - 1.4 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
 #
 ####################################################################################################
 # Script to download and install 1Password 7.
