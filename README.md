@@ -145,3 +145,9 @@ This script will set the policies software update settings with the following se
 
 ##### Command to execute:
 `sudo curl -o /tmp/software-update-settings.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/software-update-settings.sh && sudo chmod +x /tmp/software-update-settings.sh && sudo /tmp/software-update-settings.sh`
+
+## zerotier.sh
+#### Initial Install ZeroTier ONLY
+This script is designed to silently install ZeroTier to an MDM enrolled Mac.
+##### Command to execute:
+`sudo curl -o /tmp/zerotier.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zerotier.sh && sudo chmod +x /tmp/zerotier.sh && sudo /tmp/zerotier.sh`
