@@ -12,6 +12,14 @@
 # outlook : Install Outlook
 # onenote : Install OneNote
 # teams : Install Teams
+# full-oc : Install the full suite with open console
+# word-oc : Install Word with open console
+# excel-oc : Install Excel with open console
+# powerpoint-oc : Install Powerpoint with open console
+# onedrive-oc : Install OneDrive with open console
+# outlook-oc : Install Outlook with open console
+# onenote-oc : Install OneNote with open console
+# teams-oc : Install Teams with open console
 # Example : ./Install or update to the latest version - Microsoft Products full
 # Example : ./Install or update to the latest version - Microsoft Products word excel powerpoint
 # Author: Benoit-Pierre Studer
