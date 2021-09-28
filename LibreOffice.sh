@@ -117,7 +117,7 @@ if [[ "${latestver}" = "${newlyinstalledver}" ]]; then
        fi
        /bin/echo "--" >> ${logfile}
 else
-       /bin/echo "`date`: ERROR: ${appName} update unsuccessful, version remains at ${currentinstalledver}." >> ${logfile
+       /bin/echo "`date`: ERROR: ${appName} update unsuccessful, version remains at ${currentinstalledver}." >> ${logfile}
        /bin/echo "ERROR: ${appName} update unsuccessful, version remains at ${currentinstalledver}."
        /bin/echo "--" >> ${logfile}
        exit 1
