@@ -157,6 +157,5 @@ It is also advised that you add a custom command or script for "on User Sign In"
 
 Add the following custom command for Mosyle Attribute look up 
 ###### Title: Get ZT Client ID Number for Attributes 
-###### Event:
-###### Every "Device Info" update
+###### Event: Every "Device Info" update
 Command: `/usr/local/bin/zerotier-cli info`
