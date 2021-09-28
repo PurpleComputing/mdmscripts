@@ -34,7 +34,6 @@ This script is designed to silently install/update Microsoft Apps to an MDM enro
 
 Parameters:
 * `full` : Install the full suite
-* `full-oc` : Install the full suite and open console logs for monitoring (Used with TeamViewer Scripts)
 * `word` : Install Word
 * `excel` : Install Excel
 * `powerpoint` : Install Powerpoint
@@ -42,6 +41,14 @@ Parameters:
 * `outlook` : Install Outlook
 * `onenote` : Install OneNote
 * `teams` : Install Teams
+* `full-oc` : Install the full suite and open console logs for monitoring (Used with TeamViewer Scripts)
+* `word-oc` : Install Word with open console logs for monitoring (Used with TeamViewer Scripts)
+* `excel-oc` : Install Excel with open console logs for monitoring (Used with TeamViewer Scripts)
+* `powerpoint-oc` : Install Powerpoint with open console logs for monitoring (Used with TeamViewer Scripts)
+* `onedrive-oc` : Install OneDrive with open console logs for monitoring (Used with TeamViewer Scripts)
+* `outlook-oc` : Install Outlook with open console logs for monitoring (Used with TeamViewer Scripts)
+* `onenote-oc` : Install OneNote with open console logs for monitoring (Used with TeamViewer Scripts)
+* `teams-oc` : Install Teams with open console logs for monitoring (Used with TeamViewer Scripts)
 
 ## Acrobat-DC-Update.sh
 #### Update Adobe Acrobat DC
