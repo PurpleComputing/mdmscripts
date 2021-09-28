@@ -13,11 +13,12 @@
 #
 # HISTORY
 #
-#   Version: 1.1
+#   Version: 1.3
 #
 #   - 1.0 Martyn Watts, 13.08.2021 Initial Build
 #   - 1.1 Martyn Watts, 23.08.2021 Bug Fix for a incorrectly reporting failed install
 #   - 1.2 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
+#   - 1.3 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
 #
 ####################################################################################################
 # Script to download and install ScanSnap Home.
@@ -30,8 +31,11 @@ installedAppName='ScanSnapHomeMain'
 forceQuit='Y'
 logfile="/Library/Logs/ScanSnapHomeInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptversion="1.1"
-
+scriptversion="1.3"
+if [[ $@ == "openconsole" ]]; then
+	open ${logfile}
+	open ${deplog}
+fi
 echo "Status: Installing ${appName} using script version ${scriptversion}" >> ${deplog}
 
 #  To get just the latest version number from the ScanSnap Home Download Page URL
