@@ -29,6 +29,10 @@ logfile="/Library/Logs/${appName}.log"
 deplog="/var/tmp/depnotify.log"
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
+if [[ $@ == "openconsole" ]]; then
+	open ${logfile}
+	open ${deplog}
+fi
 
 /bin/echo "Status: Installing ${appName}" >> ${deplog}
 
