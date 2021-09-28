@@ -151,3 +151,12 @@ This script will set the policies software update settings with the following se
 This script is designed to silently install ZeroTier to an MDM enrolled Mac.
 ##### Command to execute:
 `sudo curl -o /tmp/zerotier.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zerotier.sh && sudo chmod +x /tmp/zerotier.sh && sudo /tmp/zerotier.sh [NETWORKID]`
+#### A REBOOT IS REQUIRED FOR THE TLS CERT GENERATION
+
+It is also advised that you add a custom command or script for "on User Sign In" to execute `/usr/local/bin/zerotier-cli join [NETWORK ID]`
+
+Add the following custom command for Mosyle Attribute look up 
+Title: Get ZT Client ID Number for Attributes 
+Event:
+Every "Device Info" update
+Command: `/usr/local/bin/zerotier-cli info`
