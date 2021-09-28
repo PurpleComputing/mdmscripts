@@ -34,6 +34,7 @@ This script is designed to silently install/update Microsoft Apps to an MDM enro
 
 Parameters:
 * `full` : Install the full suite
+* `full-oc` : Install the full suite and open console logs for monitoring (Used with TeamViewer Scripts)
 * `word` : Install Word
 * `excel` : Install Excel
 * `powerpoint` : Install Powerpoint
