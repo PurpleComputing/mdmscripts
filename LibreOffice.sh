@@ -22,7 +22,7 @@
 #
 
 releaseNotesUrl='https://www.libreoffice.org/download/download/'
-dnldfile='LibreOffice'
+dnldfile='LibreOffice.dmg'
 appName='LibreOffice'
 forceQuit='Y'
 logfile="/Library/Logs/${appName}.log"
@@ -77,7 +77,7 @@ if [[ "${currentinstalledver}" != "${latestver}" ]]; then
       /bin/echo "Available ${appName} version: ${latestver}"
       /bin/echo "`date`: Downloading newer version." >> ${logfile}
       /bin/echo "Downloading newer version."
-      /usr/bin/curl -o "/tmp/${appName}.dmg" ${url}
+      /usr/bin/curl -o /tmp/${dnldfile} ${url}
       if [[ "${forceQuit}" = "Y" ]]; then
       	killall ${appName}
       fi
@@ -86,7 +86,7 @@ if [[ "${currentinstalledver}" != "${latestver}" ]]; then
 		##########################################################################
 		/bin/sleep 10
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil attach "/tmp/${appName}.dmg" -nobrowse
+		/usr/bin/hdiutil attach /tmp/${dnldfile} -nobrowse
 		/bin/sleep 30
 		/bin/echo "`date`: Installing..." >> ${logfile}	
 		ditto -rsrc "/Volumes/${appName}/${appName}.app" "/Applications/${appName}.app"
