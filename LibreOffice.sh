@@ -13,14 +13,17 @@
 #
 # HISTORY
 #
-#   Version: 1.0
+#   Version: 1.2
 #
 #   - 1.0 Martyn Watts, 28.09.2021 Initial Build
+#   - 1.1 Martyn Watts, 29.09.2021 First working build
+#   - 1.2 Martyn Watts, 29.09.2021 Extended log information around the download, mount, copy & unmount operations
 #
 #########################################################################
 # Script to download and install LibreOffice.
 #
 
+scriptver='1.2'
 releaseNotesUrl='https://www.libreoffice.org/download/download/'
 dnldfile='LibreOffice.dmg'
 appName='LibreOffice'
@@ -29,13 +32,16 @@ logfile="/Library/Logs/${appName}.log"
 deplog="/var/tmp/depnotify.log"
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
-/bin/echo "Status: Installing ${appName}" >> ${deplog}
-/bin/echo "Status: Installing ${appName}" >> ${logfile}
+/bin/echo "Version: Script version ${scriptver}" >> ${deplog}
+/bin/echo "Version: Script version ${scriptver}" >> ${logfile}
 
 if [[ $@ == "openconsole" ]]; then
 	open ${logfile}
 	open ${deplog}
 fi
+
+/bin/echo "Status: Installing ${appName}" >> ${deplog}
+/bin/echo "Status: Installing ${appName}" >> ${logfile}
 
 #  To get just the latest version number from the Release Notes URL
 /bin/echo "`date`: Getting latest version number" >> ${logfile}
