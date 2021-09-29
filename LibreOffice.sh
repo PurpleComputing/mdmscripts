@@ -77,7 +77,7 @@ if [[ "${currentinstalledver}" != "${latestver}" ]]; then
       /bin/echo "Available ${appName} version: ${latestver}"
       /bin/echo "`date`: Downloading newer version." >> ${logfile}
       /bin/echo "Downloading newer version."
-      /bin/echo "URL = ${url}"
+      /bin/echo ${url}
       curl -o /tmp/${dnldfile} ${url}
       if [[ "${forceQuit}" = "Y" ]]; then
       	killall ${appName}
