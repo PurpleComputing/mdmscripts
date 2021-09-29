@@ -27,8 +27,9 @@ dnldfile='zoom.pkg'
 forceQuit='Y'
 logfile="/Library/Logs/ZoomInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver="1.0g"
+scriptver="1.0i"
 architecture=$(/usr/bin/arch)
+OSvers_URL=$( sw_vers -productVersion | sed 's/[.]/_/g' )
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
 
@@ -43,7 +44,7 @@ fi
 
 #  To get just the latest version url and number from the download URL
 
-latestver=$(curl -A ${userAgent} ${releaseNotesUrl} | iconv -f windows-1251 | grep -m 1 'Version' | cut -f1 -d'<')
+latestver=$(curl -A ${userAgent} ${releaseNotesUrl} | iconv -f windows-1251 | grep -m 1 'Version' | cut -f2 -d' ')
 echo "Latest version available is: $latestver"
 
 
@@ -57,8 +58,7 @@ fi
 
 # Get the version number of the currently-installed App, if any.
     if [[ -e "/Applications/${appName}.app" ]]; then
-        currentinstalledver=`/usr/bin/defaults read "/Applications/${appName}.app/Contents/Info" CFBundleShortVersionString`
-        echo "Current installed version is: $currentinstalledver"
+		currentinstalledver=$(echo `/usr/bin/defaults read "/Applications/zoom.us.app/Contents/Info" CFBundleShortVersionString` | cut -f1 -d' ')        echo "Current installed version is: $currentinstalledver"
         echo "Current installed version is: $currentinstalledver" >> ${logfile}
         if [[ $latestver = $currentinstalledver ]]; then
             echo "${appName} is current. Exiting"
@@ -118,7 +118,7 @@ fi
         /bin/rm /tmp/${dnldfile}
 
         #double check to see if the new version got updated
-        newlyinstalledver=`/usr/bin/defaults read "/Applications/${appName}.app/Contents/Info" CFBundleShortVersionString`
+		newlyinstalledver=$(echo `/usr/bin/defaults read "/Applications/zoom.us.app/Contents/Info" CFBundleShortVersionString` | cut -f1 -d' ')        echo "Current installed version is: $currentinstalledver"
         if [[ $latestver == $newlyinstalledver ]]; then
             /bin/echo "`date`: SUCCESS: ${appName} has been updated to version ${newlyinstalledver}" >> ${logfile}
             /bin/echo "SUCCESS: ${appName} has been updated to version ${newlyinstalledver}"
