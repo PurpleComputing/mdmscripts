@@ -46,7 +46,7 @@ latestver=$(curl -A ${userAgent} ${releaseNotesUrl} | iconv -f windows-1251 | gr
 echo "Latest version available is: $latestver"
 
 
-if [ "${architecture}" == "arm64" ]; then
+if [ $architecture == "arm64" ]; then
 	echo "Running Apple Silicon Setting correct URL"
 	url="https://zoom.us/client/latest/Zoom.pkg?archType=amd64"
 else
