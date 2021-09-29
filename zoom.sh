@@ -115,18 +115,18 @@ fi
        	/bin/sleep 5
         /bin/echo "`date`: Deleting the downloaded file." >> ${logfile}
         /bin/echo "Deleting the downloaded file."
-        /bin/rm /tmp/${appName}
+        /bin/rm /tmp/${dnldfile}
 
         #double check to see if the new version got updated
         newlyinstalledver=`/usr/bin/defaults read "/Applications/${appName}.app/Contents/Info" CFBundleShortVersionString`
-        if [[ "${latestver}" = "${newlyinstalledver}" ]]; then
+        if [[ "${latestver}" == "${newlyinstalledver}" ]]; then
             /bin/echo "`date`: SUCCESS: ${appName} has been updated to version ${newlyinstalledver}" >> ${logfile}
             /bin/echo "SUCCESS: ${appName} has been updated to version ${newlyinstalledver}"
             if [[ -e "/usr/local/bin/dockutil" ]]; then
             	/bin/echo "`date`: Creating Dock Icon." >> ${logfile}
-				/usr/local/bin/dockutil --remove 'BT Cloud Work Phone' --allhomes
+				/usr/local/bin/dockutil --remove 'zoom.us' --allhomes
 				/bin/sleep 3
-				/usr/local/bin/dockutil --add '/Applications/BT Cloud Phone.app' --after 'Messages' --allhomes
+				/usr/local/bin/dockutil --add '/Applications/zoom.us.app' --after 'Messages' --allhomes
 			fi
             /bin/echo "--" >> ${logfile}
         else
