@@ -26,7 +26,7 @@ appName='Zoom.us'
 forceQuit='Y'
 logfile="/Library/Logs/ZoomInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver="1.0c"
+scriptver="1.0d"
 architecture=$(/usr/bin/arch)
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
@@ -48,10 +48,10 @@ echo "Latest version available is: $latestver"
 
 if [[ $architecture == "arm64" ]]; then
 	echo "Running Apple Silicon Setting correct URL"
-	url="http://zoom.us/client/latest/Zoom.pkg?archType=amd64"
+	downloadUrl="http://zoom.us/client/latest/Zoom.pkg?archType=amd64"
 else
 	echo "Running Intel Setting correct URL"
-	url="http://zoom.us/client/latest/Zoom.pkg"
+	downloadUrl="http://zoom.us/client/latest/Zoom.pkg"
 fi
 
 # Get the version number of the currently-installed App, if any.
@@ -79,6 +79,7 @@ fi
         /bin/echo "Available ${appName} version: ${latestver}"
         /bin/echo "`date`: Downloading newer version." >> ${logfile}
         /bin/echo "Downloading newer version."
+        url=$(curl -Ls -o /dev/null -w %{url_effective} ${downloadUrl})
         /usr/bin/curl -o "/tmp/${appName}" ${url}
     	/bin/echo "`date`: Force quitting ${appName} if running." >> ${logfile}
     	/bin/echo "Force quitting ${appName} if running."
