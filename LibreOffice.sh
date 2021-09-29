@@ -78,23 +78,21 @@ if [[ "${currentinstalledver}" != "${latestver}" ]]; then
       /bin/echo "`date`: Downloading newer version." >> ${logfile}
       /bin/echo "Downloading newer version."
       /bin/echo ${url}
-      curl -o /tmp/${dnldfile} ${url}
+      curl -o /tmp/${dnldfile} ${url} >> ${logfile}
       if [[ "${forceQuit}" = "Y" ]]; then
       	killall ${appName}
       fi
 		##########################################################################
 		# Uncomment this block for dmg & .app copy          			 #
 		##########################################################################
-		/bin/sleep 10
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil attach /tmp/${dnldfile} -nobrowse
-		/bin/sleep 30
+		/usr/bin/hdiutil attach /tmp/${dnldfile} -nobrowse >> ${logfile}
+		/bin/sleep 5
 		/bin/echo "`date`: Installing..." >> ${logfile}	
-		ditto -rsrc "/Volumes/${appName}/${appName}.app" "/Applications/${appName}.app"
-		/bin/sleep 10
+		ditto -rsrc "/Volumes/${appName}/${appName}.app" "/Applications/${appName}.app" >> ${logfile}
 		/bin/echo "`date`: Unmounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep ${appName} | awk '{print $9}')
-		/bin/sleep 10
+		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep ${appName} | awk '{print $1}') >> ${logfile}
+		/bin/sleep 5
 		##########################################################################
 
        
