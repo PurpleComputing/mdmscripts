@@ -26,7 +26,7 @@ appName='Zoom.us'
 forceQuit='Y'
 logfile="/Library/Logs/ZoomInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver="1.0"
+scriptver="1.1"
 arch=$(/usr/bin/arch)
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
