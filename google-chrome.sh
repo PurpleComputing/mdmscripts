@@ -19,6 +19,7 @@
 #   - 1.1-m Michael Tanner, 18.08.2021 Adapted for Mosyle
 #   - 1.2 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
 #   - 1.3 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
+#   - 1.4 Martyn Watts, 29.09.2021 Added scriptver variable and corrected log opening
 #
 ####################################################################################################
 # Script to download and install Google Chrome.
@@ -32,13 +33,17 @@ appName='Google Chrome'
 forceQuit='Y'
 logfile="/Library/Logs/GoogleChromeInstallScript.log"
 deplog="/var/tmp/depnotify.log"
+scriptver='1.4'
+
+echo "Script Version: ${scriptver}" >> ${logfile}
+echo "Status: Installing ${appName}" >> ${deplog}
+echo "Status: Installing ${appName}" >> ${logfile}
+
 
 if [[ $@ == "openconsole" ]]; then
 	open ${logfile}
 	open ${deplog}
 fi
-
-echo "Status: Installing ${appName}" >> ${deplog}
 
 #  To get just the latest version number from the version check URL
 /bin/echo "`date`: Downloading latest version." >> ${logfile}

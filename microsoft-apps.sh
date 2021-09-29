@@ -44,7 +44,11 @@ function install_software () {
     VERSION=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/package[id="'${SOFTWARE_ID}'"]/cfbundleversion/text()' -)
     deplog="/var/tmp/depnotify.log"
     logfile="/tmp/OfficeInstallScript-${SOFTWARE_NAME}.log"
-    
+    scriptver="2.0"
+
+    echo "Script version: ${scriptver}" >> ${logfile}
+    echo "Script version: ${scriptver}" >> ${deplog}
+   
 if [[ ${OPEN_CONSOLE} == "openconsole" ]]; then
 	open ${logfile}
 	open ${deplog}

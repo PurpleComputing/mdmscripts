@@ -13,23 +13,26 @@
 #
 # HISTORY
 #
-#   Version: 1.1
+#   Version: 1.3
 #
 #   - v.1.0 Martyn Watts, 05.07.2021 - Initial Build
 #	- v.1.1 Martyn Watts, 07.07.2021 - Added the process to kill off safari to ensure that it doesn't interfere with Acrobat install
 #   - v.1.2 Martyn Watts, 08.07.2021 - Added DEPNotify Updates
-#
+#   - v.1.3 Martyn Watts, 29.09.2021 - Added scriptver variable and sent to log
 #
 ####################################################################################################
 deplog="/var/tmp/depnotify.log"
+logfile="/Library/Logs/EnrollmentProcessCleanUp.log"
+scriptver='1.3'
 
+/bin/echo "Script Version: ${scriptver}" >> ${logfile}
 /bin/echo "Status: Cleaning up the Enrollment Process" >> ${deplog}
+/bin/echo "Status: Cleaning up the Enrollment Process" >> ${logfile}
 sleep 2
 
 loggedInUser=$( echo "show State:/Users/ConsoleUser" | /usr/sbin/scutil | /usr/bin/awk '/Name :/ && ! /loginwindow/ { print $3 }' )
 fileLocation="/Users/${loggedInUser}/Downloads/enrollmentProfile.mobileconfig"
 
-logfile="/Library/Logs/EnrollmentProcessCleanUp.log"
 
         /bin/echo "`date`: Forcing Safari to quit if open" >> ${logfile}
         /bin/echo "Status: Forcing Safari to quit if open" >> ${deplog}
