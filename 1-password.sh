@@ -20,6 +20,8 @@
 #   - 1.2 Martyn Watts, 22.09.2021 Fixed the exclusion of beta versions recently introduced into the release notes
 #   - 1.3 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
 #   - 1.4 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
+#   - 1.5 Martyn Watts, 29.09.2021 Removed erroneous space in deplog path, moved the Open Console section to below the initial creation event
+#                                  & Created a scriptver variable that is recorded in the log files
 #
 ####################################################################################################
 # Script to download and install 1Password 7.
@@ -31,15 +33,18 @@ dnldfile='1Password.pkg'
 appName='1Password 7'
 forceQuit='Y'
 logfile="/Library/Logs/1Password7InstallScript.log"
-deplog=" /var/tmp/depnotify.log"
+deplog="/var/tmp/depnotify.log"
+scriptver="1.5"
+
+/bin/echo "Status: Installing ${appName}" >> ${deplog}
+/bin/echo "Status: Installing ${appName}" >> ${logfile}
 
 if [[ $@ == "openconsole" ]]; then
 	open ${logfile}
 	open ${deplog}
 fi
 
-/bin/echo "Status: Installing ${appName}" >> ${deplog}
-
+/bin/echo "Script Version: ${scriptver}" >> ${logfile}
 
 #  To get just the latest version number from the 1Password 7 Release Notes URL
 /bin/echo "`date`: Getting latest version number" >> ${logfile}
