@@ -78,8 +78,8 @@ This script is designed to silently install or update ScanSnap Home to an MDM en
 #### Install Rosetta2 on required hardware
 This script is designed to silently install Rosetta2 onto an Apple Silicon MDM enrolled Mac.
 ##### Options
-* openconsole - will open the console for the logs to show
-* jamf - will run a jamf recon at the end of the script to update the portal
+* `openconsole` - will open the console for the logs to show
+* `jamf` - will run a jamf recon at the end of the script to update the portal
 ##### Command to execute:
 `sudo curl -o /tmp/Rosetta2.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2.sh && sudo chmod +x /tmp/Rosetta2.sh && sudo /tmp/Rosetta2.sh [options]`
 
