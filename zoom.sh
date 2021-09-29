@@ -43,13 +43,15 @@ fi
 #  To get just the latest version url and number from the download URL
 
 latestver=$(curl -A ${userAgent} ${releaseNotesUrl} | iconv -f windows-1251 | grep -m 1 'Version' | cut -f1 -d'<')
+echo "Latest version available is: $latestver"
+
 
 if [ "$arch" == "arm64" ]; then
 	echo "Running Apple Silicon Setting correct URL"
-	url=$("${releaseNotesUrl}/client/latest/Zoom.pkg?archType=amd64" )
+	url=$("https://zoom.us/client/latest/Zoom.pkg?archType=amd64" )
 else
 	echo "Running Intel Setting correct URL"
-	url=$("${releaseNotesUrl}/client/latest/Zoom.pkg" )
+	url=$("https://zoom.us/client/latest/Zoom.pkg" )
 fi
 
 # Get the version number of the currently-installed App, if any.
