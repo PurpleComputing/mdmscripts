@@ -27,7 +27,7 @@ forceQuit='Y'
 logfile="/Library/Logs/ZoomInstallScript.log"
 deplog="/var/tmp/depnotify.log"
 scriptver="1.1"
-arch=$(/usr/bin/arch)
+architecture=$(/usr/bin/arch)
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
 
@@ -46,7 +46,7 @@ latestver=$(curl -A ${userAgent} ${releaseNotesUrl} | iconv -f windows-1251 | gr
 echo "Latest version available is: $latestver"
 
 
-if [ "$arch" == "arm64" ]; then
+if [ "${architecture}" == "arm64" ]; then
 	echo "Running Apple Silicon Setting correct URL"
 	url="https://zoom.us/client/latest/Zoom.pkg?archType=amd64"
 else
