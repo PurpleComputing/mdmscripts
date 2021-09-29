@@ -77,7 +77,7 @@ if [[ "${currentinstalledver}" != "${latestver}" ]]; then
       /bin/echo "Available ${appName} version: ${latestver}"
       /bin/echo "`date`: Downloading newer version." >> ${logfile}
       /bin/echo "Downloading newer version."
-      /usr/bin/curl -o /tmp/${appName}.dmg ${url}
+      /usr/bin/curl -o "/tmp/${appName}.dmg" ${url}
       if [[ "${forceQuit}" = "Y" ]]; then
       	killall ${appName}
       fi
@@ -86,11 +86,11 @@ if [[ "${currentinstalledver}" != "${latestver}" ]]; then
 		##########################################################################
 		/bin/sleep 10
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil attach "/tmp/${appName}.dmg" -nobrowse >> ${logfile}
+		/usr/bin/hdiutil attach "/tmp/${appName}.dmg" -nobrowse
 		/bin/sleep 30
 		/bin/echo "`date`: Installing..." >> ${logfile}	
 		ditto -rsrc "/Volumes/${appName}/${appName}.app" "/Applications/${appName}.app"
-		/bin/sleep 30
+		/bin/sleep 10
 		/bin/echo "`date`: Unmounting installer disk image." >> ${logfile}
 		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep ${appName} | awk '{print $9}')
 		/bin/sleep 10
