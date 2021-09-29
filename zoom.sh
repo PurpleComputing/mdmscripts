@@ -27,7 +27,7 @@ dnldfile='zoom.pkg'
 forceQuit='Y'
 logfile="/Library/Logs/ZoomInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver="1.0f"
+scriptver="1.0g"
 architecture=$(/usr/bin/arch)
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
@@ -60,7 +60,7 @@ fi
         currentinstalledver=`/usr/bin/defaults read "/Applications/${appName}.app/Contents/Info" CFBundleShortVersionString`
         echo "Current installed version is: $currentinstalledver"
         echo "Current installed version is: $currentinstalledver" >> ${logfile}
-        if [[ ${latestver} = ${currentinstalledver} ]]; then
+        if [[ $latestver = $currentinstalledver ]]; then
             echo "${appName} is current. Exiting"
             echo "${appName} is current. Exiting" >> ${logfile}
             exit 0
@@ -73,7 +73,7 @@ fi
 
 
 # Compare the two versions, if they are different or the App is not present then download and install the new version.
-    if [[ "${currentinstalledver}" != "${latestver}" ]]; then
+    if [[ $currentinstalledver != $latestver ]]; then
         /bin/echo "`date`: Current ${appName} version: ${currentinstalledver}" >> ${logfile}
     	/bin/echo "Current ${appName} version: ${currentinstalledver}"
         /bin/echo "`date`: Available ${appName} version: ${latestver}" >> ${logfile}
@@ -119,7 +119,7 @@ fi
 
         #double check to see if the new version got updated
         newlyinstalledver=`/usr/bin/defaults read "/Applications/${appName}.app/Contents/Info" CFBundleShortVersionString`
-        if [[ "${latestver}" == "${newlyinstalledver}" ]]; then
+        if [[ $latestver == $newlyinstalledver ]]; then
             /bin/echo "`date`: SUCCESS: ${appName} has been updated to version ${newlyinstalledver}" >> ${logfile}
             /bin/echo "SUCCESS: ${appName} has been updated to version ${newlyinstalledver}"
             if [[ -e "/usr/local/bin/dockutil" ]]; then
