@@ -48,10 +48,10 @@ echo "Latest version available is: $latestver"
 
 if [ "$arch" == "arm64" ]; then
 	echo "Running Apple Silicon Setting correct URL"
-	url=$("https://zoom.us/client/latest/Zoom.pkg?archType=amd64" )
+	url="https://zoom.us/client/latest/Zoom.pkg?archType=amd64"
 else
 	echo "Running Intel Setting correct URL"
-	url=$("https://zoom.us/client/latest/Zoom.pkg" )
+	url="https://zoom.us/client/latest/Zoom.pkg"
 fi
 
 # Get the version number of the currently-installed App, if any.
