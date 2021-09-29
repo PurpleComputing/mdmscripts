@@ -1,5 +1,5 @@
 #!/bin/sh
-# Test
+
 jssUser=$4
 jssPass=$5
 jssHost=$6
