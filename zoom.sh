@@ -23,6 +23,7 @@
 
 releaseNotesUrl='https://zoom.us/download'
 appName='Zoom.us'
+dnldfile='zoom.pkg'
 forceQuit='Y'
 logfile="/Library/Logs/ZoomInstallScript.log"
 deplog="/var/tmp/depnotify.log"
@@ -80,7 +81,7 @@ fi
         /bin/echo "`date`: Downloading newer version." >> ${logfile}
         /bin/echo "Downloading newer version."
         url=$(curl -Ls -o /dev/null -w %{url_effective} ${downloadUrl})
-        /usr/bin/curl -o "/tmp/${appName}" ${url}
+        /usr/bin/curl -o "/tmp/${dnldfile}" ${url}
     	/bin/echo "`date`: Force quitting ${appName} if running." >> ${logfile}
     	/bin/echo "Force quitting ${appName} if running."
 
@@ -108,7 +109,7 @@ fi
        	# Uncomment this block for .pkg install    											   #
        	########################################################################################
        	 cd /tmp
-       	 /usr/sbin/installer -pkg ${appName} -target /
+       	 /usr/sbin/installer -pkg $dnldfile -target /
 	   	########################################################################################
        
        	/bin/sleep 5
