@@ -13,11 +13,12 @@
 #
 # HISTORY
 #
-#   Version: 1.2
+#   Version: 1.3
 #
 #   - 1.0 Martyn Watts, 22.06.2021 Initial Build
 #   - 1.1 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
 #   - 1.2 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
+#   - 1.3 Martyn Watts, 29.09.2021 Added scriptver variable and sent to logfile
 #
 ####################################################################################################
 # Script to download and install BT Cloud Phone.
@@ -29,15 +30,18 @@ appName='BT Cloud Phone'
 dmgVolume='BT Cloud Work Phone'
 forceQuit='Y'
 logfile="/Library/Logs/BTCloudPhoneInstallScript.log"
-
 deplog="/var/tmp/depnotify.log"
+scriptver="1.3"
+
+echo "Script Version: ${scriptver}" >> ${logfile}
+echo "Status: Installing ${appName}" >> ${deplog}
+echo "Status: Installing ${appName}" >> ${logfile}
 
 if [[ $@ == "openconsole" ]]; then
 	open ${logfile}
 	open ${deplog}
 fi
 
-echo "Status: Installing ${appName}" >> ${deplog}
 
 #  To get just the latest version url and number from the download URL
 
