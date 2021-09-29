@@ -13,7 +13,7 @@
 #
 # HISTORY
 #
-#   Version: 1.5
+#   Version: 1.6
 #
 #   - 1.0 Joe Farage, 18.03.2015
 #   - 1.0.1 Chris Hansen, 14.05.2020 Some square brackets change to double square brackets
@@ -22,6 +22,7 @@
 #   - 1.3 Michael Tanner, 18.08.2021 Adapted for use with Mosyle
 #   - 1.4 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
 #   - 1.5 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
+#   - 1.6 Martyn Watts, 29.09.2021 Added scriptver variable and sending this to the logfile
 #
 ####################################################################################################
 # Script to download and install Firefox.
@@ -31,6 +32,9 @@
 dmgfile="FF.dmg"
 logfile="/Library/Logs/FirefoxInstallScript.log"
 deplog="/var/tmp/depnotify.log"
+scriptver="1.6"
+
+echo "Script Version: ${scriptver}" >> ${logfile}
 
 if [[ $@ == "openconsole" ]]; then
 	open ${logfile}
@@ -38,6 +42,7 @@ if [[ $@ == "openconsole" ]]; then
 fi
 
 echo "Status: Installing Firefox" >> ${deplog}
+echo "Status: Installing Firefox" >> ${logfile}
 
 # Are we running on Intel?
 if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
