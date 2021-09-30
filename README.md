@@ -42,8 +42,22 @@ Parameters:
 * `onedrive` : Install OneDrive
 * `outlook` : Install Outlook
 * `onenote` : Install OneNote
-* `teams` : Install Teams </br></br>
+* `teams` : Install Teams
+* `remote-desktop` :  Install MS Remote Desktop </br></br>
 Appending `-oc` to any of the above parameters (eg. `full-oc`) will open the console logs for monitoring </br>(Used with TeamViewer Scripts)
+
+#### For Mac OSX 10.10.0 - 10.13.6
+* `full-2016` : Install the 2016 full suite
+* `word-2016` : Install Word 2016
+* `excel-2016` : Install Excel 2016
+* `powerpoint-2016` : Install Powerpoint 2016
+* `outlook-2016` : Install Outlook 2016 </br></br>
+Appending `-oc` to any of the above parameters (eg. `full-2016-oc`) will open the console logs for monitoring </br>(Used with TeamViewer Scripts)
+
+
+#### For Mac OSX 10.6.8 - 10.9.5
+* `full-2011` : Install the 2016 full suite </br></br>
+Appending `-oc` to the above parameter (eg. `full-2011-oc`) will open the console logs for monitoring </br>(Used with TeamViewer Scripts)
 
 ## Acrobat-DC-Update.sh
 #### Update Adobe Acrobat DC
