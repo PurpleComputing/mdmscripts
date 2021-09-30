@@ -67,6 +67,7 @@ function install_software () {
     SOFTWARE_NAME=$2
     SOFTWARE_LOCATION=$3
     OPEN_CONSOLE=$4
+    LEGACY=$5
     VERSION=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/package[id="'${SOFTWARE_ID}'"]/cfbundleversion/text()' -)
 
 echo "Script version: ${scriptver}" >> "${logfile}"
@@ -98,8 +99,13 @@ if [[ ${SOFTWARE_LOCATION} != "SUITE" ]]; then
 fi
 	    echo "Status: Installing ${SOFTWARE_NAME}" >> ${deplog}
 	    echo "Installing ${SOFTWARE_NAME}" >> "${logfile}"
+	    if [[ ${LEGACY} == "legacy" ]]; then
+	   	URL=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/oldpackage[id="'${SOFTWARE_ID}'"]/download/text()' -)
+		SHA256=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/oldpackage[id="'${SOFTWARE_ID}'"]/sha256/text()' -)
+	    else
 	   	URL=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/package[id="'${SOFTWARE_ID}'"]/download/text()' -)
 		SHA256=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/package[id="'${SOFTWARE_ID}'"]/sha256/text()' -)
+	    fi
 		echo "URL : ${URL}" >> "${logfile}"
 		echo "Version : ${VERSION}" >> "${logfile}"
 		echo "SHA256 : ${SHA256}" >> "${logfile}"
@@ -178,94 +184,94 @@ echo "Latest version : ${LATEST_VERSION}" >> ${logfile}
 for param in "$@"; do
     case $param in 
         word)
-            install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app" "noconsole"
+            install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app" "noconsole" "notlegacy"
             ;;
         excel)
-            install_software "com.microsoft.excel.standalone.365" "Excel" "/Applications/Microsoft Excel.app" "noconsole"
+            install_software "com.microsoft.excel.standalone.365" "Excel" "/Applications/Microsoft Excel.app" "noconsole" "notlegacy"
             ;;
         powerpoint)
-            install_software "com.microsoft.powerpoint.standalone.365" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "noconsole"
+            install_software "com.microsoft.powerpoint.standalone.365" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "noconsole" "notlegacy"
             ;;
         onedrive)
-            install_software "com.microsoft.onedrive.standalone" "OneDrive" "/Applications/OneDrive.app" "noconsole"
+            install_software "com.microsoft.onedrive.standalone" "OneDrive" "/Applications/OneDrive.app" "noconsole" "notlegacy"
             ;;
         onenote)
-            install_software "com.microsoft.onenote.standalone.365" "OneNote" "/Applications/Microsoft OneNote.app" "noconsole"
+            install_software "com.microsoft.onenote.standalone.365" "OneNote" "/Applications/Microsoft OneNote.app" "noconsole" "notlegacy"
             ;;
         outlook)
-            install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole"
+            install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole" "notlegacy"
             ;;
 	teams)
-	    install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "noconsole"
+	    install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "noconsole" "notlegacy"
 	    ;;
         full)
-            install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "noconsole"
+            install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "noconsole" "notlegacy"
             ;;
         word-oc)
-            install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app" "openconsole"
+            install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app" "openconsole" "notlegacy"
             ;;
         excel-oc)
-            install_software "com.microsoft.excel.standalone.365" "Excel" "/Applications/Microsoft Excel.app" "openconsole"
+            install_software "com.microsoft.excel.standalone.365" "Excel" "/Applications/Microsoft Excel.app" "openconsole" "notlegacy"
             ;;
         powerpoint-oc)
-            install_software "com.microsoft.powerpoint.standalone.365" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "openconsole"
+            install_software "com.microsoft.powerpoint.standalone.365" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "openconsole" "notlegacy"
             ;;
         onedrive-oc)
-            install_software "com.microsoft.onedrive.standalone" "OneDrive" "/Applications/OneDrive.app" "openconsole"
+            install_software "com.microsoft.onedrive.standalone" "OneDrive" "/Applications/OneDrive.app" "openconsole" "notlegacy"
             ;;
         onenote-oc)
-            install_software "com.microsoft.onenote.standalone.365" "OneNote" "/Applications/Microsoft OneNote.app" "openconsole"
+            install_software "com.microsoft.onenote.standalone.365" "OneNote" "/Applications/Microsoft OneNote.app" "openconsole" "notlegacy"
             ;;
         outlook-oc)
-            install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole"
+            install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole" "notlegacy"
             ;;
 	teams-oc)
-	    install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "openconsole"
+	    install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "openconsole" "notlegacy"
 	    ;;
         full-oc)
-            install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "openconsole"
+            install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "openconsole" "notlegacy"
             ;;     
         word-2016)
-            install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "noconsole"
+            install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "noconsole" "legacy"
             ;;
         excel-2016)
-            install_software "com.microsoft.excel.standalone.2016" "Excel" "/Applications/Microsoft Excel.app" "noconsole"
+            install_software "com.microsoft.excel.standalone.2016" "Excel" "/Applications/Microsoft Excel.app" "noconsole" "legacy"
             ;;
         powerpoint-2016)
-            install_software "com.microsoft.powerpoint.standalone.2016" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "noconsole"
+            install_software "com.microsoft.powerpoint.standalone.2016" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "noconsole" "legacy"
             ;;
         outlook-2016)
-            install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole"
+            install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole" "legacy"
             ;;
         full-2016)
-            install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "noconsole"
+            install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "noconsole" "legacy"
             ;;
          word-2016-oc)
-            install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "openconsole"
+            install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "openconsole" "legacy"
             ;;
         excel-2016-oc)
-            install_software "com.microsoft.excel.standalone.2016" "Excel" "/Applications/Microsoft Excel.app" "openconsole"
+            install_software "com.microsoft.excel.standalone.2016" "Excel" "/Applications/Microsoft Excel.app" "openconsole" "legacy"
             ;;
         powerpoint-2016-oc)
-            install_software "com.microsoft.powerpoint.standalone.2016" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "openconsole"
+            install_software "com.microsoft.powerpoint.standalone.2016" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "openconsole" "legacy"
             ;;
         outlook-2016-oc)
-            install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole"
+            install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole" "legacy"
             ;;
         full-2016-oc)
-            install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "openconsole"
+            install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "openconsole" "legacy"
             ;;
  	full-2011)
-             install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "noconsole"
+             install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "noconsole" "legacy"
             ;;
  	full-2011-oc)
-             install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "openconsole"
+             install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "openconsole" "legacy"
             ;;
         remote-desktop)
-             install_software "com.microsoft.remotedesktop.standalone" "Microsoft Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "noconsole"
+             install_software "com.microsoft.remotedesktop.standalone" "Microsoft Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "noconsole" "notlegacy"
             ;;
         remote-desktop-oc)
-             install_software "com.microsoft.remotedesktop.standalone" "Microsoft Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "openconsole"
+             install_software "com.microsoft.remotedesktop.standalone" "Microsoft Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "openconsole" "notlegacy"
             ;;
         *)
             echo "unknown parameter"
