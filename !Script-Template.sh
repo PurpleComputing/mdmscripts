@@ -161,7 +161,7 @@
        	
        	# Unmount the DMG
        		/bin/echo "`date`: Unmounting installer disk image." >> ${logfile}
-       		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep AppName | awk '{print $1}') -quiet
+       		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep "${appName}" | awk '{print $1}') -quiet
        		/bin/sleep 10
        
     else
