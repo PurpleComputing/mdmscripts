@@ -50,7 +50,7 @@ echo "Latest version available is: $latestver"
 
 if [[ $architecture == "arm64" ]]; then
 	echo "Running Apple Silicon Setting correct URL"
-	downloadUrl="http://zoom.us/client/latest/Zoom.pkg?archType=amd64"
+	downloadUrl="http://zoom.us/client/latest/Zoom.pkg?archType=arm64"
 else
 	echo "Running Intel Setting correct URL"
 	downloadUrl="http://zoom.us/client/latest/Zoom.pkg"
