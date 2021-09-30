@@ -118,7 +118,7 @@ fi
 
 		echo "Verifying Checksum" >> "${logfile}"
         echo "Status: Verifying Checksum" >> ${deplog}
-		CHECKSUM=$(shasum -a 256 ${SOFTWARE_NAME}.pkg | awk -F" " '{print $1}')
+		CHECKSUM=$(shasum -a 256 "${SOFTWARE_NAME}.pkg" | awk -F" " '{print $1}')
 	
 		if [[ $CHECKSUM == $SHA256 ]]; then 
 			echo ">> Checksum OK" >> "${logfile}"
