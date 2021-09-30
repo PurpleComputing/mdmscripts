@@ -261,10 +261,10 @@ for param in "$@"; do
              install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "openconsole"
             ;;
         remote-desktop)
-             install_software "com.microsoft.remotedesktop.standalone" "MS Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "noconsole"
+             install_software "com.microsoft.remotedesktop.standalone" "Microsoft Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "noconsole"
             ;;
         remote-desktop-oc)
-             install_software "com.microsoft.remotedesktop.standalone" "MS Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "openconsole"
+             install_software "com.microsoft.remotedesktop.standalone" "Microsoft Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "openconsole"
             ;;
         *)
             echo "unknown parameter"
