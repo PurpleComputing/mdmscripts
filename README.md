@@ -26,12 +26,6 @@ This script is designed to silently install/update Google Chrome to an MDM enrol
 ##### Command to execute:
 `sudo curl -o /tmp/google-chrome.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/google-chrome.sh && sudo chmod +x /tmp/google-chrome.sh && sudo /tmp/google-chrome.sh [options]`
 
-## office-install.sh
-#### Install Microsoft Office Suite
-This script is now redirected to microsoft-apps.sh
-##### Command to execute:
-`NO LONGER USED`
-
 ## microsoft-apps.sh
 #### Install Microsoft Apps
 This script is designed to silently install/update Microsoft Apps to an MDM enrolled Mac.
@@ -177,3 +171,11 @@ Add the following custom command for Mosyle Attribute look up
 Command: `/usr/local/bin/zerotier-cli info`
 ###### Show the command response as an attribute on Device Info: TICK
 ###### Use the field below to enter the name of the attribute: ZeroTier ID
+
+## zoom.sh
+#### Install zoom
+This script is designed to silently install/update zoom to an MDM enrolled Mac.
+##### Options
+* `openconsole` - will open the console for the logs to show
+##### Command to execute:
+`sudo curl -o /tmp/zoom.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zoom.sh && sudo chmod +x /tmp/zoom.sh && sudo /tmp/zoom.sh [options]`
