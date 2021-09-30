@@ -68,17 +68,7 @@ function install_software () {
     SOFTWARE_LOCATION=$3
     OPEN_CONSOLE=$4
     VERSION=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/package[id="'${SOFTWARE_ID}'"]/cfbundleversion/text()' -)
-    deplog="/var/tmp/depnotify.log"
-    logfile="/tmp/OfficeInstallScript-$SOFTWARE_NAME.log"
-    scriptver="2.0"
-    echo ${logfile}
-    echo "Script version: ${scriptver}" >> "${logfile}"
-    echo "Script version: ${scriptver}" >> ${deplog}
-   
-if [[ ${OPEN_CONSOLE} == "openconsole" ]]; then
-	open ${logfile}
-	open ${deplog}
-fi
+
 
 
 if [[ ${SOFTWARE_LOCATION} != "SUITE" ]]; then
@@ -155,8 +145,17 @@ fi
 ## Variables
 MACADMINS_URL="https://macadmins.software/latest.xml"
 TEMP_PATH="/tmp/apps"
-
-# Main
+deplog="/var/tmp/depnotify.log"
+logfile="/tmp/OfficeInstallScript.log"
+scriptver="3.0"
+echo ${logfile}
+echo "Script version: ${scriptver}" >> "${logfile}"
+echo "Script version: ${scriptver}" >> ${deplog}
+   
+if [[ ${OPEN_CONSOLE} == "openconsole" ]]; then
+	open ${logfile}
+	open ${deplog}
+fi# Main
 
 if [[ -d "${TEMP_PATH}" ]]; then
     echo "Removing ${TEMP_PATH}"
