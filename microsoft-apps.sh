@@ -155,7 +155,9 @@ echo "Script version: ${scriptver}" >> ${deplog}
 if [[ ${OPEN_CONSOLE} == "openconsole" ]]; then
 	open ${logfile}
 	open ${deplog}
-fi# Main
+fi
+
+# Main
 
 if [[ -d "${TEMP_PATH}" ]]; then
     echo "Removing ${TEMP_PATH}"
