@@ -3,7 +3,8 @@
 # File: Install or update to the latest version - Microsoft Products
 # File Created: 2021-07-01 15:58:40
 # Usage : Install Office365 applications in the last version available on macadmins site.
-# Parameters : 
+# Parameters :
+#
 # full : Install the full suite
 # word : Install Word
 # excel : Install Excel
@@ -12,6 +13,8 @@
 # outlook : Install Outlook
 # onenote : Install OneNote
 # teams : Install Teams
+# remote-desktop :  Install MS Remote Desktop
+#
 # full-oc : Install the full suite with open console
 # word-oc : Install Word with open console
 # excel-oc : Install Excel with open console
@@ -20,6 +23,23 @@
 # outlook-oc : Install Outlook with open console
 # onenote-oc : Install OneNote with open console
 # teams-oc : Install Teams with open console
+# remote-desktop-oc :  Install MS Remote Desktop
+#
+# full-2016 : Install the 2016 full suite
+# word-2016 : Install Word 2016
+# excel-2016 : Install Excel 2016
+# powerpoint-2016 : Install Powerpoint 2016
+# outlook-2016 : Install Outlook 2016
+#
+# full-2016-oc : Install the 2016 full suite with open console
+# word-2016-oc : Install Word 2016 with open console
+# excel-2016-oc : Install Excel 2016 with open console
+# powerpoint-2016-oc : Install Powerpoint 2016 with open console
+# outlook-2016-oc : Install Outlook 2016 with open console
+#
+# full-2011 : Install the 2016 full suite
+# full-2011-oc : Install the 2016 full suite with open console
+#
 # Example : ./Install or update to the latest version - Microsoft Products full
 # Example : ./Install or update to the latest version - Microsoft Products word excel powerpoint
 # Author: Benoit-Pierre Studer
@@ -35,6 +55,12 @@
 ###
 
 ###
+
+# Check OS version
+OSvers=$( sw_vers -productVersion )
+
+
+
 
 function install_software () {
     SOFTWARE_ID=$1
@@ -195,6 +221,48 @@ for param in "$@"; do
 	    ;;
         full-oc)
             install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "openconsole"
+            ;;     
+        word-2016)
+            install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "noconsole"
+            ;;
+        excel-2016)
+            install_software "com.microsoft.excel.standalone.2016" "Excel" "/Applications/Microsoft Excel.app" "noconsole"
+            ;;
+        powerpoint-2016)
+            install_software "com.microsoft.powerpoint.standalone.2016" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "noconsole"
+            ;;
+        outlook-2016)
+            install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole"
+            ;;
+        full-2016)
+            install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "noconsole"
+            ;;
+         word-2016-oc)
+            install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "openconsole"
+            ;;
+        excel-2016-oc)
+            install_software "com.microsoft.excel.standalone.2016" "Excel" "/Applications/Microsoft Excel.app" "openconsole"
+            ;;
+        powerpoint-2016-oc)
+            install_software "com.microsoft.powerpoint.standalone.2016" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "openconsole"
+            ;;
+        outlook-2016-oc)
+            install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole"
+            ;;
+        full-2016-oc)
+            install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "openconsole"
+            ;;
+ 	full-2011)
+             install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "noconsole"
+            ;;
+ 	full-2011-oc)
+             install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "openconsole"
+            ;;
+        remote-desktop)
+             install_software "com.microsoft.remotedesktop.standalone" "MS Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "noconsole"
+            ;;
+        remote-desktop-oc)
+             install_software "com.microsoft.remotedesktop.standalone" "MS Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "openconsole"
             ;;
         *)
             echo "unknown parameter"
