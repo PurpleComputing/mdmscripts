@@ -1,6 +1,6 @@
 # MDM Scripts - Things we should script
  
-~~ * Zoom Install ~~
+~~* Zoom Install
 * Brave Browser Install
 * balenaEtcher Install
 * Send Support Info to Purple Computing - Gather the System Report and Email to Team@
