@@ -34,7 +34,7 @@ This script is designed to silently install/update Microsoft Apps to an MDM enro
 
 Parameters:
 
-## For macOS 10.14 and newer
+#### For macOS 10.14 and newer
 * `full` : Install the full suite
 * `word` : Install Word
 * `excel` : Install Excel
@@ -53,7 +53,7 @@ Parameters:
 * `outlook-oc` : Install Outlook with open console logs for monitoring (Used with TeamViewer Scripts)
 * `onenote-oc` : Install OneNote with open console logs for monitoring (Used with TeamViewer Scripts)
 * `teams-oc` : Install Teams with open console logs for monitoring (Used with TeamViewer Scripts)
-* 'remote-desktop-oc' :  Install MS Remote Desktop with open console logs for monitoring (Used with TeamViewer Scripts)
+* `remote-desktop-oc` :  Install MS Remote Desktop with open console logs for monitoring (Used with TeamViewer Scripts)
 
 * `full-2016` : Install the 2016 full suite
 * `word-2016` : Install Word 2016
@@ -61,14 +61,14 @@ Parameters:
 * `powerpoint-2016` : Install Powerpoint 2016
 * `outlook-2016` : Install Outlook 2016
 
-## For Mac OSX 10.10.0 - 10.13.6
+#### For Mac OSX 10.10.0 - 10.13.6
 * `full-2016-oc` : Install the 2016 full suite with open console
 * `word-2016-oc` : Install Word 2016 with open console
 * `excel-2016-oc` : Install Excel 2016 with open console
 * `powerpoint-2016-oc` : Install Powerpoint 2016 with open console
 * `outlook-2016-oc` : Install Outlook 2016 with open console
 
-## For Mac OSX 10.6.8 - 10.9.5
+#### For Mac OSX 10.6.8 - 10.9.5
 * `full-2011` : Install the 2016 full suite
 * `full-2011-oc` : Install the 2016 full suite with open console
 
