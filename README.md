@@ -33,6 +33,8 @@ This script is designed to silently install/update Microsoft Apps to an MDM enro
 `sudo curl -o /tmp/microsoft-apps.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/microsoft-apps.sh && sudo chmod +x /tmp/microsoft-apps.sh && sudo /tmp/microsoft-apps.sh [PARAM]`
 
 Parameters:
+
+## For macOS 10.14 and newer
 * `full` : Install the full suite
 * `word` : Install Word
 * `excel` : Install Excel
@@ -41,6 +43,8 @@ Parameters:
 * `outlook` : Install Outlook
 * `onenote` : Install OneNote
 * `teams` : Install Teams
+* `remote-desktop` :  Install MS Remote Desktop
+
 * `full-oc` : Install the full suite and open console logs for monitoring (Used with TeamViewer Scripts)
 * `word-oc` : Install Word with open console logs for monitoring (Used with TeamViewer Scripts)
 * `excel-oc` : Install Excel with open console logs for monitoring (Used with TeamViewer Scripts)
@@ -49,6 +53,25 @@ Parameters:
 * `outlook-oc` : Install Outlook with open console logs for monitoring (Used with TeamViewer Scripts)
 * `onenote-oc` : Install OneNote with open console logs for monitoring (Used with TeamViewer Scripts)
 * `teams-oc` : Install Teams with open console logs for monitoring (Used with TeamViewer Scripts)
+* 'remote-desktop-oc' :  Install MS Remote Desktop with open console logs for monitoring (Used with TeamViewer Scripts)
+
+* `full-2016` : Install the 2016 full suite
+* `word-2016` : Install Word 2016
+* `excel-2016` : Install Excel 2016
+* `powerpoint-2016` : Install Powerpoint 2016
+* `outlook-2016` : Install Outlook 2016
+
+## For Mac OSX 10.10.0 - 10.13.6
+* `full-2016-oc` : Install the 2016 full suite with open console
+* `word-2016-oc` : Install Word 2016 with open console
+* `excel-2016-oc` : Install Excel 2016 with open console
+* `powerpoint-2016-oc` : Install Powerpoint 2016 with open console
+* `outlook-2016-oc` : Install Outlook 2016 with open console
+
+## For Mac OSX 10.6.8 - 10.9.5
+* `full-2011` : Install the 2016 full suite
+* `full-2011-oc` : Install the 2016 full suite with open console
+
 
 ## Acrobat-DC-Update.sh
 #### Update Adobe Acrobat DC
