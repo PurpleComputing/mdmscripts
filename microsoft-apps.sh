@@ -71,7 +71,7 @@ function install_software () {
     deplog="/var/tmp/depnotify.log"
     logfile="/tmp/OfficeInstallScript-$SOFTWARE_NAME.log"
     scriptver="2.0"
-
+    echo ${logfile}
     echo "Script version: ${scriptver}" >> ${logfile}
     echo "Script version: ${scriptver}" >> ${deplog}
    
