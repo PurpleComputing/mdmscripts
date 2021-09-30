@@ -179,3 +179,11 @@ This script is designed to silently install/update zoom to an MDM enrolled Mac.
 * `openconsole` - will open the console for the logs to show
 ##### Command to execute:
 `sudo curl -o /tmp/zoom.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zoom.sh && sudo chmod +x /tmp/zoom.sh && sudo /tmp/zoom.sh [options]`
+
+## brave-browser.sh
+#### Install brave-browser
+This script is designed to silently install/update brave-browser to an MDM enrolled Mac.
+##### Options
+* `openconsole` - will open the console for the logs to show
+##### Command to execute:
+`sudo curl -o /tmp/brave-browser.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/brave-browser.sh && sudo chmod +x /tmp/brave-browser.sh && sudo /tmp/brave-browser.sh [options]`
