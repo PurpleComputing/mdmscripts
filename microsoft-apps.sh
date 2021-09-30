@@ -69,6 +69,13 @@ function install_software () {
     OPEN_CONSOLE=$4
     VERSION=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/package[id="'${SOFTWARE_ID}'"]/cfbundleversion/text()' -)
 
+echo "Script version: ${scriptver}" >> "${logfile}"
+echo "Script version: ${scriptver}" >> ${deplog}
+   
+if [[ ${OPEN_CONSOLE} == "openconsole" ]]; then
+	open ${logfile}
+	open ${deplog}
+fi
 
 
 if [[ ${SOFTWARE_LOCATION} != "SUITE" ]]; then
@@ -150,13 +157,7 @@ logfile="/tmp/OfficeInstallScript.log"
 scriptver="3.2"
 echo ${logfile}
 echo ${scriptver}
-echo "Script version: ${scriptver}" >> "${logfile}"
-echo "Script version: ${scriptver}" >> ${deplog}
-   
-if [[ ${OPEN_CONSOLE} == "openconsole" ]]; then
-	open ${logfile}
-	open ${deplog}
-fi
+
 
 # Main
 
