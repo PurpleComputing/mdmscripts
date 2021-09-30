@@ -72,7 +72,7 @@ function install_software () {
     logfile="/tmp/OfficeInstallScript-$SOFTWARE_NAME.log"
     scriptver="2.0"
     echo ${logfile}
-    echo "Script version: ${scriptver}" >> ${logfile}
+    echo "Script version: ${scriptver}" >> "${logfile}"
     echo "Script version: ${scriptver}" >> ${deplog}
    
 if [[ ${OPEN_CONSOLE} == "openconsole" ]]; then
@@ -85,60 +85,60 @@ if [[ ${SOFTWARE_LOCATION} != "SUITE" ]]; then
 
 # Get the version number of the currently-installed App, if any.
     if [[ -e "${SOFTWARE_LOCATION}" ]]; then
-        echo "Checking Installed Version of ${SOFTWARE_NAME}" >> ${logfile}
+        echo "Checking Installed Version of ${SOFTWARE_NAME}" >> "${logfile}"
         echo "Status: Checking Installed Version of ${SOFTWARE_NAME}" >> ${deplog}
 
 
 		CURRENTINSTALLEDVER=`/usr/bin/defaults read "${SOFTWARE_LOCATION}/Contents/Info" CFBundleVersion`
-        echo "Current installed version is: $CURRENTINSTALLEDVER" >> ${logfile}
+        echo "Current installed version is: $CURRENTINSTALLEDVER" >> "${logfile}"
         echo "Status: Current installed version is: $CURRENTINSTALLEDVER" >> ${deplog}
         if [[ ${VERSION} = ${CURRENTINSTALLEDVER} ]]; then
-            echo "${SOFTWARE_NAME} is current. Exiting" >> ${logfile}
+            echo "${SOFTWARE_NAME} is current. Exiting" >> "${logfile}"
             echo "Status: ${SOFTWARE_NAME} is current. Exiting" >> ${deplog}
             exit 0
         fi
 	fi
 fi
 	    echo "Status: Installing ${SOFTWARE_NAME}" >> ${deplog}
-	    echo "Installing ${SOFTWARE_NAME}" >> ${logfile}
+	    echo "Installing ${SOFTWARE_NAME}" >> "${logfile}"
 	   	URL=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/package[id="'${SOFTWARE_ID}'"]/download/text()' -)
 		SHA256=$(echo "${LATEST_XML}" | xmllint --xpath '//latest/package[id="'${SOFTWARE_ID}'"]/sha256/text()' -)
-		echo "URL : ${URL}" >> ${logfile}
-		echo "Version : ${VERSION}" >> ${logfile}
-		echo "SHA256 : ${SHA256}" >> ${logfile}
+		echo "URL : ${URL}" >> "${logfile}"
+		echo "Version : ${VERSION}" >> "${logfile}"
+		echo "SHA256 : ${SHA256}" >> "${logfile}"
 
 		cd ${TEMP_PATH}
-		echo "Downloading ${SOFTWARE_NAME}" >> ${logfile}
+		echo "Downloading ${SOFTWARE_NAME}" >> "${logfile}"
 		echo "Status: Downloading ${SOFTWARE_NAME}" >> ${deplog}
 		curl -s -L -o "${SOFTWARE_NAME}.pkg" ${URL}
 		if [[ $? == 0 ]]; then
-			echo ">> Done" >> ${logfile}
+			echo ">> Done" >> "${logfile}"
 		else
-			echo "[ERROR] Curl command failed with: $curlResult" >> ${logfile}
+			echo "[ERROR] Curl command failed with: $curlResult" >> "${logfile}"
  	  		echo "Status: [ERROR] Curl command failed with: $curlResult" >> ${deplog}
 			exit 1
 		fi
 
-		echo "Verifying Checksum" >> ${logfile}
+		echo "Verifying Checksum" >> "${logfile}"
         echo "Status: Verifying Checksum" >> ${deplog}
 		CHECKSUM=$(shasum -a 256 ${SOFTWARE_NAME}.pkg | awk -F" " '{print $1}')
 	
 		if [[ $CHECKSUM == $SHA256 ]]; then 
-			echo ">> Checksum OK" >> ${logfile}
+			echo ">> Checksum OK" >> "${logfile}"
             echo "Status: Checksum OK" >> ${deplog}
 		else
-			echo "[ERROR] Invalid checksum detected. Exiting..." >> ${logfile}
+			echo "[ERROR] Invalid checksum detected. Exiting..." >> "${logfile}"
             echo "Status: [ERROR] Invalid checksum detected. Exiting..." >> ${deplog}
 			exit 1
 		fi
 
-		echo "Installing ${SOFTWARE_NAME}" >> ${logfile}
+		echo "Installing ${SOFTWARE_NAME}" >> "${logfile}"
         echo "Status: Installing ${SOFTWARE_NAME}" >> ${deplog}
 		/usr/sbin/installer -pkg "${SOFTWARE_NAME}.pkg" -target /
 		if [[ $? == 0 ]]; then
 		    if [[ -e "/usr/local/bin/dockutil" ]]; then
 				APPSHORTNAME=$(echo ${SOFTWARE_LOCATION} | cut -f3 -d'/' | sed -e 's/\.[^.]*$//')
-				echo "Adding Dock Icon for ${APPSHORTNAME}" >> ${logfile}
+				echo "Adding Dock Icon for ${APPSHORTNAME}" >> "${logfile}"
 				echo "Status: Adding Dock Icon for ${APPSHORTNAME}" >> ${deplog}
 				dockutil --remove "${APPSHORTNAME}" --allhomes
 				sleep 5
@@ -146,7 +146,7 @@ fi
 		    fi
 			echo ">> Done" >> ${logfile}
 		else
-			echo "[ERROR] Unable to install ${SOFTWARE_NAME}" >> ${logfile}
+			echo "[ERROR] Unable to install ${SOFTWARE_NAME}" >> "${logfile}"
             echo "Status: [ERROR] Unable to install ${SOFTWARE_NAME}" >> ${deplog}
 			exit 1
 		fi
