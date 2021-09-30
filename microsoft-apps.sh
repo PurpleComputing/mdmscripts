@@ -147,8 +147,9 @@ MACADMINS_URL="https://macadmins.software/latest.xml"
 TEMP_PATH="/tmp/apps"
 deplog="/var/tmp/depnotify.log"
 logfile="/tmp/OfficeInstallScript.log"
-scriptver="3.0"
+scriptver="3.1"
 echo ${logfile}
+echo ${scriptver}
 echo "Script version: ${scriptver}" >> "${logfile}"
 echo "Script version: ${scriptver}" >> ${deplog}
    
