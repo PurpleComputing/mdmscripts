@@ -154,7 +154,7 @@ MACADMINS_URL="https://macadmins.software/latest.xml"
 TEMP_PATH="/tmp/apps"
 deplog="/var/tmp/depnotify.log"
 logfile="/tmp/OfficeInstallScript.log"
-scriptver="3.2"
+scriptver="3.3"
 echo ${logfile}
 echo ${scriptver}
 
