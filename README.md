@@ -194,5 +194,5 @@ This script is designed to silently install/update balenaEtcher to an MDM enroll
 ##### Options
 * `openconsole` - will open the console for the logs to show
 ##### Command to execute:
-sudo curl -o /tmp/balenaEtcher.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/balenaEtcher.sh && sudo chmod +x /tmp/balenaEtcher.sh && sudo /tmp/balenaEtcher.sh [options]
+`sudo curl -o /tmp/balenaEtcher.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/balenaEtcher.sh && sudo chmod +x /tmp/balenaEtcher.sh && sudo /tmp/balenaEtcher.sh [options]`
 
