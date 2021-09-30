@@ -43,8 +43,7 @@ Parameters:
 * `outlook` : Install Outlook
 * `onenote` : Install OneNote
 * `teams` : Install Teams
-* `remote-desktop` :  Install MS Remote Desktop
-
+* `remote-desktop` :  Install MS Remote Desktop </br></br>
 * `full-oc` : Install the full suite and open console logs for monitoring (Used with TeamViewer Scripts)
 * `word-oc` : Install Word with open console logs for monitoring (Used with TeamViewer Scripts)
 * `excel-oc` : Install Excel with open console logs for monitoring (Used with TeamViewer Scripts)
@@ -55,13 +54,12 @@ Parameters:
 * `teams-oc` : Install Teams with open console logs for monitoring (Used with TeamViewer Scripts)
 * `remote-desktop-oc` :  Install MS Remote Desktop with open console logs for monitoring (Used with TeamViewer Scripts)
 
+#### For Mac OSX 10.10.0 - 10.13.6
 * `full-2016` : Install the 2016 full suite
 * `word-2016` : Install Word 2016
 * `excel-2016` : Install Excel 2016
 * `powerpoint-2016` : Install Powerpoint 2016
-* `outlook-2016` : Install Outlook 2016
-
-#### For Mac OSX 10.10.0 - 10.13.6
+* `outlook-2016` : Install Outlook 2016 </br></br>
 * `full-2016-oc` : Install the 2016 full suite with open console
 * `word-2016-oc` : Install Word 2016 with open console
 * `excel-2016-oc` : Install Excel 2016 with open console
@@ -69,7 +67,7 @@ Parameters:
 * `outlook-2016-oc` : Install Outlook 2016 with open console
 
 #### For Mac OSX 10.6.8 - 10.9.5
-* `full-2011` : Install the 2016 full suite
+* `full-2011` : Install the 2016 full suite </br></br>
 * `full-2011-oc` : Install the 2016 full suite with open console
 
 
