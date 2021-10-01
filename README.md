@@ -43,7 +43,8 @@ Parameters:
 * `outlook` : Install Outlook
 * `onenote` : Install OneNote
 * `teams` : Install Teams
-* `remote-desktop` :  Install MS Remote Desktop </br></br>
+* `remote-desktop` :  Install MS Remote Desktop
+* `visual-studio-code` : Install Visual Studio Code </br></br>
 Appending `-oc` to any of the above parameters (eg. `full-oc`) will open the console logs for monitoring </br>(Used with TeamViewer Scripts)
 
 #### For Mac OSX 10.10.0 - 10.13.6
