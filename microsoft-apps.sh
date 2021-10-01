@@ -143,11 +143,12 @@ fi
         echo "Status: Installing ${SOFTWARE_NAME}" >> ${deplog}
 
         if [[ "${SOFTWARE_NAME}" = "Visual Studio Code" ]]; then
-            unzip "${SOFTWARE_NAME}".zip
+            unzip VSCode-darwin-universal.zip
             mv "${SOFTWARE_NAME}.app" "/Applications/${SOFTWARE_NAME}.app"
+	    rm VSCode-darwin-universal.zip
         else
 		    /usr/sbin/installer -pkg "${SOFTWARE_NAME}.pkg" -target /
-		fi
+	fi
 
         if [[ $? == 0 ]]; then
 		    if [[ -e "/usr/local/bin/dockutil" ]]; then
