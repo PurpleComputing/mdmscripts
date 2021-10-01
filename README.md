@@ -315,7 +315,8 @@ sudo /tmp/zerotier.sh [NETWORKID]
 
 ##### A REBOOT IS REQUIRED FOR THE TLS CERT GENERATION
 
-It is also advised that you add a custom command or script for "on User Sign In" to execute ```
+It is also advised that you add a custom command or script for "on User Sign In" to execute 
+```
 /usr/local/bin/zerotier-cli join [NETWORK ID]
 ```
 
@@ -325,7 +326,8 @@ Add the following custom command for Mosyle Attribute look up
 
 ###### Event: Every "Device Info" update
 
-Command: ```
+Command: 
+```
 /usr/local/bin/zerotier-cli info
 ```
 
