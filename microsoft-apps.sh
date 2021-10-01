@@ -137,8 +137,15 @@ fi
 
 		echo "Installing ${SOFTWARE_NAME}" >> "${logfile}"
         echo "Status: Installing ${SOFTWARE_NAME}" >> ${deplog}
-		/usr/sbin/installer -pkg "${SOFTWARE_NAME}.pkg" -target /
-		if [[ $? == 0 ]]; then
+
+        if [[ "${SOFTWARE_NAME}" = "Visual Studio Code" ]]; then
+            unzip "${SOFTWARE_NAME}".zip
+            mv "${SOFTWARE_NAME}.app" "/Applications/${SOFTWARE_NAME}.app"
+        else
+		    /usr/sbin/installer -pkg "${SOFTWARE_NAME}.pkg" -target /
+		fi
+
+        if [[ $? == 0 ]]; then
 		    if [[ -e "/usr/local/bin/dockutil" ]]; then
 				APPSHORTNAME=$(echo ${SOFTWARE_LOCATION} | cut -f3 -d'/' | sed -e 's/\.[^.]*$//')
 				echo "Adding Dock Icon for ${APPSHORTNAME}" >> "${logfile}"
@@ -201,9 +208,9 @@ for param in "$@"; do
         outlook)
             install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole" "notlegacy"
             ;;
-	teams)
-	    install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "noconsole" "notlegacy"
-	    ;;
+	    teams)
+	        install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "noconsole" "notlegacy"
+	        ;;
         full)
             install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "noconsole" "notlegacy"
             ;;
@@ -225,9 +232,9 @@ for param in "$@"; do
         outlook-oc)
             install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole" "notlegacy"
             ;;
-	teams-oc)
-	    install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "openconsole" "notlegacy"
-	    ;;
+	    teams-oc)
+	        install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "openconsole" "notlegacy"
+	        ;;
         full-oc)
             install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "openconsole" "notlegacy"
             ;;     
@@ -261,10 +268,10 @@ for param in "$@"; do
         full-2016-oc)
             install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "openconsole" "legacy"
             ;;
- 	full-2011)
+ 	    full-2011)
              install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "noconsole" "legacy"
             ;;
- 	full-2011-oc)
+ 	    full-2011-oc)
              install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "openconsole" "legacy"
             ;;
         remote-desktop)
@@ -272,6 +279,12 @@ for param in "$@"; do
             ;;
         remote-desktop-oc)
              install_software "com.microsoft.remotedesktop.standalone" "Microsoft Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "openconsole" "notlegacy"
+            ;;
+        visual-studio-code)
+             install_software "com.microsoft.vscode.zip" "Visual Studio Code" "/Applications/Visual Studio Code.app" "noconsole" "notlegacy"
+            ;;
+        visual-studio-code-oc)
+             install_software "com.microsoft.vscode.zip" "Visual Studio Code" "/Applications/Visual Studio Code.app" "openconsole" "notlegacy"
             ;;
         *)
             echo "unknown parameter"
