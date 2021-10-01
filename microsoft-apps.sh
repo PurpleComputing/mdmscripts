@@ -143,9 +143,10 @@ fi
         echo "Status: Installing ${SOFTWARE_NAME}" >> ${deplog}
 
         if [[ "${SOFTWARE_NAME}" = "Visual Studio Code" ]]; then
-            unzip VSCode-darwin-universal.zip
+	    mv "${SOFTWARE_NAME}.pkg" "${SOFTWARE_NAME}.zip"
+            unzip "${SOFTWARE_NAME}.zip"
             mv "${SOFTWARE_NAME}.app" "/Applications/${SOFTWARE_NAME}.app"
-	    rm VSCode-darwin-universal.zip
+	    rm "${SOFTWARE_NAME}.zip"
         else
 		    /usr/sbin/installer -pkg "${SOFTWARE_NAME}.pkg" -target /
 	fi
@@ -172,7 +173,7 @@ MACADMINS_URL="https://macadmins.software/latest.xml"
 TEMP_PATH="/tmp/apps"
 deplog="/var/tmp/depnotify.log"
 logfile="/tmp/OfficeInstallScript.log"
-scriptver="3.4"
+scriptver="3.5"
 echo ${logfile}
 echo ${scriptver}
 
