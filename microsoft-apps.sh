@@ -121,6 +121,7 @@ fi
  	  		echo "Status: [ERROR] Curl command failed with: $curlResult" >> ${deplog}
 			exit 1
 		fi
+        if [[ "${SOFTWARE_NAME}" != "Visual Studio Code" ]]; then
 
 		echo "Verifying Checksum" >> "${logfile}"
         echo "Status: Verifying Checksum" >> ${deplog}
@@ -134,6 +135,7 @@ fi
             echo "Status: [ERROR] Invalid checksum detected. Exiting..." >> ${deplog}
 			exit 1
 		fi
+	fi
 
 		echo "Installing ${SOFTWARE_NAME}" >> "${logfile}"
         echo "Status: Installing ${SOFTWARE_NAME}" >> ${deplog}
