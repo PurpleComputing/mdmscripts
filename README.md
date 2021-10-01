@@ -16,7 +16,8 @@ This script is designed to silently install/update Firefox to an MDM enrolled Ma
 
 ```
 sudo curl -o /tmp/Firefox.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Firefox.sh &&
-sudo chmod +x /tmp/Firefox.sh && sudo /tmp/Firefox.sh [options]
+sudo chmod +x /tmp/Firefox.sh &&
+sudo /tmp/Firefox.sh [options]
 ```
 
 ## LibreOffice.sh
@@ -31,7 +32,11 @@ This script is designed to silently install/update LibreOffice to an MDM enrolle
 
 ##### Command to execute
 
-`sudo curl -o /tmp/LibreOffice.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/LibreOffice.sh && sudo chmod +x /tmp/LibreOffice.sh && sudo /tmp/LibreOffice.sh [options]`
+```
+sudo curl -o /tmp/LibreOffice.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/LibreOffice.sh &&
+sudo chmod +x /tmp/LibreOffice.sh &&
+sudo /tmp/LibreOffice.sh [options]
+```
 
 ## google-chrome.sh
 
@@ -45,7 +50,11 @@ This script is designed to silently install/update Google Chrome to an MDM enrol
 
 ##### Command to execute
 
-`sudo curl -o /tmp/google-chrome.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/google-chrome.sh && sudo chmod +x /tmp/google-chrome.sh && sudo /tmp/google-chrome.sh [options]`
+```
+sudo curl -o /tmp/google-chrome.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/google-chrome.sh &&
+sudo chmod +x /tmp/google-chrome.sh
+&& sudo /tmp/google-chrome.sh [options]
+```
 
 ## microsoft-apps.sh
 
@@ -55,7 +64,11 @@ This script is designed to silently install/update Microsoft Apps to an MDM enro
 
 #### Command to execute
 
-`sudo curl -o /tmp/microsoft-apps.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/microsoft-apps.sh && sudo chmod +x /tmp/microsoft-apps.sh && sudo /tmp/microsoft-apps.sh [PARAM]`
+```
+sudo curl -o /tmp/microsoft-apps.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/microsoft-apps.sh &&
+sudo chmod +x /tmp/microsoft-apps.sh &&
+sudo /tmp/microsoft-apps.sh [PARAM]
+```
 
 Parameters:
 
@@ -95,7 +108,11 @@ This script is designed to silently update Adobe Acrobat DC to an MDM enrolled M
 
 #### Command to execute
 
-`sudo curl -o /tmp/Acrobat-DC-Update.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Acrobat-DC-Update.sh && sudo chmod +x /tmp/Acrobat-DC-Update.sh && sudo /tmp/Acrobat-DC-Update.sh`
+```
+sudo curl -o /tmp/Acrobat-DC-Update.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Acrobat-DC-Update.sh &&
+sudo chmod +x /tmp/Acrobat-DC-Update.sh &&
+sudo /tmp/Acrobat-DC-Update.sh
+```
 
 ## 1-password.sh
 
@@ -109,7 +126,11 @@ This script is designed to silently install or update 1Password 7 to an MDM enro
 
 ##### Command to execute
 
-`sudo curl -o /tmp/1-password.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/1-password.sh && sudo chmod +x /tmp/1-password.sh && sudo /tmp/1-password.sh [options]`
+```
+sudo curl -o /tmp/1-password.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/1-password.sh &&
+sudo chmod +x /tmp/1-password.sh &&
+sudo /tmp/1-password.sh [options]
+```
 
 ## bt-cloud-phone.sh
 
@@ -123,7 +144,11 @@ This script is designed to silently install or update BT Cloud Phone to an MDM e
 
 ##### Command to execute
 
-`sudo curl -o /tmp/bt-cloud-phone.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/bt-cloud-phone.sh && sudo chmod +x /tmp/bt-cloud-phone.sh && sudo /tmp/bt-cloud-phone.sh [options]`
+```
+sudo curl -o /tmp/bt-cloud-phone.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/bt-cloud-phone.sh &&
+sudo chmod +x /tmp/bt-cloud-phone.sh &&
+sudo /tmp/bt-cloud-phone.sh [options]
+```
 
 ## scansnap-home.sh
 
@@ -137,7 +162,11 @@ This script is designed to silently install or update ScanSnap Home to an MDM en
 
 ##### Command to execute
 
-`sudo curl -o /tmp/scansnap-home.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/scansnap-home.sh && sudo chmod +x /tmp/scansnap-home.sh && sudo /tmp/scansnap-home.sh [options]`
+```
+sudo curl -o /tmp/scansnap-home.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/scansnap-home.sh && 
+sudo chmod +x /tmp/scansnap-home.sh &&
+sudo /tmp/scansnap-home.sh [options]
+```
 
 ## Rosetta2.sh
 
@@ -152,7 +181,11 @@ This script is designed to silently install Rosetta2 onto an Apple Silicon MDM e
 
 ##### Command to execute
 
-`sudo curl -o /tmp/Rosetta2.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2.sh && sudo chmod +x /tmp/Rosetta2.sh && sudo /tmp/Rosetta2.sh [options]`
+```
+sudo curl -o /tmp/Rosetta2.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Rosetta2.sh &&
+sudo chmod +x /tmp/Rosetta2.sh &&
+sudo /tmp/Rosetta2.sh [options]
+```
 
 ## computer-rename.sh [JAMF ONLY]
 
@@ -166,7 +199,11 @@ This script will rename a computer based on the JAMF user and MAC Address, it wi
 
 #### Command to execute
 
-`sudo curl -o /tmp/computer-rename.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/computer-rename.sh && sudo chmod +x /tmp/computer-rename.sh && sudo /tmp/computer-rename.sh`
+```
+sudo curl -o /tmp/computer-rename.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/computer-rename.sh &&
+sudo chmod +x /tmp/computer-rename.sh &&
+sudo /tmp/computer-rename.sh
+```
 
 ## enrollment-cleanup.sh [JAMF ONLY]
 
@@ -176,7 +213,11 @@ This script will remove the downloaded and applied mobileconfig file and forces 
 
 #### Command to execute
 
-`sudo curl -o /tmp/enrollment-cleanup.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/enrollment-cleanup.sh && sudo chmod +x /tmp/enrollment-cleanup.sh && sudo /tmp/enrollment-cleanup.sh`
+```
+sudo curl -o /tmp/enrollment-cleanup.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/enrollment-cleanup.sh &&
+sudo chmod +x /tmp/enrollment-cleanup.sh &&
+sudo /tmp/enrollment-cleanup.sh
+```
 
 ## lock-device.sh [JAMF ONLY]
 
@@ -191,7 +232,11 @@ This script will lock a computer using the JAMF API and can be called by an out 
 
 #### Command to execute
 
-`sudo curl -o /tmp/lock-device.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/lock-device.sh && sudo chmod +x /tmp/lock-device.sh && sudo /tmp/lock-device.sh`
+```
+sudo curl -o /tmp/lock-device.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/lock-device.sh &&
+sudo chmod +x /tmp/lock-device.sh &&
+sudo /tmp/lock-device.sh
+```
 
 ## policy-order.sh [JAMF ONLY]
 
@@ -203,7 +248,11 @@ This script will apply the policies in the order specified, populate parameter 4
 
 #### Command to execute
 
-`sudo curl -o /tmp/policy-order.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/policy-order.sh && sudo chmod +x /tmp/policy-order.sh && sudo /tmp/policy-order.sh`
+```
+sudo curl -o /tmp/policy-order.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/policy-order.sh &&
+sudo chmod +x /tmp/policy-order.sh &&
+sudo /tmp/policy-order.sh
+```
 
 ## add-printer.sh
 
@@ -223,7 +272,11 @@ options used in this example script are
 
 #### Command to execute
 
-`sudo curl -o /tmp/add-printer.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/add-printer.sh && sudo chmod +x /tmp/add-printer.sh && sudo /tmp/add-printer.sh`
+```
+sudo curl -o /tmp/add-printer.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/add-printer.sh &&
+sudo chmod +x /tmp/add-printer.sh &&
+sudo /tmp/add-printer.sh
+```
 
 ## software-update-settings.sh
 
@@ -240,7 +293,11 @@ This script will set the policies software update settings with the following se
 
 #### Command to execute
 
-`sudo curl -o /tmp/software-update-settings.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/software-update-settings.sh && sudo chmod +x /tmp/software-update-settings.sh && sudo /tmp/software-update-settings.sh`
+```
+sudo curl -o /tmp/software-update-settings.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/software-update-settings.sh &&
+sudo chmod +x /tmp/software-update-settings.sh &&
+sudo /tmp/software-update-settings.sh
+```
 
 ## zerotier.sh
 
@@ -250,7 +307,11 @@ This script is designed to silently install ZeroTier to an MDM enrolled Mac.
 
 #### Command to execute
 
-`sudo curl -o /tmp/zerotier.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zerotier.sh && sudo chmod +x /tmp/zerotier.sh && sudo /tmp/zerotier.sh [NETWORKID]`
+```
+sudo curl -o /tmp/zerotier.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zerotier.sh &&
+sudo chmod +x /tmp/zerotier.sh &&
+sudo /tmp/zerotier.sh [NETWORKID]
+```
 
 ##### A REBOOT IS REQUIRED FOR THE TLS CERT GENERATION
 
@@ -262,7 +323,7 @@ Add the following custom command for Mosyle Attribute look up
 
 ###### Event: Every "Device Info" update
 
-Command: `/usr/local/bin/zerotier-cli info`
+Command: ```/usr/local/bin/zerotier-cli info```
 
 ###### Show the command response as an attribute on Device Info: TICK
 
@@ -280,7 +341,11 @@ This script is designed to silently install/update zoom to an MDM enrolled Mac.
 
 ##### Command to execute
 
-`sudo curl -o /tmp/zoom.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zoom.sh && sudo chmod +x /tmp/zoom.sh && sudo /tmp/zoom.sh [options]`
+```
+sudo curl -o /tmp/zoom.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zoom.sh &&
+sudo chmod +x /tmp/zoom.sh &&
+sudo /tmp/zoom.sh [options]
+```
 
 ## brave-browser.sh
 
@@ -294,7 +359,11 @@ This script is designed to silently install/update Brave Browser to an MDM enrol
 
 ##### Command to execute
 
-`sudo curl -o /tmp/brave-browser.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/brave-browser.sh && sudo chmod +x /tmp/brave-browser.sh && sudo /tmp/brave-browser.sh [options]`
+```
+sudo curl -o /tmp/brave-browser.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/brave-browser.sh &&
+sudo chmod +x /tmp/brave-browser.sh &&
+sudo /tmp/brave-browser.sh [options]
+```
 
 ## balenaEtcher.sh
 
@@ -308,4 +377,8 @@ This script is designed to silently install/update balenaEtcher to an MDM enroll
 
 ##### Command to execute
 
-`sudo curl -o /tmp/balenaEtcher.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/balenaEtcher.sh && sudo chmod +x /tmp/balenaEtcher.sh && sudo /tmp/balenaEtcher.sh [options]`
+```
+sudo curl -o /tmp/balenaEtcher.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/balenaEtcher.sh &&
+sudo chmod +x /tmp/balenaEtcher.sh &&
+sudo /tmp/balenaEtcher.sh [options]
+```
