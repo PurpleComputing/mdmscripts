@@ -14,7 +14,9 @@ This script is designed to silently install/update Firefox to an MDM enrolled Ma
 
 ##### Command to execute
 
-`sudo curl -o /tmp/Firefox.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Firefox.sh && sudo chmod +x /tmp/Firefox.sh && sudo /tmp/Firefox.sh [options]`
+```
+sudo curl -o /tmp/Firefox.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Firefox.sh && sudo chmod +x /tmp/Firefox.sh && sudo /tmp/Firefox.sh [options]
+```
 
 ## LibreOffice.sh
 
