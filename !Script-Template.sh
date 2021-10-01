@@ -53,11 +53,11 @@
 
 # Create log files if they don't exist
 	if [[ ! -e ${logfile} ]]; then 
-	/bin/echo "---- New Log ----" >> $logfile 
+		/bin/echo "---- New Log ----" >> $logfile 
 	fi
 
 	if [[ ! -e ${deplog} ]]; then 
-	/bin/echo "---- New Log ----" >> $deplog 
+		/bin/echo "---- New Log ----" >> $deplog 
 	fi
 
 # Open the log files if the openconsole parameter has been passed to the script
