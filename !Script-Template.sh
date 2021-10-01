@@ -28,10 +28,10 @@
 # The url of the webpage to scrape for the latest version number and download link.
 	releaseNotesUrl='https://vendorweb.com/product_history/release_notes'
 
-# Installation Method, are we using a DMG or PKG to install the app?
+# Installation Method, are we using a DMG, PKG or ZIP to install the app?
 	installMethod="PKG"
 
-# This is the name of the file we download this might be a dmg or a pkg.
+# This is the name of the file we download this might be a dmg, a pkg or a zip.
 	dnldfile='Application Name.pkg'
 
 # The name of the application once it is installed without the .app extension
@@ -164,13 +164,21 @@
        		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep "${appName}" | awk '{print $1}') -quiet
        		/bin/sleep 10
        
-    else
-       
+    else if [[ $installMethod = "PKG"]]; then
        
 	# Open the PKG with installer
        		cd /tmp
        		/usr/sbin/installer -pkg ${dnldfile} -target /
-       
+
+	else
+
+	# Expand the archive
+			cd /tmp
+			unzip $dnlndfile
+		
+		# Move the file to the Applications folder
+       		mv "{appName}.app" "/Applications/${appName}.app"
+       		/bin/sleep 10			
        
     fi
      	# Clean up after the installation
