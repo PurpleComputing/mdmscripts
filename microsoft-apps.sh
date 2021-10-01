@@ -14,6 +14,7 @@
 # onenote : Install OneNote
 # teams : Install Teams
 # remote-desktop :  Install MS Remote Desktop
+# visual-studio-code: Install Visual Studio Code
 #
 # full-oc : Install the full suite with open console
 # word-oc : Install Word with open console
@@ -24,6 +25,7 @@
 # onenote-oc : Install OneNote with open console
 # teams-oc : Install Teams with open console
 # remote-desktop-oc :  Install MS Remote Desktop
+# visual-studio-code-oc: Install Visual Studio Code
 #
 # full-2016 : Install the 2016 full suite
 # word-2016 : Install Word 2016
@@ -169,7 +171,7 @@ MACADMINS_URL="https://macadmins.software/latest.xml"
 TEMP_PATH="/tmp/apps"
 deplog="/var/tmp/depnotify.log"
 logfile="/tmp/OfficeInstallScript.log"
-scriptver="3.3"
+scriptver="3.4"
 echo ${logfile}
 echo ${scriptver}
 
