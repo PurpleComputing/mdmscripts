@@ -20,11 +20,11 @@
 #########################################################################
 # Script to brand DEPNotify with PurpleComputing for app installs.
 #
-APPINSTALLNAME=$(cat /tmp/.appinstallname)
+appname=$(cat /tmp/.appinstallname)
 
 chmod 777 /var/tmp/depnotify.log
 ## BRANDING DEPNOTIFY WINDOW
-echo 'Command: MainTitle: Installing $APPINSTALLNAME...' >> /var/tmp/depnotify.log
+echo Command: MainTitle: Installing $appname... >> /var/tmp/depnotify.log
 echo 'Command: Image: /Library/Application Support/Purple/logo.png' >> /var/tmp/depnotify.log
 echo 'Command: MainText: We are now installing re-installing the $APPINSTALLNAME application.' >> /var/tmp/depnotify.log
 echo 'Command: WindowStyle: Activate' >> /var/tmp/depnotify.log
