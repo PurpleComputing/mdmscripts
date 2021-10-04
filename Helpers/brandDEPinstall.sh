@@ -22,9 +22,9 @@
 #
 
 ## BRANDING DEPNOTIFY WINDOW
-echo 'Command: MainTitle: Deploying your Mac' >> /var/tmp/depnotify.log
+echo 'Command: MainTitle: App Installation' >> /var/tmp/depnotify.log
 echo 'Command: Image: /Library/Application Support/Purple/logo.png' >> /var/tmp/depnotify.log
-echo 'Command: MainText: Your organisation is using a Mobile Device Management solution provided by Purple Computing, we are now installing your organisations software, settings and policies.' >> /var/tmp/depnotify.log
+echo 'Command: MainText: We are now installing the requested application.' >> /var/tmp/depnotify.log
 
 ## STARTING INSTALLS ###
 echo 'Status: Starting MDM Installer' >> /var/tmp/depnotify.log
