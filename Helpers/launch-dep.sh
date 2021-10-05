@@ -1,0 +1,1 @@
+bash -c 'osascript -e "tell application \"DEPNotify\"" -e "activate" -e "end tell"'
