@@ -34,4 +34,4 @@ echo Command: WindowStyle: Activate >> /var/tmp/depnotify.log
 
 ## STARTING INSTALLS ###
 sleep 3s
-echo 'Status: Starting Software Install' >> /var/tmp/depnotify.log
+echo Status: Installing $appname... >> /var/tmp/depnotify.log
