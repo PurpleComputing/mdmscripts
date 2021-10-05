@@ -21,9 +21,6 @@
 # Script to brand DEPNotify with PurpleComputing for app installs.
 #
 appname=$(cat /tmp/.appinstallname)
-
-mv /var/tmp/depnotify.log /var/tmp/depnotify.log.old
-touch /var/tmp/depnotify.log
 chmod 777 /var/tmp/depnotify.log
 
 ## BRANDING DEPNOTIFY WINDOW
