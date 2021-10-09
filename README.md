@@ -7,6 +7,8 @@ This folder contains files which assist the scripts in their intended function.
 ## PurpleLogos
 This folder contains our company logos used for branding DEPNotify and other services.
 
+
+# Scripts
 ## Firefox.sh
 
 ### Install Firefox
