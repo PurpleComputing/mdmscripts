@@ -2,6 +2,11 @@
 
 This repository is a resource that allows us to distribute scripts across multiple MDM tenants with a single point of hosting.
 
+## Helpers
+This folder contains files which assist the scripts in their intended function.
+## PurpleLogos
+This folder contains our company logos used for branding DEPNotify and other services.
+
 ## Firefox.sh
 
 ### Install Firefox
