@@ -39,7 +39,7 @@ This package is designed to install a status bar icon, package is by Root3 (NL)
 
 This zip contains the application for the Draytek Smart VPN Client for macOS
 
-### CreateTicket.zip - WebKit / Fluid application to provide a ticket creation window as a part of the raise ticket workflow.
+### CreateTicket.zip - CreateTicket.app WebKit / Fluid application 
 
-This zip contains the application for the Draytek Smart VPN Client for macOS
+This zip contains the application CreateTicket.app which provides a ticket creation window as a part of the raise ticket workflow.
 
