@@ -150,6 +150,6 @@ fi
     fi
     echo "Command: DeterminateManualStep: 1" >> ${deplog}
     
- sleep 10s   
+ sleep 5s   
  killall ${appName}
 
