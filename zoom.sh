@@ -13,22 +13,23 @@
 #
 # HISTORY
 #
-#   Version: 1.1
+#   Version: 1.1.1
 #
 #   - 1.0 Martyn Watts, 28.09.2021 Initial Build
 #   - 1.1 Martyn Watts, 28.09.2021 Initial Build
+#   - 1.1.1 Martyn Watts, 28.09.2021 Initial Build
 #
 ####################################################################################################
 # Script to download and install Zoom.
 #
 
 releaseNotesUrl='https://zoom.us/download'
-appName='Zoom.us'
+appName='zoom.us'
 dnldfile='zoom.pkg'
 forceQuit='Y'
 logfile="/Library/Logs/ZoomInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver="1.1"
+scriptver="1.1.1"
 architecture=$(/usr/bin/arch)
 OSvers_URL=$( sw_vers -productVersion | sed 's/[.]/_/g' )
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
@@ -149,5 +150,6 @@ fi
     fi
     echo "Command: DeterminateManualStep: 1" >> ${deplog}
     
+ sleep 10s   
  killall ${appName}
 
