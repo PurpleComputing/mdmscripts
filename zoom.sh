@@ -147,3 +147,6 @@ fi
         /bin/echo "--" >> ${logfile}
     fi
     echo "Command: DeterminateManualStep: 1" >> ${deplog}
+    
+ killall ${appName}
+
