@@ -60,7 +60,7 @@ fi
 
 # Get the version number of the currently-installed App, if any.
     if [[ -e "/Applications/${appName}.app" ]]; then
-		currentinstalledlongver=`/usr/bin/defaults read "/Applications/zoom.us.app/Contents/Info" CFBundleShortVersionString`
+		currentinstalledlongver=`/usr/bin/defaults read "/Applications/${appName}.app/Contents/Info" CFBundleShortVersionString`
 		currentinstalledver=$(echo $currentinstalledlongver | cut -f1 -d' ')
 	    echo "Current installed version is: $currentinstalledver"
         echo "Current installed version is: $currentinstalledver" >> ${logfile}
@@ -122,7 +122,7 @@ fi
         /bin/rm /tmp/${dnldfile}
 
         #double check to see if the new version got updated
-		newlyinstalledlongver=`/usr/bin/defaults read "/Applications/zoom.us.app/Contents/Info" CFBundleShortVersionString`
+		newlyinstalledlongver=`/usr/bin/defaults read "/Applications/${appName}.app/Contents/Info" CFBundleShortVersionString`
 		newlyinstalledver=$(echo ${newlyinstalledlongver} | cut -f1 -d' ')
 		echo "Current installed version is: $currentinstalledver"
         if [[ $latestver == $newlyinstalledver ]]; then
