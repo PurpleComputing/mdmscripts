@@ -130,9 +130,9 @@ fi
             /bin/echo "SUCCESS: ${appName} has been updated to version ${newlyinstalledver}"
             if [[ -e "/usr/local/bin/dockutil" ]]; then
             	/bin/echo "`date`: Creating Dock Icon." >> ${logfile}
-				/usr/local/bin/dockutil --remove 'zoom.us' --allhomes
+				/usr/local/bin/dockutil --remove "${appName}" --allhomes
 				/bin/sleep 3
-				/usr/local/bin/dockutil --add '/Applications/zoom.us.app' --after 'Messages' --allhomes
+				/usr/local/bin/dockutil --add "/Applications/${appName}.app" --after 'Messages' --allhomes
 			fi
             /bin/echo "--" >> ${logfile}
         else
