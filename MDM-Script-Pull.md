@@ -20,5 +20,5 @@ curl -o /tmp/$SCRIPTNAME https://raw.githubusercontent.com/PurpleComputing/$REPO
 sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
 chmod +x /tmp/$SCRIPTNAME
 # RUN AS CURRENT USER
-/tmp/$SCRIPTNAME
+/tmp/$SCRIPTNAME >> /tmp/$SCRIPTNAME.log
 ```
