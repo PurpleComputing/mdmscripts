@@ -6,9 +6,9 @@
 chmod 777 -R /tmp
 ##-------------------------------##
 ##         SET VARIABLES         ##
-SCRIPTNAME=fix-outlook-spotlight.sh
-REPO=troubleshooting
-BRANCH=main
+SCRIPTNAME=[[fix-outlook-spotlight.sh]]
+REPO=[[troubleshooting]]
+BRANCH=[[main]]
 ##-------------------------------##
 ##         START SCRIPT          ##
 ##-------------------------------##
