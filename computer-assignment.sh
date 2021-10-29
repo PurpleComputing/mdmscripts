@@ -12,7 +12,7 @@ unzip Pashua.zip
 
 # Create Pashua config file
 echo "*.title=Gathering User Info" >> $PashuaConfig
-echo "*.autoclosetime = 5" >> $PashuaConfig
+echo "*.autoclosetime = 1800" >> $PashuaConfig
 echo "*.floating = 1" >> $PashuaConfig
 echo "fullname.type = textfield" >> $PashuaConfig
 echo "fullname.label = Enter your full name" >> $PashuaConfig
