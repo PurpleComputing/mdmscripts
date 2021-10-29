@@ -10,6 +10,9 @@ curl -o /tmp/Pashua.zip https://raw.githubusercontent.com/PurpleComputing/mdmscr
 cd /tmp
 unzip Pashua.zip
 
+# Remove any legacy Pashua.config files
+rm -rf /tmp/Pashua.config
+
 # Create Pashua config file
 echo "*.title=Gathering User Info" >> $PashuaConfig
 echo "*.autoclosetime = 1800" >> $PashuaConfig
@@ -37,10 +40,14 @@ do
         eval $varname='$varvalue'
 done
 
-# jamf recon -endUsername "${email}" -realname "${fullname}" -email "${email}"
-echo ${email}
-echo ${fullname}
+jamf recon -endUsername "${email}" -realname "${fullname}" -email "${email}"
 
+# Cleanup tmp files
+
+rm -rf /tmp/Pashua.app
+rm -rf /tmp/Pashua.zip
+rm -rf /tmp/Pashua.config
+rm -rf $0
 
 # Other options include
 # -assetTag The Asset Tag of the computer
