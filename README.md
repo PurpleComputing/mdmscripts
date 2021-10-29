@@ -357,3 +357,15 @@ This script is designed to silently install/update balenaEtcher to an MDM enroll
 ```
 sudo curl -o /tmp/balenaEtcher.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/balenaEtcher.sh && sudo chmod +x /tmp/balenaEtcher.sh && sudo /tmp/balenaEtcher.sh [options]
 ```
+
+## computer-assignment.sh
+
+### Assign User to Computer in JAMF
+
+This script is designed to prompt the user for information to assist in the assignment process to an MDM enrolled Mac.
+
+#### Command to execute
+
+```
+sudo curl -o /tmp/computer-assignment.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/computer-assignment.sh && sudo chmod +x /tmp/computer-assignment.sh && sudo /tmp/computer-assignment.sh [options]
+```
