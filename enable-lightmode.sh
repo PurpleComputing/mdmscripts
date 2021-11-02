@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
 osascript <<EOD
 tell application "System Events"
