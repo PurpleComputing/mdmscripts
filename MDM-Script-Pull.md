@@ -2,8 +2,6 @@
 ```
 ##  PURPLE GITHUB PULL TEMPLATE  ##
 ##-------------------------------##
-##        SET PERMISSIONS        ##
-chmod 777 -R /tmp
 ##-------------------------------##
 ##         SET VARIABLES         ##
 
@@ -17,48 +15,56 @@ APPNAME='APPNAME'
 ##-------------------------------##
 
 # CLEAN UP PREVIOUS FILES
-rm -rf /tmp/$SCRIPTNAME
-rm -rf /tmp/brandDEPinstall.sh
+rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/$SCRIPTNAME
+rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
+rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/.appinstallname
 
 # REMOVE APPS AND FILES
-killall $appname
-rm -rf /Applications/$appname.app
+killall $APPNAME
+rm -rf /Applications/$APPNAME.app
+
+# UPDATE PURPLE HELPERS
+curl -o /Library/Caches/com.purplecomputing.mdm/Scripts/purple-helpers.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/purple-helpers.sh
+chmod +x /Library/Caches/com.purplecomputing.mdm/Scripts/purple-helpers.sh
+/Library/Caches/com.purplecomputing.mdm/Scripts/purple-helpers.sh >> /Library/Caches/com.purplecomputing.mdm/Logs/purple-helpers.log
+sleep 2s
+rm -rf purple-helpers.sh
 
 ##-------------------------------##
 ##       DEPNOTIFY WINDOW        ##
 ##-------------------------------##
 
 # SET APP TITLE TO APPNAME
-echo $appname >> /tmp/.appinstallname
+echo $APPNAME >> /Library/Caches/com.purplecomputing.mdm/Apps/.appinstallname
 
 # SET DEP NOTIFY FOR REINSTALL
-curl -o /tmp/brandDEPinstall.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/brandDEPinstall.sh
-chmod +x /tmp/brandDEPinstall.sh
-/tmp/brandDEPinstall.sh
+curl -o /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/brandDEPinstall.sh
+chmod +x /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
+/Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh >> /Library/Caches/com.purplecomputing.mdm/Logs/brandDEPinstall.log
 sleep 2s
-chmod 777 /var/tmp/depnotify.log
+chmod 777 /var/private/var/tmp/depnotify.log
+rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
 
 # START DEPNOTIFY
-sudo -u %LastConsoleUser% /Library/Application\ Support/Purple/launch-dep.sh
+/Library/Application\ Support/Purple/launch-dep.sh
 
 ##-------------------------------##
 ##         START SCRIPT          ##
 ##-------------------------------##
 
 # DOWNLOAD LATEST FILE
-curl -o /tmp/$SCRIPTNAME https://raw.githubusercontent.com/PurpleComputing/$REPO/$BRANCH/$SCRIPTNAME
+curl -o /Library/Caches/com.purplecomputing.mdm/Scripts/$SCRIPTNAME https://raw.githubusercontent.com/PurpleComputing/$REPO/$BRANCH/$SCRIPTNAME
 # GIVE EXECUTE PERMISSIONS
-sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
-chmod +x /tmp/$SCRIPTNAME
+chmod +x /Library/Caches/com.purplecomputing.mdm/Scripts/$SCRIPTNAME
 # RUN AS CURRENT USER
-/tmp/$SCRIPTNAME >> /tmp/$SCRIPTNAME.log
+sudo /Library/Caches/com.purplecomputing.mdm/Scripts/$SCRIPTNAME >> /Library/Caches/com.purplecomputing.mdm/Logs/$SCRIPTNAME.log
 
 ##-------------------------------##
 ##       DEPNOTIFY CLOSE         ##
 ##-------------------------------##
 
 # CLOSE DEP NOTIFY WINDOW
-echo Status: $appname Install Complete >> /var/tmp/depnotify.log
+echo Status: $APPNAME Install Complete >> /var/private/var/tmp/depnotify.log
 sleep 10s
 killall DEPNotify
 
@@ -66,9 +72,9 @@ killall DEPNotify
 ##      POSTFLIGHT SCRIPT        ##
 ##-------------------------------##
 
-rm -rf /tmp/$scriptfilename
-rm -rf /tmp/.appinstallname
-rm -rf /tmp/brandDEPinstall.sh
+rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/$SCRIPTNAME
+rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/.appinstallname
+
 
 # END SCRIPT WITH SUCCESS
 exit 0
