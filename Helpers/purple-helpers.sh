@@ -10,4 +10,4 @@ curl -o /Library/Application\ Support/Purple/launch-dep-en.sh https://raw.github
 mkdir -p /Library/Caches/com.purplecomputing.mdm/
 # Give full permissions
 chmod -R 777 /Library/Application\ Support/Purple/
-chmod -R 777 /private/var/tmp/purple/
+chmod -R 777 /Library/Caches/com.purplecomputing.mdm/
