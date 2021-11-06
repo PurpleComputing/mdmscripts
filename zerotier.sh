@@ -24,13 +24,13 @@
 # Script to install ZeroTier and to join the organisations ZT Network.
 #
 scriptver='1.3'
-logfile="/Library/Caches/com.purplecomputing.mdm/Logs/ZeroTierInstallScript.log"
+logfile="/Library/Logs/com.purplecomputing.mdm/ZeroTierInstallScript.log"
 appName="ZeroTier"
 deplog="/var/tmp/depnotify.log"
 
 #Making Purple Cache directories for in the event that the helper script hasn't been run
 mkdir -p /Library/Caches/com.purplecomputing.mdm/
-mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Logs/com.purplecomputing.mdm/
 mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
 
 echo "Status: Installing ${appName} using script version ${scriptver}" >> ${deplog}
