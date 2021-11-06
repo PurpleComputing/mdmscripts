@@ -20,6 +20,7 @@
 #   - 1.2 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
 #   - 1.3 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
 #   - 1.4 Martyn Watts, 29.09.2021 Added scriptver variable and corrected log opening
+#   - 1.5 Michael Tanner, 06.11.2021 
 #
 ####################################################################################################
 # Script to download and install Google Chrome.
@@ -33,7 +34,12 @@ appName='Google Chrome'
 forceQuit='Y'
 logfile="/Library/Logs/GoogleChromeInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver='1.4'
+scriptver='1.5'
+
+#Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
 
 echo "Script Version: ${scriptver}" >> ${logfile}
 echo "Status: Installing ${appName}" >> ${deplog}
@@ -48,13 +54,13 @@ fi
 #  To get just the latest version number from the version check URL
 /bin/echo "`date`: Downloading latest version." >> ${logfile}
 /bin/echo "Downloading latest version."
-/usr/bin/curl -o "/tmp/${dnldfile}" ${url}
+/usr/bin/curl -o "/Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}" ${url}
 /bin/echo "`date`: Expanding package." >> ${logfile}
 /bin/echo "Expanding package."
-pkgutil --expand "/tmp/${dnldfile}" /tmp/pkg
+pkgutil --expand "/Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}" /Library/Caches/com.purplecomputing.mdm/Apps/pkg
 /bin/echo "`date`: Storing latest version data." >> ${logfile}
 /bin/echo "Storing latest version data."
-latestver=$(cat /tmp/pkg/Distribution | grep 'CFBundleShortVersionString' | cut -f2 -d '"')
+latestver=$(cat /Library/Caches/com.purplecomputing.mdm/Apps/pkg/Distribution | grep 'CFBundleShortVersionString' | cut -f2 -d '"')
 /bin/echo "`date`: Removing expanded package" >> ${logfile}
 /bin/echo "Removing expanded package."
 /bin/rm -rf /tmp/pkg

@@ -42,7 +42,7 @@ curl -o /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh https
 chmod +x /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
 /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh >> /Library/Caches/com.purplecomputing.mdm/Logs/brandDEPinstall.log
 sleep 2s
-chmod 777 /var/private/var/tmp/depnotify.log
+chmod 777 /var/tmp/depnotify.log
 rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
 
 # START DEPNOTIFY
@@ -64,7 +64,7 @@ sudo /Library/Caches/com.purplecomputing.mdm/Scripts/$SCRIPTNAME >> /Library/Cac
 ##-------------------------------##
 
 # CLOSE DEP NOTIFY WINDOW
-echo Status: $APPNAME Install Complete >> /var/private/var/tmp/depnotify.log
+echo Status: $APPNAME Install Complete >> /var/tmp/depnotify.log
 sleep 10s
 killall DEPNotify
 
