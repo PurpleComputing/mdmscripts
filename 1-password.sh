@@ -49,10 +49,10 @@ fi
 #  To get just the latest version number from the 1Password 7 Release Notes URL
 /bin/echo "`date`: Getting latest version number" >> ${logfile}
 /bin/echo "Getting latest version number"
-latestver=$(curl -s ${releaseNotesUrl} | grep 'download' | grep -vim 1 'beta' | cut -f2 -d'"' | cut -f2 -d"-" | sed -e 's/\.[^.]*$//')
+latestver=$(curl -s ${releaseNotesUrl} | grep '>download<' | grep -vim 1 'beta' | cut -f2 -d'"' | cut -f2 -d"-" | sed -e 's/\.[^.]*$//')
 
 # To get the latest download link from the 1Password7 Release Notes URL
-url=$(curl -s ${releaseNotesUrl} | grep 'download' | grep -vim 1 'beta' | cut -f2 -d'"')
+url=$(curl -s ${releaseNotesUrl} | grep '>download<' | grep -vim 1 'beta' | cut -f2 -d'"')
 
 /bin/echo "`date`: Latest version number is: ${latestver}" >> ${logfile}
 /bin/echo "Latest version number is: ${latestver}"
