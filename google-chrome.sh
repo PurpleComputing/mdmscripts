@@ -63,7 +63,7 @@ pkgutil --expand "/Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}" /Lib
 latestver=$(cat /Library/Caches/com.purplecomputing.mdm/Apps/pkg/Distribution | grep 'CFBundleShortVersionString' | cut -f2 -d '"')
 /bin/echo "`date`: Removing expanded package" >> ${logfile}
 /bin/echo "Removing expanded package."
-/bin/rm -rf /tmp/pkg
+/bin/rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/pkg
 
 
 # Get the version number of the currently-installed App, if any.
@@ -95,7 +95,7 @@ latestver=$(cat /Library/Caches/com.purplecomputing.mdm/Apps/pkg/Distribution | 
         	if [[ "${forceQuit}" = "Y" ]]; then
         		killall ${appName}
         	fi
-		cd /tmp
+		cd /Library/Caches/com.purplecomputing.mdm/Apps/
        	/usr/sbin/installer -pkg ${dnldfile} -target /
 
         #double check to see if the new version got updated
@@ -131,6 +131,6 @@ latestver=$(cat /Library/Caches/com.purplecomputing.mdm/Apps/pkg/Distribution | 
         /bin/sleep 5
         /bin/echo "`date`: Deleting the downloaded file." >> ${logfile}
         /bin/echo "Deleting the downloaded file."
-        /bin/rm /tmp/${dnldfile}
+        /bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}
   echo "Command: DeterminateManualStep: 1" >> ${deplog}
 
