@@ -100,7 +100,7 @@ if [[ ${SOFTWARE_LOCATION} != "SUITE" ]]; then
             echo "${SOFTWARE_NAME} is current. Exiting" >> "${logfile}"
             echo "Status: ${SOFTWARE_NAME} is current. Exiting" >> ${deplog}
             sleep 2
-            return [n]
+            return
         fi
 	fi
 
