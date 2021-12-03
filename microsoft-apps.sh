@@ -315,7 +315,7 @@ for param in "$@"; do
         mau)
             install_software "com.microsoft.autoupdate.standalone" "Microsoft AutoUpdate" "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app" "noconsole" "notlegacy"
             ;;
-        mau-oc}
+        mau-oc)
             install_software "com.microsoft.autoupdate.standalone" "Microsoft AutoUpdate" "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app" "openconsole" "notlegacy"
             ;;
         remote-desktop)
