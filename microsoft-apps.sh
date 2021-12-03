@@ -5,7 +5,7 @@
 # Usage : Install Office365 applications in the last version available on macadmins site.
 # Parameters :
 #
-# full : Install the full suite
+# full : Install the full suite (Word, Excel, Powerpoint, Outlook, OneNote, OneDrive, MAU)
 # word : Install Word
 # excel : Install Excel
 # powerpoint : Install Powerpoint
@@ -15,8 +15,9 @@
 # teams : Install Teams
 # remote-desktop :  Install MS Remote Desktop
 # visual-studio-code: Install Visual Studio Code
+# mau: Install Microsoft AutoUpdate
 #
-# full-oc : Install the full suite with open console
+# full-oc : Install the full suite (Word, Excel, Powerpoint, Outlook, OneNote, OneDrive, MAU) with open console
 # word-oc : Install Word with open console
 # excel-oc : Install Excel with open console
 # powerpoint-oc : Install Powerpoint with open console
@@ -24,16 +25,17 @@
 # outlook-oc : Install Outlook with open console
 # onenote-oc : Install OneNote with open console
 # teams-oc : Install Teams with open console
-# remote-desktop-oc :  Install MS Remote Desktop
-# visual-studio-code-oc: Install Visual Studio Code
+# remote-desktop-oc :  Install MS Remote Desktop with open console
+# visual-studio-code-oc: Install Visual Studio Code with open console
+# mau-oc: Install Microsoft AutoUpdate with open console
 #
-# full-2016 : Install the 2016 full suite
+# full-2016 : Install the 2016 full suite (Word, Excel, Powerpoint, Outlook)
 # word-2016 : Install Word 2016
 # excel-2016 : Install Excel 2016
 # powerpoint-2016 : Install Powerpoint 2016
 # outlook-2016 : Install Outlook 2016
 #
-# full-2016-oc : Install the 2016 full suite with open console
+# full-2016-oc : Install the 2016 full suite (Word, Excel, Powerpoint, Outlook) with open console
 # word-2016-oc : Install Word 2016 with open console
 # excel-2016-oc : Install Excel 2016 with open console
 # powerpoint-2016-oc : Install Powerpoint 2016 with open console
@@ -54,7 +56,8 @@
 # 2021-07-09	Martyn Watts			Added DEPNotify Progress Output
 # 2021-09-24	Martyn Watts			Added Check to see if dockutil is installed to make the script more resilient
 # 2021-09-28	Martyn Watts			Added Check for full-oc (Full Install with Open Console for TeamViewer Installs) also added better logging
-# 4.0 - Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/
+# 4.0 - Martyn Watts, 03.12.2021 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/
+# 4.1 - Martyn Watts, 03.12.2021 Changed the mechanism for a full install to iterate through the individual apps thus allowing version checking, not previously available.
 ###
 
 ###
@@ -99,7 +102,9 @@ if [[ ${SOFTWARE_LOCATION} != "SUITE" ]]; then
             exit 0
         fi
 	fi
+
 fi
+
 	    echo "Status: Installing ${SOFTWARE_NAME}" >> ${deplog}
 	    echo "Installing ${SOFTWARE_NAME}" >> "${logfile}"
 	    if [[ ${LEGACY} == "legacy" ]]; then
@@ -174,7 +179,7 @@ MACADMINS_URL="https://macadmins.software/latest.xml"
 TEMP_PATH="/Library/Caches/com.purplecomputing.mdm/Apps/"
 deplog="/var/tmp/depnotify.log"
 logfile="/Library/Caches/com.purplecomputing.mdm/Logs/OfficeInstallScript.log"
-scriptver="4.0"
+scriptver="4.1"
 echo ${logfile}
 echo ${scriptver}
 
@@ -223,7 +228,14 @@ for param in "$@"; do
 	        install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "noconsole" "notlegacy"
 	        ;;
         full)
-            install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "noconsole" "notlegacy"
+            #install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "noconsole" "notlegacy"
+            install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app" "noconsole" "notlegacy"
+            install_software "com.microsoft.excel.standalone.365" "Excel" "/Applications/Microsoft Excel.app" "noconsole" "notlegacy"
+            install_software "com.microsoft.powerpoint.standalone.365" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "noconsole" "notlegacy"
+            install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole" "notlegacy"
+            install_software "com.microsoft.onenote.standalone.365" "OneNote" "/Applications/Microsoft OneNote.app" "noconsole" "notlegacy"
+            install_software "com.microsoft.onedrive.standalone" "OneDrive" "/Applications/OneDrive.app" "noconsole" "notlegacy"
+            install_software "com.microsoft.autoupdate.standalone" "Microsoft AutoUpdate" "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app" "noconsole" "notlegacy"
             ;;
         word-oc)
             install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app" "openconsole" "notlegacy"
@@ -247,7 +259,14 @@ for param in "$@"; do
 	        install_software "com.microsoft.teams.standalone" "Teams" "/Applications/Microsoft Teams.app" "openconsole" "notlegacy"
 	        ;;
         full-oc)
-            install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "openconsole" "notlegacy"
+            #install_software "com.microsoft.office.suite.365" "Office365" "SUITE" "openconsole" "notlegacy"
+            install_software "com.microsoft.word.standalone.365" "Word" "/Applications/Microsoft Word.app" "openconsole" "notlegacy"
+            install_software "com.microsoft.excel.standalone.365" "Excel" "/Applications/Microsoft Excel.app" "openconsole" "notlegacy"
+            install_software "com.microsoft.powerpoint.standalone.365" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "openconsole" "notlegacy"
+            install_software "com.microsoft.outlook.standalone.365" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole" "notlegacy"
+            install_software "com.microsoft.onenote.standalone.365" "OneNote" "/Applications/Microsoft OneNote.app" "openconsole" "notlegacy"
+            install_software "com.microsoft.onedrive.standalone" "OneDrive" "/Applications/OneDrive.app" "openconsole" "notlegacy"
+            install_software "com.microsoft.autoupdate.standalone" "Microsoft AutoUpdate" "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app" "openconsole" "notlegacy"
             ;;     
         word-2016)
             install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "noconsole" "legacy"
@@ -262,7 +281,11 @@ for param in "$@"; do
             install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole" "legacy"
             ;;
         full-2016)
-            install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "noconsole" "legacy"
+            #install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "noconsole" "legacy"
+            install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "noconsole" "legacy"
+            install_software "com.microsoft.excel.standalone.2016" "Excel" "/Applications/Microsoft Excel.app" "noconsole" "legacy"
+            install_software "com.microsoft.powerpoint.standalone.2016" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "noconsole" "legacy"
+            install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "noconsole" "legacy"
             ;;
          word-2016-oc)
             install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "openconsole" "legacy"
@@ -277,13 +300,23 @@ for param in "$@"; do
             install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole" "legacy"
             ;;
         full-2016-oc)
-            install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "openconsole" "legacy"
+            #install_software "com.microsoft.office.suite.2016" "Office2016" "SUITE" "openconsole" "legacy"
+            install_software "com.microsoft.word.standalone.2016" "Word" "/Applications/Microsoft Word.app" "openconsole" "legacy"
+            install_software "com.microsoft.excel.standalone.2016" "Excel" "/Applications/Microsoft Excel.app" "openconsole" "legacy"
+            install_software "com.microsoft.powerpoint.standalone.2016" "Powerpoint" "/Applications/Microsoft PowerPoint.app" "openconsole" "legacy"
+            install_software "com.microsoft.outlook.standalone.2016" "Outlook" "/Applications/Microsoft Outlook.app" "openconsole" "legacy"
             ;;
  	    full-2011)
              install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "noconsole" "legacy"
             ;;
  	    full-2011-oc)
              install_software "com.microsoft.outlook.suite.2011" "Office2011" "SUITE" "openconsole" "legacy"
+            ;;
+        mau)
+            install_software "com.microsoft.autoupdate.standalone" "Microsoft AutoUpdate" "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app" "noconsole" "notlegacy"
+            ;;
+        mau-oc}
+            install_software "com.microsoft.autoupdate.standalone" "Microsoft AutoUpdate" "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app" "openconsole" "notlegacy"
             ;;
         remote-desktop)
              install_software "com.microsoft.remotedesktop.standalone" "Microsoft Remote Desktop" "/Applications/Microsoft Remote Desktop.app" "noconsole" "notlegacy"
