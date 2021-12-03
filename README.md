@@ -73,7 +73,7 @@ Parameters:
 
 ##### For macOS 10.14 and newer
 
-* `full` : Install the full suite
+* `full` : Install the full suite (Word, Excel, PowerPoint, Outlook, OneNote, OneDrive, MAU)
 * `word` : Install Word
 * `excel` : Install Excel
 * `powerpoint` : Install Powerpoint
@@ -81,13 +81,14 @@ Parameters:
 * `outlook` : Install Outlook
 * `onenote` : Install OneNote
 * `teams` : Install Teams
+* `mau` : Install Microsoft AutoUpdate
 * `remote-desktop` :  Install MS Remote Desktop
 * `visual-studio-code` : Install Visual Studio Code </br></br>
 Appending `-oc` to any of the above parameters (eg. `full-oc`) will open the console logs for monitoring </br>(Used with TeamViewer Scripts)
 
 ##### For Mac OSX 10.10.0 - 10.13.6
 
-* `full-2016` : Install the 2016 full suite
+* `full-2016` : Install the 2016 full suite (Word, Excel, PowerPoint, Outlook)
 * `word-2016` : Install Word 2016
 * `excel-2016` : Install Excel 2016
 * `powerpoint-2016` : Install Powerpoint 2016
@@ -96,7 +97,7 @@ Appending `-oc` to any of the above parameters (eg. `full-2016-oc`) will open th
 
 ##### For Mac OSX 10.6.8 - 10.9.5
 
-* `full-2011` : Install the 2016 full suite </br></br>
+* `full-2011` : Install the 2016 full suite (Word, Excel, PowerPoint, Outlook)</br></br>
 Appending `-oc` to the above parameter (eg. `full-2011-oc`) will open the console logs for monitoring </br>(Used with TeamViewer Scripts)
 
 ## Acrobat-DC-Update.sh
