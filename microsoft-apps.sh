@@ -99,7 +99,7 @@ if [[ ${SOFTWARE_LOCATION} != "SUITE" ]]; then
         if [[ ${VERSION} = ${CURRENTINSTALLEDVER} ]]; then
             echo "${SOFTWARE_NAME} is current. Exiting" >> "${logfile}"
             echo "Status: ${SOFTWARE_NAME} is current. Exiting" >> ${deplog}
-            exit 0
+            return [n]
         fi
 	fi
 
