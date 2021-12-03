@@ -1,2 +1,3 @@
 # LAUNCH DEPNOTIFY FOR ENROLMENT
-screen -dmS DEPEnroll /Applications/Utilities/DEPNotify.app/Contents/MacOS/DEPNotify --args -fullScreen
+sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
+open -a /Applications/Utilities/DEPNotify.app --args -fullScreen
