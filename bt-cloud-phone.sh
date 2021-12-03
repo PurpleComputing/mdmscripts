@@ -13,25 +13,31 @@
 #
 # HISTORY
 #
-#   Version: 1.3
+#   Version: 1.4
 #
 #   - 1.0 Martyn Watts, 22.06.2021 Initial Build
 #   - 1.1 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
 #   - 1.2 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
 #   - 1.3 Martyn Watts, 29.09.2021 Added scriptver variable and sent to logfile
+#   - 1.4 Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/#
 #
 ####################################################################################################
 # Script to download and install BT Cloud Phone.
 # Only works on Intel systems.
 #
 
+#Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
+
 downloadUrl='https://downloads.ringcentral.com/sp/bt/BTCloudPhoneForMac'
 appName='BT Cloud Phone'
 dmgVolume='BT Cloud Work Phone'
 forceQuit='Y'
-logfile="/Library/Logs/BTCloudPhoneInstallScript.log"
+logfile="/Library/Caches/com.purplecomputing.mdm/Logs/BTCloudPhoneInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver="1.3"
+scriptver="1.4"
 
 echo "Script Version: ${scriptver}" >> ${logfile}
 echo "Status: Installing ${appName}" >> ${deplog}
@@ -74,7 +80,7 @@ dnldfile=$(echo ${url} | sed -e 's:.*/::')
         /bin/echo "Available ${appName} version: ${latestver}"
         /bin/echo "`date`: Downloading newer version." >> ${logfile}
         /bin/echo "Downloading newer version."
-        /usr/bin/curl -o "/tmp/${dnldfile}" ${url}
+        /usr/bin/curl -o "/Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}" ${url}
     	/bin/echo "`date`: Force quitting ${appName} if running." >> ${logfile}
     	/bin/echo "Force quitting ${appName} if running."
 
@@ -87,7 +93,7 @@ dnldfile=$(echo ${url} | sed -e 's:.*/::')
        	######################################################################################## 
        	/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
        	/bin/echo "Mounting installer disk image."
-       	/usr/bin/hdiutil attach /tmp/${dnldfile} -nobrowse -quiet
+       	/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile} -nobrowse -quiet
        	/bin/echo "`date`: Installing..." >> ${logfile}
        	/bin/echo "Installing..."
        	ditto -rsrc "/Volumes/${dmgVolume}/${appName}.app" "/Applications/${appName}.app"
@@ -101,14 +107,14 @@ dnldfile=$(echo ${url} | sed -e 's:.*/::')
       	########################################################################################
        	# Uncomment this block for .pkg install    											   #
        	########################################################################################
-       	# cd /tmp
+       	# cd /Library/Caches/com.purplecomputing.mdm/Apps/
        	# /usr/sbin/installer -pkg ${dnldfile} -target /
 	   	########################################################################################
        
        	/bin/sleep 5
         /bin/echo "`date`: Deleting the downloaded file." >> ${logfile}
         /bin/echo "Deleting the downloaded file."
-        /bin/rm /tmp/${dnldfile}
+        /bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}
 
         #double check to see if the new version got updated
         newlyinstalledver=`/usr/bin/defaults read "/Applications/${appName}.app/Contents/Info" CFBundleShortVersionString`

@@ -12,9 +12,10 @@
 ####################################################################################################
 #                                                                                                  #
 # HISTORY                                                                                          #
-#   Version: 1.0                                                                                   #
+#   Version: 1.1                                                                                   #
 #                                                                                                  #
-#   - 1.0 Martyn Watts, 30.09.2021 Initial Build                                                   #
+#   - 1.0 Martyn Watts, 30.09.2021 Initial Build
+#   - 1.1 Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/ #
 #                                                                                                  #
 ####################################################################################################
 
@@ -24,7 +25,7 @@
 
 # The version of this script, it is used in the logs so you can see which version of the script has
 # been used and will help with script debugging
-scriptver="1.0"
+scriptver="1.1"
 
 # The url of the webpage to scrape for the latest version number and download link.
 releaseNotesUrl='https://github.com/balena-io/etcher/blob/master/CHANGELOG.md'
@@ -47,13 +48,18 @@ forceQuit='Y'
 # The 2 Log files we create as were progressing through the script
 # logfile is the main log which has each step and any errors sent to it
 # deplog is used to update the depnotify application with statuses and increments the progress bar
-logfile="/Library/Logs/balenaEtcherInstallScript.log"
+logfile="/Library/Caches/com.purplecomputing.mdm/Logs/balenaEtcherInstallScript.log"
 deplog="/var/tmp/depnotify.log"
 
 
 ####################################################################################################
 #  Script Startup                                                                                  #
 ####################################################################################################
+
+# Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
 
 # Create log files if they don't exist
 if [[ ! -e ${logfile} ]]; then 
@@ -150,7 +156,7 @@ fi
         /bin/echo "`date`: Downloading newer version." >> ${logfile}
         /bin/echo "Downloading newer version."
     	url=$(curl -Ls -o /dev/null -w %{url_effective} ${downloadUrl})
-        /usr/bin/curl -s -o /tmp/${dnldfile} ${url}
+        /usr/bin/curl -s -o /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile} ${url}
 
         
         # Force quit the application
@@ -165,7 +171,7 @@ fi
 
 		# Mount the DMG
        	/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-       	/usr/bin/hdiutil attach /tmp/${dnldfile} -nobrowse
+       	/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile} -nobrowse
        	
        	# Copy the file to the Applications folder - you may need to change the mounted volume name
        	/bin/echo "`date`: Installing..." >> ${logfile}
@@ -189,7 +195,7 @@ fi
      	# Clean up after the installation
        	/bin/sleep 5
         /bin/echo "`date`: Deleting the downloaded file." >> ${logfile}
-        /bin/rm /tmp/${dnldfile}
+        /bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}
         
         
 ####################################################################################################

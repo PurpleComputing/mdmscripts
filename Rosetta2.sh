@@ -13,19 +13,25 @@
 #
 # HISTORY
 #
-#   Version: 1.1
+#   Version: 1.2
 #
 #   - 1.0 Martyn Watts, 25.06.2021 Initial Build
 #   - 1.1 Martyn Watts, 29.09.2021 Removed erroneous space in deplog path, moved the Open Console section to below the initial creation event
 #                                  & Created a scriptver variable that is recorded in the log files
+#   - 1.2 Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/
 #
 ####################################################################################################
 # Script to identify architecture and install Rosetta2 if needed
 #
 
-logfile="/Library/Logs/Rosetta2InstallScript.log"
+logfile="/Library/Caches/com.purplecomputing.mdm/Logs/Rosetta2InstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver="1.1"
+scriptver="1.2"
+
+# Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
 
 /bin/echo "Status: Installing ${appName}" >> ${deplog}
 /bin/echo "Status: Installing ${appName}" >> ${logfile}

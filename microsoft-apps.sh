@@ -54,6 +54,7 @@
 # 2021-07-09	Martyn Watts			Added DEPNotify Progress Output
 # 2021-09-24	Martyn Watts			Added Check to see if dockutil is installed to make the script more resilient
 # 2021-09-28	Martyn Watts			Added Check for full-oc (Full Install with Open Console for TeamViewer Installs) also added better logging
+# 4.0 - Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/
 ###
 
 ###
@@ -170,15 +171,19 @@ fi
 
 ## Variables
 MACADMINS_URL="https://macadmins.software/latest.xml"
-TEMP_PATH="/tmp/apps"
+TEMP_PATH="/Library/Caches/com.purplecomputing.mdm/Apps/"
 deplog="/var/tmp/depnotify.log"
-logfile="/tmp/OfficeInstallScript.log"
-scriptver="3.5"
+logfile="/Library/Caches/com.purplecomputing.mdm/Logs/OfficeInstallScript.log"
+scriptver="4.0"
 echo ${logfile}
 echo ${scriptver}
 
-
 # Main
+
+# Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
 
 if [[ -d "${TEMP_PATH}" ]]; then
     echo "Removing ${TEMP_PATH}"

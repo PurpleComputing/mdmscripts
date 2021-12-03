@@ -13,12 +13,13 @@
 #
 # HISTORY
 #
-#   Version: 1.3
+#   Version: 1.4
 #
 #   - 1.0 Martyn Watts, 13.08.2021 Initial Build
 #   - 1.1 Martyn Watts, 23.08.2021 Bug Fix for a incorrectly reporting failed install
 #   - 1.2 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
 #   - 1.3 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
+#   - 1.4 Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/
 #
 ####################################################################################################
 # Script to download and install ScanSnap Home.
@@ -29,9 +30,15 @@ downloadPageUrl=${siteRootUrl}'/global/dl/mac-sshoffline.html'
 appName='ScanSnap Home'
 installedAppName='ScanSnapHomeMain'
 forceQuit='Y'
-logfile="/Library/Logs/ScanSnapHomeInstallScript.log"
+logfile="/Library/Caches/com.purplecomputing.mdm/Logs/ScanSnapHomeInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptversion="1.3"
+scriptversion="1.4"
+
+# Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
+
 if [[ $@ == "openconsole" ]]; then
 	open ${logfile}
 	open ${deplog}
@@ -77,19 +84,17 @@ dnldfile=$(echo $url | sed 's:.*/::')
         /bin/echo "Available ${appName} version: ${latestver}"
         /bin/echo "`date`: Downloading newer version." >> ${logfile}
         /bin/echo "Downloading newer version."
-        /usr/bin/curl -s -o /tmp/${dnldfile} ${url}
+        /usr/bin/curl -s -o /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile} ${url}
         /bin/echo "`date`: Force quitting existing app." >> ${logfile}
         /bin/echo "Force quitting existing app."
         	if [[ "${forceQuit}" = "Y" ]]; then
         		pkill -f ScanSnap
         	fi
 
-		########################################################################################
-		# Uncomment this block for dmg & .pkg install   									   #
-       	######################################################################################## 
+
        	/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
        	/bin/echo "Mounting installer disk image."
-       	/usr/bin/hdiutil attach /tmp/${dnldfile} -nobrowse -quiet
+       	/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile} -nobrowse -quiet
        	/bin/echo "`date`: Installing..." >> ${logfile}
        	/bin/echo "Installing..."
        	dmgVolume=$(echo ${dnldfile} | cut -f1 -d'.')
@@ -105,12 +110,9 @@ dnldfile=$(echo $url | sed 's:.*/::')
        	/bin/sleep 10
        	/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep '${dmgVolume}' | awk '{print $1}') -quiet
        	/bin/sleep 10
-       	########################################################################################
-       
-       	/bin/sleep 5
         /bin/echo "`date`: Deleting the downloaded file." >> ${logfile}
         /bin/echo "Deleting the downloaded file."
-        /bin/rm /tmp/${dnldfile}
+        /bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}
 
         #double check to see if the new version got updated
         newlyinstalledver=$(/usr/bin/defaults read "/Applications/${installedAppName}.app/Contents/Info" CFBundleShortVersionString)

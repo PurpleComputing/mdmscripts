@@ -1,17 +1,22 @@
 #!/bin/bash
 
+# Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
+
 # Set Pashua config location
-PashuaConfig=/tmp/Pashua.config
+PashuaConfig=/Library/Caches/com.purplecomputing.mdm/Apps/Pashua.config
 
 # Download Pashua from our repo.
-curl -o /tmp/Pashua.zip https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/Pashua.zip
+curl -o /Library/Caches/com.purplecomputing.mdm/Apps/Pashua.zip https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/Pashua.zip
 
 # Extract Pashua
-cd /tmp
+cd /Library/Caches/com.purplecomputing.mdm/Apps/
 unzip Pashua.zip
 
 # Remove any legacy Pashua.config files
-rm -rf /tmp/Pashua.config
+rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/Pashua.config
 
 # Create Pashua config file
 echo "*.title=Gathering User Info" >> $PashuaConfig
@@ -28,7 +33,7 @@ echo "email.width = 340" >> $PashuaConfig
 
 # Launch Pashua to gather the info
 
-result=`/tmp/Pashua.app/Contents/MacOS/Pashua $PashuaConfig | sed 's/ /;;;/g'`
+result=`/Library/Caches/com.purplecomputing.mdm/Apps/Pashua.app/Contents/MacOS/Pashua $PashuaConfig | sed 's/ /;;;/g'`
 
 # Parse result
 for line in $result
@@ -44,9 +49,9 @@ jamf recon -endUsername "${email}" -realname "${fullname}" -email "${email}"
 
 # Cleanup tmp files
 
-rm -rf /tmp/Pashua.app
-rm -rf /tmp/Pashua.zip
-rm -rf /tmp/Pashua.config
+rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/Pashua.app
+rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/Pashua.zip
+rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/Pashua.config
 rm -rf $0
 
 # Other options include

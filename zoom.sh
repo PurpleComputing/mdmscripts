@@ -13,11 +13,12 @@
 #
 # HISTORY
 #
-#   Version: 1.1.1
+#   Version: 1.2
 #
 #   - 1.0 Martyn Watts, 28.09.2021 Initial Build
 #   - 1.1 Martyn Watts, 28.09.2021 Initial Build
 #   - 1.1.1 Martyn Watts, 28.09.2021 Initial Build
+#   - 1.2 Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/
 #
 ####################################################################################################
 # Script to download and install Zoom.
@@ -27,13 +28,17 @@ releaseNotesUrl='https://zoom.us/download'
 appName='zoom.us'
 dnldfile='zoom.pkg'
 forceQuit='Y'
-logfile="/Library/Logs/ZoomInstallScript.log"
+logfile="/Library/Caches/com.purplecomputing.mdm/Logs/ZoomInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver="1.1.1"
+scriptver="1.2"
 architecture=$(/usr/bin/arch)
 OSvers_URL=$( sw_vers -productVersion | sed 's/[.]/_/g' )
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
+# Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
 
 echo "Script Version: ${scriptver}" >> ${logfile}
 echo "Status: Installing ${appName}" >> ${deplog}
@@ -85,7 +90,7 @@ fi
         /bin/echo "`date`: Downloading newer version." >> ${logfile}
         /bin/echo "Downloading newer version."
         url=$(curl -Ls -o /dev/null -w %{url_effective} ${downloadUrl})
-        /usr/bin/curl -o "/tmp/${dnldfile}" ${url}
+        /usr/bin/curl -o "/Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}" ${url}
     	/bin/echo "`date`: Force quitting ${appName} if running." >> ${logfile}
     	/bin/echo "Force quitting ${appName} if running."
 
@@ -93,33 +98,13 @@ fi
         		killall ${appName}
         	fi
 
-		########################################################################################
-		# Uncomment this block for dmg & .app copy   										   #
-       	######################################################################################## 
-       	#/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-       	#/bin/echo "Mounting installer disk image."
-       	#/usr/bin/hdiutil attach /tmp/${appName} -nobrowse -quiet
-       	#/bin/echo "`date`: Installing..." >> ${logfile}
-       	#/bin/echo "Installing..."
-       	#ditto -rsrc "/Volumes/${dmgVolume}/${appName}.app" "/Applications/${appName}.app"
-       	#/bin/sleep 10
-       	#/bin/echo "`date`: Unmounting installer disk image." >> ${logfile}
-       	#/bin/echo "Unmounting installer disk image."
-       	#/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep '${dmgVolume}' | awk '{print $1}') -quiet
-       	#/bin/sleep 10
-       	########################################################################################
-       
-      	########################################################################################
-       	# Uncomment this block for .pkg install    											   #
-       	########################################################################################
-       	 cd /tmp
+       	 cd /Library/Caches/com.purplecomputing.mdm/Apps/
        	 /usr/sbin/installer -pkg $dnldfile -target /
-	   	########################################################################################
        
        	/bin/sleep 5
         /bin/echo "`date`: Deleting the downloaded file." >> ${logfile}
         /bin/echo "Deleting the downloaded file."
-        /bin/rm /tmp/${dnldfile}
+        /bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}
 
         #double check to see if the new version got updated
 		newlyinstalledlongver=`/usr/bin/defaults read "/Applications/${appName}.app/Contents/Info" CFBundleShortVersionString`

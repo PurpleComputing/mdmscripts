@@ -13,7 +13,7 @@
 #
 # HISTORY
 #
-#   Version: 1.7
+#   Version: 1.8
 #
 #   - v.1.0 Joe Farage, 23.01.2015
 #   - v.1.1 Joe Farage, 08.04.2015 : support for new Adobe Acrobat DC
@@ -24,14 +24,20 @@
 #   - v.1.5 Martyn Watts, 05.07.2021: fixed the latest version lookup (Lines 41-43)
 #   - v.1.6 Martyn Watts, 28.09.2021: Added Open Console Parameter to use with TeamViewer
 #   - v.1.7 Martyn Wattsm 29.09.2021: Added scriptver variable and sending that to the logfile to create the initial entry
+#   - v.1.8 Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/
 #
 ####################################################################################################
 # Script to download and install Adobe Acrobat Updates.
 # Only works on Intel systems.
 
+# Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
+
 dmgfile="acrobat.dmg"
-logfile="/Library/Logs/AdobeAcrobatDCUpdateScript.log"
-scriptver="1.6"
+logfile="/Library/Caches/com.purplecomputing.mdm/Apps/AdobeAcrobatDCUpdateScript.log"
+scriptver="1.8"
 
 echo "Script Version: ${scriptver}" >> ${logfile}
 
@@ -86,9 +92,9 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
         /bin/echo "`date`: Current Acrobat DC version: ${currentinstalledver}" >> ${logfile}
         /bin/echo "`date`: Available Acrobat DC version: ${latestver} => ${latestvernorm}" >> ${logfile}
         /bin/echo "`date`: Downloading newer version." >> ${logfile}
-        /usr/bin/curl -o /tmp/acrobat.dmg ${url}
+        /usr/bin/curl -o /Library/Caches/com.purplecomputing.mdm/Apps/acrobat.dmg ${url}
         /bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-        /usr/bin/hdiutil attach /tmp/acrobat.dmg -nobrowse -quiet
+        /usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/acrobat.dmg -nobrowse -quiet
         /bin/echo "`date`: Installing..." >> ${logfile}
         /usr/sbin/installer -pkg /Volumes/AcrobatDCUpd${ARCurrVersNormalized}/AcrobatDCUpd${ARCurrVersNormalized}.pkg -target /
 
@@ -97,7 +103,7 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
         /usr/bin/hdiutil detach /Volumes/AcrobatDCUpd${ARCurrVersNormalized} -quiet
         /bin/sleep 10
         /bin/echo "`date`: Deleting disk image." >> ${logfile}
-        /bin/rm /tmp/${dmgfile}
+        /bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile}
 
         #double check to see if the new version got updated
         newlyinstalledver=`/usr/bin/defaults read /Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app/Contents/Info CFBundleShortVersionString`

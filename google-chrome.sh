@@ -13,7 +13,7 @@
 #
 # HISTORY
 #
-#   Version: 1.3
+#   Version: 1.6
 #
 #   - 1.0 Martyn Watts, 01.07.2021 Initial Build
 #   - 1.1-m Michael Tanner, 18.08.2021 Adapted for Mosyle
@@ -21,6 +21,7 @@
 #   - 1.3 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
 #   - 1.4 Martyn Watts, 29.09.2021 Added scriptver variable and corrected log opening
 #   - 1.5 Michael Tanner, 06.11.2021 
+#   - 1.6 Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/
 #
 ####################################################################################################
 # Script to download and install Google Chrome.
@@ -32,9 +33,9 @@ url='https://dl.google.com/chrome/mac/stable/gcem/GoogleChrome.pkg'
 dnldfile='GoogleChrome.pkg'
 appName='Google Chrome'
 forceQuit='Y'
-logfile="/Library/Logs/GoogleChromeInstallScript.log"
+logfile="/Library/Caches/com.purplecomputing.mdm/Logs/GoogleChromeInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver='1.5'
+scriptver='1.6'
 
 #Making Purple Cache directories for in the event that the helper script hasn't been run
 mkdir -p /Library/Caches/com.purplecomputing.mdm/

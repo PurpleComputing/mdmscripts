@@ -13,7 +13,7 @@
 #
 # HISTORY
 #
-#   Version: 1.6
+#   Version: 1.7
 #
 #   - 1.0 Joe Farage, 18.03.2015
 #   - 1.0.1 Chris Hansen, 14.05.2020 Some square brackets change to double square brackets
@@ -23,16 +23,22 @@
 #   - 1.4 Martyn Watts, 24.09.2021 Added Check to see if dockutil is installed to make the script more resilient
 #   - 1.5 Martyn Watts, 28.09.2021 Added Open Console Parameter to use with TeamViewer
 #   - 1.6 Martyn Watts, 29.09.2021 Added scriptver variable and sending this to the logfile
+#   - 1.7 Martyn Watts, 03.12.2012 Changed the /tmp paths to /Library/Caches/com.purplecomputing.mdm/
 #
 ####################################################################################################
 # Script to download and install Firefox.
 # Only works on Intel systems.
 #
 
+# Making Purple Cache directories for in the event that the helper script hasn't been run
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
+
 dmgfile="FF.dmg"
-logfile="/Library/Logs/FirefoxInstallScript.log"
+logfile="/Library/Caches/com.purplecomputing.mdm/Logs/FirefoxInstallScript.log"
 deplog="/var/tmp/depnotify.log"
-scriptver="1.6"
+scriptver="1.7"
 
 echo "Script Version: ${scriptver}" >> ${logfile}
 
@@ -78,9 +84,9 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
 		/bin/echo "`date`: Current Firefox version: ${currentinstalledver}" >> ${logfile}
 		/bin/echo "`date`: Available Firefox version: ${latestver}" >> ${logfile}
 		/bin/echo "`date`: Downloading newer version." >> ${logfile}
-		/usr/bin/curl -s -o /tmp/${dmgfile} ${url}
+		/usr/bin/curl -s -o /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} ${url}
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil attach /tmp/${dmgfile} -nobrowse -quiet
+		/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} -nobrowse -quiet
 		/bin/echo "`date`: Installing..." >> ${logfile}
 		ditto -rsrc "/Volumes/Firefox/Firefox.app" "/Applications/Firefox.app"
 
@@ -89,7 +95,7 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
 		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep Firefox | awk '{print $1}') -quiet
 		/bin/sleep 10
 		/bin/echo "`date`: Deleting disk image." >> ${logfile}
-		/bin/rm /tmp/${dmgfile}
+		/bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile}
 
 		#double check to see if the new version got updated
 		newlyinstalledver=`/usr/bin/defaults read /Applications/Firefox.app/Contents/Info CFBundleShortVersionString`
