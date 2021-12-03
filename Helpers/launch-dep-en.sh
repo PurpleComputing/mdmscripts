@@ -1,3 +1,3 @@
 # LAUNCH DEPNOTIFY FOR ENROLMENT
-screen -dmS DEPEnroll bash -c '/Applications/Utilities/DEPNotify.app/Contents/MacOS/DEPNotify -fullScreen; exec bash'
+screen -dmS DEPEnroll /Applications/Utilities/DEPNotify.app/Contents/MacOS/DEPNotify -fullScreen
 # /Applications/Utilities/DEPNotify.app/Contents/MacOS/DEPNotify -fullScreen
