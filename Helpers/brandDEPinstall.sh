@@ -28,7 +28,7 @@ chmod 777 /var/tmp/depnotify.log
 ## BRANDING DEPNOTIFY WINDOW
 echo Command: MainTitle: Installing $appname... >> /var/tmp/depnotify.log
 echo 'Command: Image: /Library/Application Support/Purple/logo.png' >> /var/tmp/depnotify.log
-echo "Command: MainText: We are now installing/re-installing the $appname application." >> /var/tmp/depnotify.log
+echo Command: MainText: We are now installing the $appname application. >> /var/tmp/depnotify.log
 echo Command: WindowStyle: Activate >> /var/tmp/depnotify.log
 echo Command: NotificationOn: >> /var/tmp/depnotify.log
 ## STARTING INSTALLS ###
