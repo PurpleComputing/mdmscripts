@@ -32,5 +32,5 @@ echo 'Command: MainText: We are now installing/re-installing the $appname applic
 echo Command: WindowStyle: Activate >> /var/tmp/depnotify.log
 echo Command: NotificationOn: >> /var/tmp/depnotify.log
 ## STARTING INSTALLS ###
-sleep 2s
+sleep 2
 ## echo Status: Installing $appname in the background... >> /var/tmp/depnotify.log ## IGNORE DO NOT DELETE FOR NOW
