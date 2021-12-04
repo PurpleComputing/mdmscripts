@@ -13,9 +13,11 @@
 #
 # HISTORY
 #
-#   Version: 1.2
+#   Version: 1.3
 #
 #   - 1.1 Michael Tanner, 04.10.2021
+#   - 1.2 Michael Tanner, 04.10.2021
+#   - 1.3 Michael Tanner, 04.10.2021 - Fixed moved /tmp location for $appname
 #
 #########################################################################
 # Script to brand DEPNotify with PurpleComputing for app installs.
