@@ -45,7 +45,7 @@ url="https://www.sonos.com/redir/controller_software_mac2"
 
 		/bin/sleep 10
 		/bin/echo "`date`: Unmounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep Sonos | awk '{print $1}') -quiet
+		/bin/umount -f /Volumes/Sonos*
 		/bin/sleep 10
 		/bin/echo "`date`: Deleting disk image." >> ${logfile}
 		/bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile}
