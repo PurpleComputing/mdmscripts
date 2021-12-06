@@ -28,13 +28,13 @@ mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
 mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
 
 dmgfile="DetectX_Swift.app.zip"
-logfile="/Library/Caches/com.purplecomputing.mdm/Logs/SuitcaseFusionInstallScript.log"
+logfile="/Library/Caches/com.purplecomputing.mdm/Logs/DetectXInstallScript.log"
 deplog="/var/tmp/depnotify.log"
 scriptver="1.0"
 
 echo "Script Version: ${scriptver}" >> ${logfile}
-echo "Status: Installing Suitcase Fusion" >> ${deplog}
-echo "Status: Installing Suitcase Fusion" >> ${logfile}
+echo "Status: Installing DetectX" >> ${deplog}
+echo "Status: Installing DetectX" >> ${logfile}
 url="https://s3.amazonaws.com/sqwarq.com/PublicZips/DetectX_Swift.app.zip"
 cd /Library/Caches/com.purplecomputing.mdm/Apps/
 		/usr/bin/curl -L -s -o /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} ${url}
