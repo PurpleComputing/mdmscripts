@@ -38,7 +38,10 @@ echo "Status: Installing ${appName} using script version ${scriptver}" >> ${logf
 
 echo "Status: Downloading ZeroTier" >> ${logfile}
 echo "Status: Downloading ZeroTier" >> ${deplog}
-curl -o /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg https://download.zerotier.com/dist/ZeroTier%20One.pkg
+
+# Using 1.8.1 version to stop the continual prompts for credentials
+curl -o /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg https://download.zerotier.com/RELEASES/1.8.1/dist/ZeroTierOne.pkg
+#curl -o /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg https://download.zerotier.com/dist/ZeroTier%20One.pkg
 
 echo "Status: Running the installer" >> ${logfile}
 echo "Status: Running the installer" >> ${deplog}
