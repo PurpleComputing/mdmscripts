@@ -52,9 +52,7 @@ echo "Status: Cleaning up after the Script" >> ${deplog}
 rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg
 sleep 2
 echo "Status: ZeroTier Update Complete" >> ${deplog}
-sleep 10
+#sleep 10
 #echo "Status: Joining ZeroTier to network ${@}" >> ${logfile}
 #echo "Status: Joining ZeroTier to network ${@}" >> ${deplog}
 #/usr/local/bin/zerotier-cli join $@
-
-exit 0
