@@ -1,9 +1,10 @@
 #!/bin/sh
-serial=$(ioreg -rd1 -c IOPlatformExpertDevice | awk -F'"' '/IOPlatformSerialNumber/{print $4}')
-username=$(stat -f %Su /dev/console)
-type=$(sysctl -n hw.model | cut -d "," -f 1 | tr -d '[0-9]_')
-mac=$(networksetup -getmacaddress Wi-Fi | awk '{ field = substr($3,10,8) }; END{ print field }' | sed s/://g)
-computerName="${username}-${type}-${mac}"
+FullName=$(sudo -u $(stat -f "%Su" /dev/console) id -F)
+ComputerModel=$(/usr/sbin/system_profiler SPHardwareDataType | grep 'Model Name' | cut -d":" -f2)
+ComputerName=$(echo $FullName$ComputerModel | sed -e "s/ /-/g")
+sudo /usr/sbin/scutil --set HostName "$ComputerName"
+sudo /usr/sbin/scutil --set LocalHostName "$ComputerName"
+sudo /usr/sbin/scutil --set ComputerName "$ComputerName"
 
 /usr/sbin/scutil --set HostName "$computerName"
 /usr/sbin/scutil --set LocalHostName "$computerName"
