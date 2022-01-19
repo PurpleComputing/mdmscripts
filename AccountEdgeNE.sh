@@ -27,7 +27,10 @@ appName='AccountEdge NE'
 forceQuit='Y'
 logfile="/Library/Caches/com.purplecomputing.mdm/Logs/AccountEdgeNEInstallScript.log"
 deplog="/var/tmp/depnotify.log"
+OSvers_URL=$( sw_vers -productVersion | sed 's/[.]/_/g' )
+userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 scriptver="1.0"
+
 
 # Making Purple Cache directories for in the event that the helper script hasn't been run
 mkdir -p /Library/Caches/com.purplecomputing.mdm/
@@ -47,7 +50,7 @@ fi
 
         /bin/echo "`date`: Downloading." >> ${logfile}
         /bin/echo "Downloading."
-        /usr/bin/curl -s -o /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile} ${downloadUrl}
+        /usr/bin/curl -L -o /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile} ${downloadUrl}
         	if [[ "${forceQuit}" = "Y" ]]; then
         		killall ${appName}
         	fi
@@ -73,6 +76,6 @@ fi
        	/bin/sleep 5
         /bin/echo "`date`: Deleting the downloaded file." >> ${logfile}
         /bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dnldfile}
-        
+
     /bin/echo "Command: DeterminateManualStep: 1" >> ${deplog}
 
