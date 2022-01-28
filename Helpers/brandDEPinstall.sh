@@ -32,7 +32,12 @@ echo Command: MainTitle: Installing $appname... >> /var/tmp/depnotify.log
 echo 'Command: Image: /Library/Application Support/Purple/logo.png' >> /var/tmp/depnotify.log
 echo Command: MainText: We are now installing the $appname application. >> /var/tmp/depnotify.log
 echo Command: WindowStyle: Activate >> /var/tmp/depnotify.log
+
+if @1 != "NotificationOff" then
 echo Command: NotificationOn: >> /var/tmp/depnotify.log
+fi
+    
+done
 ## STARTING INSTALLS ###
 sleep 2
 ## echo Status: Installing $appname in the background... >> /var/tmp/depnotify.log ## IGNORE DO NOT DELETE FOR NOW
