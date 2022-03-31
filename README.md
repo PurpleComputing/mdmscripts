@@ -370,3 +370,15 @@ This script is designed to prompt the user for information to assist in the assi
 ```
 sudo curl -o /tmp/computer-assignment.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/computer-assignment.sh && sudo chmod +x /tmp/computer-assignment.sh && sudo /tmp/computer-assignment.sh [options]
 ```
+
+## dockutil.sh
+
+### Install Dockutil or Dockutil Swift depending on OS Version
+
+This script is designed to install the correct version of Dockutil.
+
+#### Command to execute
+
+```
+curl -o /tmp/dockutil.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/dockutil.sh && chmod +x /tmp/dockutil.sh && /tmp/dockutil.sh
+```
