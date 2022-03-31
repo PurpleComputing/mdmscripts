@@ -380,5 +380,5 @@ This script is designed to install the correct version of Dockutil.
 #### Command to execute
 
 ```
-curl -o /tmp/dockutil.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/dockutil.sh && chmod +x /tmp/dockutil.sh && /tmp/dockutil.sh
+curl -o /tmp/dockutil.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/dockutil.sh && chmod +x /tmp/dockutil.sh && /tmp/dockutil.sh && rm -rf /tmp/dockutil.sh
 ```
