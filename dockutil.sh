@@ -13,9 +13,10 @@
 #
 # HISTORY
 #
-#   Version: 1.0
+#   Version: 1.1
 #
 #   - 1.0 Michael Tanner, 31.03.21
+#   - 1.1 Michael Tanner, 31.03.21 - Added Variables 
 #
 ####################################################################################################
 #
@@ -27,26 +28,39 @@ mkdir -p /Library/Caches/com.purplecomputing.mdm/
 mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
 mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
 
-rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/dockutil.pkg
+
+APPINSTPATH=/Library/Caches/com.purplecomputing.mdm/Apps/
+PRPLGITURL="https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers"
+
+rm -rf $APPINSTPATHdockutil*.pkg
 rm -rf /tmp/dockutil.pkg
+
 
 os_ver=${1:-$(sw_vers -productVersion)}
 if [[ "$os_ver" == 10.* ]]; then
-	echo "macOS Old School"
-    curl -o /Library/Caches/com.purplecomputing.mdm/Apps/dockutil.pkg https://github.com/PurpleComputing/mdmscripts/raw/main/Helpers/dockutil.pkg
+	echo "Mac is running macOS Old School"
+    INSTALLERNME=dockutil.pkg
+    echo "Chosen $INSTALLERNME"
+    curl -o $APPINSTPATH$INSTALLERNME $PRPLGITURL/$INSTALLERNME -s
 elif [[ "$os_ver" == 11.* ]]; then
-	echo "macOS Big Sur"
-    curl -o /Library/Caches/com.purplecomputing.mdm/Apps/dockutil.pkg https://github.com/PurpleComputing/mdmscripts/raw/main/Helpers/dockutil.pkg
+	echo "Mac is running macOS Big Sur"
+    INSTALLERNME=dockutil.pkg
+    echo "Chosen $INSTALLERNME"
+    curl -o $APPINSTPATH$INSTALLERNME $PRPLGITURL/$INSTALLERNME -s
 elif [[ "$os_ver" == 12.* ]]; then
-	echo "macOS Monterey"
-    curl -o /Library/Caches/com.purplecomputing.mdm/Apps/dockutil.pkg https://github.com/PurpleComputing/mdmscripts/raw/main/Helpers/dockutil-swift.pkg
+	echo "Mac is running macOS Monterey"
+    INSTALLERNME=dockutil-swift.pkg
+    echo "Chosen $INSTALLERNME"
+    curl -o $APPINSTPATH$INSTALLERNME $PRPLGITURL/$INSTALLERNME -s
     echo "Downloaded Dockutil Swift Version"
 else
-	echo "(Mac) OS X something"
-    curl -o /Library/Caches/com.purplecomputing.mdm/Apps/dockutil.pkg https://github.com/PurpleComputing/mdmscripts/raw/main/Helpers/dockutil-swift.pkg
+	echo "Mac is running macOS something new..."
+    INSTALLERNME=dockutil-swift.pkg
+    echo "Chosen $INSTALLERNME"
+    curl -o $APPINSTPATH$INSTALLERNME $PRPLGITURL/$INSTALLERNME -s
     echo "Downloaded Dockutil Swift Version"
 fi
-sleep 10
-installer -pkg /Library/Caches/com.purplecomputing.mdm/Apps/dockutil.pkg -target /
+sleep 3
+installer -pkg $APPINSTPATH$INSTALLERNME -target /
 
-rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/dockutil.pkg
+rm -rf $APPINSTPATH$INSTALLERNME
