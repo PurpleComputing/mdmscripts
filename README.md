@@ -382,3 +382,15 @@ This script is designed to install the correct version of Dockutil.
 ```
 curl -o /tmp/dockutil.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/dockutil.sh && chmod +x /tmp/dockutil.sh && /tmp/dockutil.sh && rm -rf /tmp/dockutil.sh
 ```
+
+## Installomator.sh
+
+### Install or Updates Installomator 
+
+This script is designed to install the correct version of Installomator.
+
+#### Command to execute
+
+```
+curl -o /tmp/Installomator.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Installomator.sh && chmod +x /tmp/Installomator.sh && /tmp/Installomator.sh && rm -rf /tmp/Installomator.sh
+```
