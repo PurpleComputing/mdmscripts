@@ -20,22 +20,25 @@
 #########################################################################
 
 scriptver='1.0'
+export CURL_SSL_BACKEND="secure-transport"
 logfile="/Library/Logs/com.purplecomputing.mdm/outlook-erase.log"
 #Making Purple Cache directories for in the event that the helper script hasn't been run
 mkdir -p /Library/Caches/com.purplecomputing.mdm/
 mkdir -p /Library/Logs/com.purplecomputing.mdm/
 mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
-
+curl -o /Library/Caches/com.purplecomputing.mdm/Apps/OU.pkg https://office-reset.com/download/Microsoft_Outlook_Reset_1.9.1.pkg
 curl -o /Library/Caches/com.purplecomputing.mdm/Apps/OE.pkg https://office-reset.com/download/Microsoft_Outlook_Data_Removal_1.9.1.pkg
 
 echo "Status: Running the installer" >> ${logfile}
+installer -pkg /Library/Caches/com.purplecomputing.mdm/Apps/OU.pkg -target /
 installer -pkg /Library/Caches/com.purplecomputing.mdm/Apps/OE.pkg -target /
 
 echo "Status: Cleaning up after the installer" >> ${logfile}
+rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/OU.pkg
 rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/OE.pkg
 sleep 2
 
 echo "Status: Completed" >> ${logfile}
-echo Complere
+echo Complete
 
 exit 0
