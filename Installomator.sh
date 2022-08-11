@@ -21,7 +21,8 @@
 # Script to download and install 1Password 7.
 # Only works on Intel systems.
 #
-
+mkdir -p /Library/Caches/com.purplecomputing.mdm/
+chmod 777 /Library/Caches/com.purplecomputing.mdm/
 cd /Library/Caches/com.purplecomputing.mdm/
 mkdir -p Apps
 cd Apps
