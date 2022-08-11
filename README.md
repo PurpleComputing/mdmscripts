@@ -286,7 +286,7 @@ This script is designed to silently install ZeroTier to an MDM enrolled Mac.
 #### Command to execute
 
 ```
-sudo curl -o /tmp/zerotier.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zerotier.sh && sudo chmod +x /tmp/zerotier.sh && sudo /tmp/zerotier.sh [NETWORKID]
+curl https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/zerotier.sh | bash
 ```
 
 ##### A REBOOT IS REQUIRED FOR THE TLS CERT GENERATION
@@ -380,7 +380,7 @@ This script is designed to install the correct version of Dockutil.
 #### Command to execute
 
 ```
-curl -o /tmp/dockutil.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/dockutil.sh && chmod +x /tmp/dockutil.sh && /tmp/dockutil.sh && rm -rf /tmp/dockutil.sh
+curl https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/dockutil.sh | bash
 ```
 
 ## Installomator.sh
@@ -392,5 +392,5 @@ This script is designed to install the correct version of Installomator.
 #### Command to execute
 
 ```
-curl -o /tmp/Installomator.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Installomator.sh && chmod +x /tmp/Installomator.sh && /tmp/Installomator.sh && rm -rf /tmp/Installomator.sh
+curl https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Installomator.sh | bash
 ```
