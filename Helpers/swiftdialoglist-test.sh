@@ -23,6 +23,8 @@ DEBUG=0
 #     "googlechromepkg|Google Chrome"
 #  )
 
+items=$@
+
 # MARK: Constants
 
 scriptDir=$(dirname ${0:A})
