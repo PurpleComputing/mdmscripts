@@ -49,6 +49,7 @@ dialogUpdate() {
     if [[ -n $dialog_command_file ]]; then
         echo "$dcommand" >> $dialog_command_file
         echo "Dialog: $dcommand"
+        sleep 10
     fi
 }
 
