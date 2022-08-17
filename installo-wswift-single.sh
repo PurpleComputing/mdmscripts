@@ -120,7 +120,7 @@ caffeinate -dimsu & caffeinatePID=$!
 trap cleanupAndExit EXIT
 
 # display first screen
-$dialog --title "Installing $label" \
+$dialog --title "Install or Update: $label" \
         --message "$label is installing, you will see the status below. /n Thank you for choosing Purple Computing." \
         --icon "SF=macwindow.badge.plus" \
         --mini \
@@ -141,6 +141,6 @@ $installomator $label \
 dialogUpdate "progress: complete"
 dialogUpdate "progresstext: Done"
 
-sleep 0.5
+sleep 15
 
 dialogUpdate "quit:"
