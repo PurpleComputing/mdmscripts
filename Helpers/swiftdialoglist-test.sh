@@ -25,6 +25,9 @@ DEBUG=0
 
 # items=$(cat /Library/Application\ Support/Purple/Installomator/MDM/listapps.txt)
 
+items=$@
+
+
 # MARK: Constants
 
 scriptDir=$(dirname ${0:A})
