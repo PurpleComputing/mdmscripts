@@ -141,6 +141,6 @@ $installomator $label \
 dialogUpdate "progress: complete"
 dialogUpdate "progresstext: Done"
 
-sleep 0.1
+sleep 8
 
 dialogUpdate "quit:"
