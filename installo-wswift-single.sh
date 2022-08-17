@@ -121,8 +121,8 @@ trap cleanupAndExit EXIT
 
 # display first screen
 $dialog --title "Installing $label" \
-        --message "" \
-        --hideicon \
+        --message "$label is installing, you will see the status below. /n Thank you for choosing Purple Computing." \
+        --icon "SF=macwindow.badge.plus" \
         --mini \
         --progress 100 \
         --position bottomright \
