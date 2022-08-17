@@ -23,7 +23,7 @@ DEBUG=0
 #     "googlechromepkg|Google Chrome"
 #  )
 
-items=$@
+items=$(cat /Library/Application\ Support/Purple/Installomator/MDM/listapps.txt)
 
 # MARK: Constants
 
