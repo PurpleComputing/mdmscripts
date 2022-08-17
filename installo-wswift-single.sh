@@ -130,7 +130,7 @@ $dialog --title "Install or Update: $label" \
         --movable \
         --commandfile $dialog_command_file & dialogPID=$!
 
-sleep 0.1
+sleep 8
 
 $installomator $label \
                DIALOG_CMD_FILE="$dialog_command_file" \
@@ -141,6 +141,6 @@ $installomator $label \
 dialogUpdate "progress: complete"
 dialogUpdate "progresstext: Done"
 
-sleep 15
+sleep 0.1
 
 dialogUpdate "quit:"
