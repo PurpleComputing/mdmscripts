@@ -1,7 +1,7 @@
 
 #KERNELPANICS
 PanicLogCount=$(/usr/bin/find /Library/Logs/DiagnosticReports -Btime -7 -name *.panic | grep . -c)
-/bin/echo Kernel Panics Logged":""$PanicLogCount"
+/bin/echo Kernel Panics Logged":" "$PanicLogCount"
 
 echo
 echo
@@ -53,7 +53,7 @@ done
 else
   echo "ZeroTier is not installed"
 fi
-exit 0
+# exit 0
 
 echo
 echo
