@@ -32,6 +32,7 @@ echo
 echo
 
 #ZEROTIER
+echo "ZeroTier Information"
 DIR="/Library/Application Support/ZeroTier"
 if [ -d "$DIR" ]; then
 MYID=$(/usr/local/bin/zerotier-cli info | cut -d " " -f 3)
