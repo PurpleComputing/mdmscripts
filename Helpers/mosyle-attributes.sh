@@ -3,9 +3,15 @@
 PanicLogCount=$(/usr/bin/find /Library/Logs/DiagnosticReports -Btime -7 -name *.panic | grep . -c)
 /bin/echo Kernel Panics Logged":""$PanicLogCount"
 
+echo
+echo
+
 #TEAMVIEWER
 TVID=$(defaults read /Library/Preferences/com.teamviewer.teamviewer.preferences.plist ClientID)
 echo "TeamViewer ID: $TVID"
+
+echo
+echo
 
 #LAST INFO
 REBOOT=$(last | grep -m 1 "reboot" | awk '{ print $3 " " $4 " " $5 " " $6 }')
@@ -15,9 +21,15 @@ echo "Last Login: $LOGIN"
 echo "Last Reboot: $REBOOT"
 echo "Last Shutdown: $SHUTDOWN"
 
+echo
+echo
+
 #Volumes
 volmount=$(cd /Volumes && ls)
 echo Volumes Mounted":" $volmount
+
+echo
+echo
 
 #ZEROTIER
 DIR="/Library/Application Support/ZeroTier"
@@ -42,6 +54,8 @@ else
 fi
 exit 0
 
+echo
+echo
 
 hwType=$(/usr/sbin/system_profiler SPHardwareDataType | grep "Model Identifier" | grep "Book")
 
@@ -53,3 +67,6 @@ if [ "$hwType" != "" ];
   else
 	  echo Battery Health":" "N/A"
 fi
+
+echo
+echo
