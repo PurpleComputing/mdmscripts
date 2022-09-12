@@ -1359,14 +1359,7 @@ updateDialog() {
         fi
     fi
 }
-# MARK: check minimal macOS requirement
-autoload is-at-least
 
-installedOSversion=$(sw_vers -productVersion)
-if ! is-at-least 10.14 $installedOSversion; then
-    printlog "Installomator requires at least macOS 10.14 Mojave." ERROR
-    exit 98
-fi
 
 
 # MARK: argument parsing
