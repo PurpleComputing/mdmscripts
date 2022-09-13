@@ -30,7 +30,7 @@ rm -rf Installomator*
 REPO=Installomator/Installomator
 DLURL=$(curl -s https://api.github.com/repos/${REPO}/releases/latest | awk -F\" '/browser_download_url.*.pkg/{print $(NF-1)}')
 echo Download is $DLURL
-curl -L $DLURL -O
+curl -s -L $DLURL -O
 installer -pkg Installomator*.pkg -target /
 rm -rf Installomator*
-/usr/local/Installomator/Installomator.sh -v
+/usr/local/Installomator/Installomator.sh longversion
