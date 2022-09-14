@@ -33,25 +33,25 @@ mkdir -p /Library/Caches/com.purplecomputing.mdm/
 mkdir -p /Library/Logs/com.purplecomputing.mdm/
 mkdir -p /Library/Caches/com.purplecomputing.mdm/Apps/
 
-echo "Status: Installing ${appName} using script version ${scriptver}" >> ${deplog}
+echo "Status: Installing $appName" >> $deplog
 echo "Status: Installing ${appName} using script version ${scriptver}" >> ${logfile}
 
 echo "Status: Downloading ZeroTier" >> ${logfile}
-echo "Status: Downloading ZeroTier" >> ${deplog}
+echo "Status: Downloading ZeroTier" >> $deplog
 
-curl -o /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg https://download.zerotier.com/dist/ZeroTier%20One.pkg
+curl -s -o /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg https://download.zerotier.com/dist/ZeroTier%20One.pkg
 
 echo "Status: Running the installer" >> ${logfile}
-echo "Status: Running the installer" >> ${deplog}
+echo "Status: Running the ZeroTier installer" >> $deplog
 installer -pkg /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg -target /
 
 echo "Status: Cleaning up after the installer" >> ${logfile}
-echo "Status: Cleaning up after the installer" >> ${deplog}
+echo "Status: Cleaning up after the ZeroTier installer" >> $deplog
 rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg
-sleep 2
+sleep 1
 
-echo "Status: Joining ZeroTier to network ${@}" >> ${logfile}
-echo "Status: Joining ZeroTier to network ${@}" >> ${deplog}
-/usr/local/bin/zerotier-cli join $@
+# echo "Status: Joining ZeroTier to network ${@}" >> ${logfile}
+# echo "Status: Joining ZeroTier to network ${@}" >> ${deplog}
+# /usr/local/bin/zerotier-cli join $@
 
 exit 0
