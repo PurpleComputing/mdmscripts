@@ -50,6 +50,8 @@ echo "Status: Cleaning up after the ZeroTier installer" >> $deplog
 rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg
 sleep 1
 
+echo "Command: DeterminateManualStep: 1" >> $deplog
+
 # echo "Status: Joining ZeroTier to network ${@}" >> ${logfile}
 # echo "Status: Joining ZeroTier to network ${@}" >> ${deplog}
 # /usr/local/bin/zerotier-cli join $@
