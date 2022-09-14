@@ -47,18 +47,22 @@ arch=$(/usr/bin/arch)
 if [ "$arch" == "arm64" ]; then
     echo "Apple Silicon - Installing Rosetta" >> ${logfile}
     echo "Apple Silicon - Installing Rosetta" >> ${deplog}
+    echo "Apple Silicon - Installing Rosetta"
     sleep 1
     /usr/sbin/softwareupdate --install-rosetta --agree-to-license
     echo "Rosetta 2 Now Installed" >> ${deplog}
     echo "Rosetta 2 Now Installed" >> ${logfile}
-    sleep 5
+    echo "Rosetta 2 Now Installed" 
+    sleep 2
 elif [ "$arch" == "i386" ]; then
     echo "Intel - Skipping Rosetta" >> ${deplog}
     echo "Intel - Skipping Rosetta" >> ${logfile}
+    echo "Intel - Skipping Rosetta"
     sleep 1
 else
     echo "Unknown Architecture" >> ${deplog}
     echo "Unknown Architecture" >> ${logfile}
+    echo "Unknown Architecture"
     sleep 1
 fi
 
