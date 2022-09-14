@@ -43,6 +43,8 @@ curl -s -o /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg https://download.
 
 echo "Status: Running the installer" >> ${logfile}
 echo "Status: Running the ZeroTier installer" >> $deplog
+echo "-- INSTALLING $prpltrueappcount APPS --"
+
 installer -pkg /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg -target /
 
 echo "Status: Cleaning up after the installer" >> ${logfile}
