@@ -64,12 +64,12 @@ sleep 3
 #
 #    CALL API WITH INFO
 #
-echo BEFORE CURL
+
 curl -H "Authorization: Bearer $ZTAPIKEY" -X POST -d '{"name":"'"$ZTDEVICENAME"'","description":"Device authorised through Purple Script.","config":{"authorized":true}}' https://my.zerotier.com/api/network/$ZTNETID/member/$MYID
 curl -s -H "Authorization: Bearer $ZTAPIKEY" https://my.zerotier.com/api/network/$ZTNETID/member/$MYID
 echo Status: Network authorised, ready to go! >> /var/tmp/depnotify.log
 touch /tmp/ztnetauthed.log
-echo AFTER CURL
+
 #
 echo Command: ContinueButton: Close >> /var/tmp/depnotify.log
 
