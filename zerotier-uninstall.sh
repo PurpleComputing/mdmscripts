@@ -32,5 +32,5 @@ if [ "`pwd`" = '/Library/Application Support/ZeroTier/One' ]; then
 	rm -rf *.d *.sh *.log *.old *.kext *.conf *.pkg *.dmg *.pid *.port *.save *.bin planet zerotier-* devicemap
 fi
 rm -rf "/Library/Application Support/ZeroTier/One"
-
+echo ZeroTier has been removed.
 exit 0
