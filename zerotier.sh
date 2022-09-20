@@ -20,11 +20,13 @@
 #   - 1.2 Martyn Watts, 29.09.2021 Added logging information
 #   - 1.3 Michael Tanner, 06.11.2021 fixing /tmp folder usage for Monterey
 #   - 1.4 Michael Tanner, reverted back to latest version
+#   - 1.5 Michael Tanner, added killing of processes on initial install
+#                         to aid with silent bg operation.
 #
 #########################################################################
 # Script to install ZeroTier and to join the organisations ZT Network.
 #
-scriptver='1.3'
+scriptver='1.5'
 logfile="/Library/Logs/com.purplecomputing.mdm/ZeroTierInstallScript.log"
 appName="ZeroTier"
 deplog="/var/tmp/depnotify.log"
