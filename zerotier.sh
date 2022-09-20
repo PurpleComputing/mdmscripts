@@ -13,12 +13,13 @@
 #
 # HISTORY
 #
-#   Version: 1.3
+#   Version: 1.4
 #
 #   - 1.0 Martyn Watts, 25.06.2021 Initial Script Template Build
 #   - 1.1 Michael Tanner, 28.09.2021 Implement ZeroTier Install Script
 #   - 1.2 Martyn Watts, 29.09.2021 Added logging information
 #   - 1.3 Michael Tanner, 06.11.2021 fixing /tmp folder usage for Monterey
+#   - 1.4 Michael Tanner, reverted back to latest version
 #
 #########################################################################
 # Script to install ZeroTier and to join the organisations ZT Network.
