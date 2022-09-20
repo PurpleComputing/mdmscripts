@@ -13,7 +13,7 @@
 #
 # HISTORY
 #
-#   Version: 1.4
+#   Version: 1.5
 #
 #   - 1.0 Martyn Watts, 25.06.2021 Initial Script Template Build
 #   - 1.1 Michael Tanner, 28.09.2021 Implement ZeroTier Install Script
