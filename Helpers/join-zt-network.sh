@@ -32,6 +32,7 @@ mkdir -p /Library/Caches/com.purplecomputing.mdm/Scripts/
 rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
 rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/.appinstallname
 rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/pkg
+rm -rf /tmp/ztnetauthed.log /tmp/ztnetready.log  /tmp/ztnetjoined.log
 
 
 # UPDATE PURPLE HELPERS
@@ -67,6 +68,7 @@ echo "Command: Determinate: 3" >> /var/tmp/depnotify.log
 echo Status: Joining $NETNAME Network >> /var/tmp/depnotify.log
 sudo -u $(stat -f "%Su" /dev/console) /usr/local/bin/zerotier-cli join $NETID
 /usr/local/bin/zerotier-cli join $NETID
+touch /tmp/ztnetjoined.log
 sleep 3
 #
 ########################################################################
@@ -84,11 +86,13 @@ echo BEFORE CURL
 curl -H "Authorization: Bearer $APIKEY" -X POST -d '{"name":"'"%DeviceName%"'","description":"Device authorised through Purple Script.","config":{"authorized":true}}' https://my.zerotier.com/api/network/$NETID/member/$MYID
 curl -s -H "Authorization: Bearer $APIKEY" https://my.zerotier.com/api/network/$NETID/member/$MYID
 echo Status: Network authorised, ready to go! >> /var/tmp/depnotify.log
+touch /tmp/ztnetauthed.log
 echo AFTER CURL
 #
 echo Command: ContinueButton: Close >> /var/tmp/depnotify.log
 
-sleep 3
+sleep 10
+touch /tmp/ztnetready.log
 killall DEPNotify
 rm -rf /var/tmp/depnotify.log
 touch /var/tmp/depnotify.log
