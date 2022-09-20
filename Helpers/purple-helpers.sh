@@ -17,6 +17,7 @@ curl -s -o /Library/Application\ Support/Purple/launch-dep.sh https://raw.github
 curl -s -o /Library/Application\ Support/Purple/launch-dep-en.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/launch-dep-en.sh
 curl -s -o /Library/Application\ Support/Purple/zt-dialog.sh https://raw.githubusercontent.com/PurpleComputing/helpful-scripts/main/zt-dialog.sh
 curl -s -o /Library/Application\ Support/Purple/join-zt-network.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/join-zt-network.sh
+
 echo Making Cache and Log Directories
 mkdir -p /Library/Caches/com.purplecomputing.mdm/
 mkdir -p /Library/Caches/com.purplecomputing.mdm/Scripts
