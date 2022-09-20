@@ -59,14 +59,15 @@ echo "Command: DeterminateManualStep: 1" >> $deplog
 echo "Status: Killing Processes" >> ${logfile}
 echo "Status: Killing Processes" >> ${deplog}
 
-app-pid=$(ps aux | grep 'ZeroTier' | grep -v 'grep' | grep -v 'security' | awk '{print$2}')
-auth-pid=$(ps aux | grep 'ZeroTier' | grep 'security' | grep -v 'grep' | awk '{print$2}');
+appPID=$(ps aux | grep 'ZeroTier' | grep -v 'grep' | grep -v 'security' | awk '{print$2}')
+authPID=$(ps aux | grep 'ZeroTier' | grep 'security' | grep -v 'grep' | awk '{print$2}');
 IFS=$'\n'
-for item in $app-pid
+for item in $appPID
 do
   kill -9 $item
+  echo $item
 done
-kill -9 $auth-pid
+kill -9 $authPID
 
 #This sleep is functional and is needed to allow the processes to close properly before reopening the application
 sleep 5
