@@ -43,15 +43,15 @@ echo "Status: Running the installer" >> ${deplog}
 installer -pkg /Library/Caches/com.purplecomputing.mdm/Apps/ZT.pkg -target /
 sleep 5
 
-# # Kill off the ZeroTier.app and then ZeroTier auth copy processes
-# echo "Status: Killing Processes" >> ${logfile}
-# echo "Status: Killing Processes" >> ${deplog}
-# app-pid=$(ps aux | grep 'ZeroTier' | grep -v 'grep' | grep -v 'security' | awk '{print$2}')
-# auth-pid=$(ps aux | grep 'ZeroTier' | grep 'security' | grep -v 'grep' | awk '{print$2}');
-# kill -9 $app-pid
-# kill -9 $auth-pid
-# #This sleep is functional and is needed to allow the processes to close properly before reopening the application
-# sleep 5
+# Kill off the ZeroTier.app and then ZeroTier auth copy processes
+echo "Status: Killing Processes" >> ${logfile}
+echo "Status: Killing Processes" >> ${deplog}
+app-pid=$(ps aux | grep 'ZeroTier' | grep -v 'grep' | grep -v 'security' | awk '{print$2}')
+auth-pid=$(ps aux | grep 'ZeroTier' | grep 'security' | grep -v 'grep' | awk '{print$2}');
+kill -9 $app-pid
+kill -9 $auth-pid
+#This sleep is functional and is needed to allow the processes to close properly before reopening the application
+sleep 5
 
 # # Now start the ZeroTier.app again as user and we then only enter the admin credentials once
 # echo "Status: Re-opening ZeroTier" >> ${logfile}
