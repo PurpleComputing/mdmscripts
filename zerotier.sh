@@ -55,6 +55,16 @@ sleep 1
 
 echo "Command: DeterminateManualStep: 1" >> $deplog
 
+# Kill off the ZeroTier.app and then ZeroTier auth copy processes as the mdm root user manages network join
+echo "Status: Killing Processes" >> ${logfile}
+echo "Status: Killing Processes" >> ${deplog}
+app-pid=$(ps aux | grep 'ZeroTier' | grep -v 'grep' | grep -v 'security' | awk '{print$2}')
+auth-pid=$(ps aux | grep 'ZeroTier' | grep 'security' | grep -v 'grep' | awk '{print$2}');
+kill -9 $app-pid
+kill -9 $auth-pid
+#This sleep is functional and is needed to allow the processes to close properly before reopening the application
+sleep 5
+
 # echo "Status: Joining ZeroTier to network ${@}" >> ${logfile}
 # echo "Status: Joining ZeroTier to network ${@}" >> ${deplog}
 # /usr/local/bin/zerotier-cli join $@
