@@ -11,9 +11,11 @@ echo Downloading Image Files
 curl -s -o /Library/Application\ Support/Purple/logo.png https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/PurpleLogos/logo.png
 curl -s -o /Library/Application\ Support/Purple/logo-dark.png https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/PurpleLogos/logo-dark.png
 curl -s -o /Library/Application\ Support/Purple/purple-icon.png https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/PurpleLogos/purple-icon.png
+
 echo Downloading Scripts
 curl -s -o /Library/Application\ Support/Purple/launch-dep.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/launch-dep.sh
 curl -s -o /Library/Application\ Support/Purple/launch-dep-en.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/launch-dep-en.sh
+curl -s -o /Library/Application\ Support/Purple/zt-dialog.sh https://raw.githubusercontent.com/PurpleComputing/helpful-scripts/main/zt-dialog.sh
 
 echo Making Cache and Log Directories
 mkdir -p /Library/Caches/com.purplecomputing.mdm/
