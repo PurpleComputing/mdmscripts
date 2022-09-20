@@ -42,11 +42,8 @@ rm -rf '/Applications/ZeroTier One.app'
 rm -rf '/Applications/ZeroTier.app'
 rm -f '/usr/local/bin/zerotier-one' '/usr/local/bin/zerotier-idtool' '/usr/local/bin/zerotier-cli' '/Library/LaunchDaemons/com.zerotier.one.plist'
 
-cd '/Library/Application Support/ZeroTier/One'
-if [ "`pwd`" = '/Library/Application Support/ZeroTier/One' ]; then
-	rm -rf *.d *.sh *.log *.old *.kext *.conf *.pkg *.dmg *.pid *.port *.save *.bin planet zerotier-* devicemap
-fi
-rm -rf "/Library/Application Support/ZeroTier/One"
+rm -rf '/Library/Application Support/ZeroTier/One'
 
 echo ZeroTier has been removed.
+
 exit 0
