@@ -19,7 +19,7 @@
 ##-------------------------------##
 ##         SET VARIABLES         ##
 
-NETNAME='$1'
+NETNAME="$1"
 LOGLOCAL=/Library/Logs/com.purplecomputing.mdm/
 NETID="$2"
 APIKEY="$3"
@@ -41,25 +41,6 @@ chmod +x /tmp/purple-helpers.sh
 /tmp/purple-helpers.sh
 sleep 2
 rm -rf /tmp/purple-helpers.sh
-
-##-------------------------------##
-##       DEPNOTIFY WINDOW        ##
-##-------------------------------##
-
-
-# SET DEP NOTIFY FOR NET JOIN
-curl -o /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/brandDEPinstall.sh
-chmod +x /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
-/Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh >> /Library/Logs/com.purplecomputing.mdm/brandDEPinstall.log
-sleep 2
-chmod 777 /var/tmp/depnotify.log
-rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
-
-echo Command: MainTitle: Joining ZeroTier Network... >> /var/tmp/depnotify.log
-echo 'Command: Image: /Library/Application Support/Purple/logo.png' >> /var/tmp/depnotify.log
-echo "Command: MainText: We are now joining you to the $NETNAME ZT Network. Please Note, this script will approve your access in ZeroTier Admin so you do not need to log in." >> /var/tmp/depnotify.log
-echo Command: WindowStyle: Activate >> /var/tmp/depnotify.log
-echo "Command: Determinate: 3" >> /var/tmp/depnotify.log
 
 
 ##-------------------------------##
