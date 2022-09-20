@@ -67,7 +67,7 @@ echo "Command: Determinate: 3" >> /var/tmp/depnotify.log
 echo Status: Joining $NETNAME Network >> /var/tmp/depnotify.log
 sudo -u $(stat -f "%Su" /dev/console) /usr/local/bin/zerotier-cli join $NETID
 /usr/local/bin/zerotier-cli join $NETID
-sleep 10
+sleep 3
 #
 ########################################################################
 #
@@ -76,7 +76,7 @@ sleep 10
 MYID=$(/usr/local/bin/zerotier-cli info | cut -d " " -f 3)
 echo Status: Authorising your Node... >> /var/tmp/depnotify.log
 
-sleep 13
+sleep 3
 #
 #    CALL API WITH INFO
 #
@@ -88,7 +88,7 @@ echo AFTER CURL
 #
 echo Command: ContinueButton: Close >> /var/tmp/depnotify.log
 
-sleep 30
+sleep 3
 killall DEPNotify
 rm -rf /var/tmp/depnotify.log
 touch /var/tmp/depnotify.log
