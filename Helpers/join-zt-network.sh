@@ -23,6 +23,11 @@ NETNAME="$1"
 LOGLOCAL=/Library/Logs/com.purplecomputing.mdm/
 NETID="$2"
 APIKEY="$3"
+
+
+echo NET NAME $NETNAME
+echo NET ID $NETID
+echo API KEY $APIKEY
 ##-------------------------------##
 ##       PREFLIGHT SCRIPT        ##
 ##-------------------------------##
