@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# SERVICE SCRIPT CALLED BY OTHER SCRIPTS
+
 # Remove Old Files
 echo Making App Support Directories
 mkdir -p /Library/Application\ Support/Purple/
@@ -46,3 +48,6 @@ chmod 777 /var/tmp/depnotify.log
 rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/*
 rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/.appinstallname
 rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/pkg
+mkdir -p /Library/Caches/com.purplecomputing.mdm/Scripts/
+rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/$SCRIPTNAME
+rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
