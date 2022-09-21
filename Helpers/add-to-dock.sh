@@ -50,7 +50,7 @@ dockdestFile="/usr/local/bin/dockutil-labels.sh"
 
 
 echo Started Dock Add Script
-for what in $whatDockList; #do
+for what in $whatDockList; do
 	echo Running Dock Add for ${what}
 	
 	# Looping using dockutil-labels.sh
