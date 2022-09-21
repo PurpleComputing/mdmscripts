@@ -4,8 +4,8 @@
 # SERVICE SCRIPT CALLED BY OTHER SCRIPTS
 
 # RUNS AS USER
-sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
-export CURL_SSL_BACKEND="secure-transport"
+#sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
+#export CURL_SSL_BACKEND="secure-transport"
 
 cd /Library/Application\ Support/Purple/
 
@@ -46,4 +46,5 @@ if [ "$SHOWDIALOG" == "Y" ]; then
 	echo 'Command: ContinueButton: Finish' >> /var/tmp/depnotify.log
 	echo "Status: Installed or Updated $MDMAPPNAME, click Finish!" >> /var/tmp/depnotify.log
 else
+echo 
 fi
