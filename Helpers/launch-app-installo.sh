@@ -47,5 +47,3 @@ if [ "$SHOWDIALOG" == "Y" ]; then
 	echo "Status: Installed or Updated $MDMAPPNAME, click Finish!" >> /var/tmp/depnotify.log
 else
 fi
-
-unset MDMAPPNAME MDMAPPLABEL MDMADDTODOCK SHOWDIALOG

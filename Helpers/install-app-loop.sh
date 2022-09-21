@@ -14,6 +14,7 @@ LOGO="mosyleb" # or "mosylem"
 ######################################################################
 
 whatList="$MDMAPPLABEL"
+echo "$MDMAPPLABEL"
 
 # CHECKS IF INSTALLOMATOR IS INSTALLED AND INSTALLS IF NOT
 if [ ! -e "/usr/local/Installomator/Installomator.sh" ]; then
