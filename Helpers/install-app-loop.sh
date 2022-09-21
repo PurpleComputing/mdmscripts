@@ -49,7 +49,7 @@ if [ ! -e "${destFile}" ]; then
 	caffexit 99
 fi
 echo Started Installomator
-for what in $whatList; do
+for what in $whatList; #do
 	echo Installing ${what}
 	echo "Status: installing ${what}" >> /var/tmp/depnotify.log
 	echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log

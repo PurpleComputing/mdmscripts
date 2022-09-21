@@ -17,4 +17,4 @@ echo "$MDMAPPNAME" >> /Library/Caches/com.purplecomputing.mdm/Apps/.appinstallna
 curl -s -L https://prpl.it/brandDEPinstall | bash
 
 # START DEPNOTIFY
-sudo -u $(stat -f "%Su" /dev/console) /Library/Application\ Support/Purple/launch-dep.sh
+sudo -u $(stat -f "%Su" /dev/console) /Library/Application\ Support/Purple/launch-dep.sh &

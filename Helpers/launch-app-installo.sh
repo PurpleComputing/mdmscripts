@@ -8,13 +8,14 @@ cd /Library/Application\ Support/Purple/
 # CHECKS FOR DIALOG AND PRESENTS IF REQUESTED
 if [ "$SHOWDIALOG" == "Y" ]; then
 	echo "Dialog will open"
-	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/show-dialog-depnotify.sh | bash &
+	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/show-dialog-depnotify.sh | bash
 else
 	echo "Dialog will not open"
 	echo Continuing...
 fi
 
 # INSTALLS APPLICATION
+sleep 5
 curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/install-app-loop.sh | bash
 
 # CHECKS TO ADD TO DOCK OR NOT
