@@ -31,6 +31,10 @@ fi
 
 if [ "$SHOWDIALOG" == "Y" ]; then
 	# MOVES DEPNOTIFY STATUS BAR
+	echo Command: MainTitle: Installed "$MDMAPPNAME" >> /var/tmp/depnotify.log
+	echo 'Command: Image: /Library/Application Support/Purple/logo.png' >> /var/tmp/depnotify.log
+	echo Command: MainText: "The install or update for $MDMAPPNAME has finished". >> /var/tmp/depnotify.log
+	
 	echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log
 	
 	echo 'Command: WindowStyle: Activate' >> /var/tmp/depnotify.log

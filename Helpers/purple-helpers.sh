@@ -32,10 +32,6 @@ mkdir -p /Library/Logs/com.purplecomputing.mdm/
 mkdir -p /tmp/purple-logs/
 mkdir -p /Library/Caches/com.purplecomputing.mdm/Logs/
 
-echo Linking Log Folders
-ln -s /Library/Logs/com.purplecomputing.mdm/ /tmp/purple-logs/
-ln -s /Library/Logs/com.purplecomputing.mdm/ /Library/Caches/com.purplecomputing.mdm/Logs/
-
 rm /var/tmp/depnotify.log
 touch /var/tmp/depnotify.log
 
