@@ -52,19 +52,18 @@ fi
 echo Started Installomator
 for what in $whatList; do
 	echo Installing ${what}
-	TMAPPNA=$(sed -n "/${what}/,\$p" /usr/local/Installomator/Installomator.sh  | sed -n 2p)
-	$TMAPPNA
-	echo "Status: installing $name" >> /var/tmp/depnotify.log
+	TMAPPNA=$(sed -n "/${what}/,\$p" /usr/local/Installomator/Installomator.sh  | sed -n 2p | awk -F\" '{print $(NF-1)}')
+	echo "Status: Installing $TMAPPNA..." >> /var/tmp/depnotify.log
 	echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log
 	# Install software using Installomator
 	cmdOutput="$(${destFile} ${what} LOGO=$LOGO NOTIFY=all BLOCKING_PROCESS_ACTION=kill || true)" # NOTIFY=silent BLOCKING_PROCESS_ACTION=quit_kill INSTALL=force
 	# Check result
-	echo "Status: installer for $name complete..." >> /var/tmp/depnotify.log
+	echo "Status: Installer for $TMAPPNA complete..." >> /var/tmp/depnotify.log
 	sleep 1
 	exitStatus="$( echo "${cmdOutput}" | grep --binary-files=text -i "exit" | tail -1 | sed -E 's/.*exit code ([0-9]).*/\1/g' || true )"
 	if [[ ${exitStatus} -ne 0 ]] ; then
 		echo "Error installing ${what}. Exit code ${exitStatus}"
-		echo "Status: error installing $name" >> /var/tmp/depnotify.log
+		echo "Status: Error installing $TMAPPNA" >> /var/tmp/depnotify.log
 		#echo "$cmdOutput"
 		errorOutput="$( echo "${cmdOutput}" | grep --binary-files=text -i "error" || true )"
 		echo "$errorOutput"
