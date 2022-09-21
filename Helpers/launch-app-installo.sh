@@ -7,12 +7,10 @@
 #sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
 #export CURL_SSL_BACKEND="secure-transport"
 
-cd /Library/Application\ Support/Purple/
-
 # CHECKS FOR DIALOG AND PRESENTS IF REQUESTED
 if [ "$SHOWDIALOG" == "Y" ]; then
 	echo "Dialog will open"
-	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/show-dialog-depnotify.sh | bash
+	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/show-dialog-depnotify.sh?v=123$(date +%s) | bash
 else
 	echo "Dialog will not open"
 	echo Continuing...
@@ -20,12 +18,12 @@ fi
 
 # INSTALLS APPLICATION
 sleep 5
-curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/install-app-loop.sh | bash
+curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/install-app-loop.sh?v=123$(date +%s) | bash
 
 # CHECKS TO ADD TO DOCK OR NOT
 if [ "$MDMADDTODOCK" == "Y" ]; then
 	echo "SCRIPT WILL TRY TO ADD TO DOCK"
-	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/add-to-dock.sh | bash
+	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/add-to-dock.sh?v=123$(date +%s) | bash
 	sleep 2
 	killall Dock
 else

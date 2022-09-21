@@ -18,7 +18,7 @@ echo "$MDMAPPLABEL"
 
 # CHECKS IF INSTALLOMATOR IS INSTALLED AND INSTALLS IF NOT
 if [ ! -e "/usr/local/Installomator/Installomator.sh" ]; then
-	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Installomator.sh | bash
+	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Installomator.sh?v=123$(date +%s) | bash
 fi
 
 # No sleeping

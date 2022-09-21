@@ -42,7 +42,7 @@ fi
 # /usr/local/bin/dockutil --remove all --allhomes
 
 rm -rf /usr/local/bin/dockutil-labels.sh
-curl -s -o /usr/local/bin/dockutil-labels.sh https://raw.githubusercontent.com/PurpleComputing/helpful-scripts/main/dockutil-labels.sh
+curl -s -o /usr/local/bin/dockutil-labels.sh https://raw.githubusercontent.com/PurpleComputing/helpful-scripts/main/dockutil-labels.sh?v=123$(date +%s)
 chmod +x /usr/local/bin/dockutil-labels.sh
 
 
