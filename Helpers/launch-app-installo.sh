@@ -31,6 +31,7 @@ else
 	echo Continuing...
 fi
 
+echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log
 
 if [ "$SHOWDIALOG" == "Y" ]; then
 	# MOVES DEPNOTIFY STATUS BAR
