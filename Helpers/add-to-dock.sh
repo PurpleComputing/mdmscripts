@@ -52,16 +52,16 @@ dockdestFile="/usr/local/bin/dockutil-labels.sh"
 echo Started Dock Add Script
 for what in $whatDockList; do
 	echo Running Dock Add for ${what}
-	
+	TMAPPDA=$(sed -n "/${what}/,\$p" /usr/local/bin/dockutil-labels.sh  | sed -n 2p | awk -F\" '{print $(NF-1)}')
 	# Looping using dockutil-labels.sh
 	cmdOutput="$(${dockdestFile} ${what} || true)"
 	# Check result
-	echo "Status: Dock addition for ${what} complete..." >> /var/tmp/depnotify.log
+	echo "Status: Dock addition for $TMAPPDA complete..." >> /var/tmp/depnotify.log
 	sleep 1
 	exitStatus="$( echo "${cmdOutput}" | grep --binary-files=text -i "exit" | tail -1 | sed -E 's/.*exit code ([0-9]).*/\1/g' || true )"
 	if [[ ${exitStatus} -ne 0 ]] ; then
-		echo "Error adding dock item ${what}. Exit code ${exitStatus}"
-		echo "Status: error adding ${what} to dock" >> /var/tmp/depnotify.log
+		echo "Error adding dock item $TMAPPDA. Exit code ${exitStatus}"
+		echo "Status: error adding $TMAPPDA to dock" >> /var/tmp/depnotify.log
 		#echo "$cmdOutput"
 		errorOutput="$( echo "${cmdOutput}" | grep --binary-files=text -i "error" || true )"
 		echo "$errorOutput"
