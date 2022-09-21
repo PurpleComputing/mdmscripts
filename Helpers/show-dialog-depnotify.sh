@@ -3,12 +3,6 @@
 
 # SERVICE SCRIPT CALLED BY OTHER SCRIPTS
 
-#
-APPNAME=$MDMAPPNAME
-INSTALLAPP=googleearth
-ILOGO=mosyleb
-LOGLOCAL=/Library/Logs/com.purplecomputing.mdm/
-
 # UPDATE PURPLE HELPERS
 curl -s -L https://prpl.it/helperscript | bash
 
@@ -17,7 +11,7 @@ curl -s -L https://prpl.it/helperscript | bash
 ##-------------------------------##
 
 # SET APP TITLE TO APPNAME
-echo "$APPNAME" >> /Library/Caches/com.purplecomputing.mdm/Apps/.appinstallname
+echo "$MDMAPPNAME" >> /Library/Caches/com.purplecomputing.mdm/Apps/.appinstallname
 
 # SET DEP NOTIFY FOR REINSTALL
 curl -s -L https://prpl.it/brandDEPinstall | bash

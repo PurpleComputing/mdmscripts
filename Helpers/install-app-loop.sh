@@ -13,15 +13,13 @@ chmod 777 /var/tmp/depnotify.log
 LOGO="mosyleb" # or "mosylem"
 ######################################################################
 
-whatList=$MDMAPPLABEL
-echo
-echo THE BELOW ERROR IS NORMAL
-while read line >> /dev/null
-do
-  echo "$line"
-done < "${1:-/dev/stdin}"
-echo PLEASE IGNORE ABOVE ERROR
-echo
+whatList="$MDMAPPLABEL"
+
+# CHECKS IF INSTALLOMATOR IS INSTALLED AND INSTALLS IF NOT
+if [ ! -e "/usr/local/Installomator/Installomator.sh" ]; then
+	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Installomator.sh | bash
+fi
+
 # No sleeping
 /usr/bin/caffeinate -d -i -m -u &
 caffeinatepid=$!
@@ -41,7 +39,7 @@ prplappcount=`expr $prplappno + 4`
 prpltrueappcount=`expr $prplappno + 1`
 echo "Command: DeterminateManual: $prplappcount" >> /var/tmp/depnotify.log
 echo "-- INSTALLING $prpltrueappcount APPS --"
-echo Installs started for "$@"
+echo Installs started for "$MDMAPPLABEL"
 # Verify that Installomator has been installed
 destFile="/usr/local/Installomator/Installomator.sh"
 if [ ! -e "${destFile}" ]; then
