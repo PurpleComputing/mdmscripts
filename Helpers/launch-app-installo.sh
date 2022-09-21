@@ -21,6 +21,8 @@ curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helper
 if [ "$MDMADDTODOCK" == "Y" ]; then
 	echo "SCRIPT WILL TRY TO ADD TO DOCK"
 	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/add-to-dock.sh | bash
+	sleep 2
+	killall Dock
 else
 	echo "SCRIPT WILL NOT TRY TO ADD TO DOCK"
 	echo Continuing...
@@ -38,3 +40,5 @@ else
 	echo "Final message will not send"
 	echo Continuing...
 fi
+
+unset MDMAPPNAME MDMAPPLABEL MDMADDTODOCK SHOWDIALOG
