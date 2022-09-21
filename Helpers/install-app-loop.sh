@@ -52,7 +52,7 @@ fi
 echo Started Installomator
 for what in $whatList; do
 	echo Installing ${what}
-	TMAPPNA=$(sed -n "/"'"${what}"'"/,\$p" /usr/local/Installomator/Installomator.sh  | sed -n 2p)
+	TMAPPNA=$(sed -n "/${what}/,\$p" /usr/local/Installomator/Installomator.sh  | sed -n 2p)
 	$TMAPPNA
 	echo "Status: installing $name" >> /var/tmp/depnotify.log
 	echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log
