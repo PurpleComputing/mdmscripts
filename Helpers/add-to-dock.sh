@@ -10,14 +10,7 @@ echo "*** BEGIN add-to-dock.SH ***"
 chmod 777 /var/tmp/depnotify.log
 
 whatDockList=$MDMAPPLABEL # RECEIVES VARIABLE FROM ENV
-echo
-echo THE BELOW ERROR IS NORMAL
-while read line >> /dev/null
-do
-  echo "$line"
-done < "${1:-/dev/stdin}"
-echo PLEASE IGNORE ABOVE ERROR
-echo
+
 # No sleeping keep device awake
 /usr/bin/caffeinate -d -i -m -u &
 caffeinatepid=$!
@@ -34,7 +27,7 @@ prplappno=$(echo "$whatDockList" | awk '{print gsub("[ \t]",""); exit}')
 prplappcount=`expr $prplappno + 4`
 prpltrueappcount=`expr $prplappno + 1`
 echo "-- ADDING $prpltrueappcount APPS TO DOCK --"
-echo Dock will appear in this order "$@"
+echo Dock will appear in this order "$whatDockList"
 
 # Verify that DockUtil has been installed, exit script and record error if not
 dockdestFile="/usr/local/bin/dockutil"
