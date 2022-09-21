@@ -3,6 +3,10 @@
 
 # SERVICE SCRIPT CALLED BY OTHER SCRIPTS
 
+# RUNS AS USER
+sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
+
+
 cd /Library/Application\ Support/Purple/
 
 # CHECKS FOR DIALOG AND PRESENTS IF REQUESTED
