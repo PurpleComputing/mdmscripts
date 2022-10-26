@@ -31,4 +31,19 @@ sleep .5
 /usr/local/bin/dockutil --remove 'FaceTime' --allhomes --no-restart
 sleep .5
 /usr/local/bin/dockutil --remove 'Mail' --allhomes --no-restart
+sleep .5
+/usr/local/bin/dockutil --remove 'Safari' --allhomes --no-restart
+sleep .5
+/usr/local/bin/dockutil --remove 'News' --allhomes --no-restart
+sleep .5
+/usr/local/bin/dockutil --remove 'Maps' --allhomes --no-restart
+sleep .5
+/usr/local/bin/dockutil --remove 'Transmit' --allhomes --no-restart
+sleep .5
+/usr/local/bin/dockutil --remove 'Firefox' --allhomes --no-restart
+sleep .5
+/usr/local/bin/dockutil --remove 'zoom.us' --allhomes --no-restart
+sleep .5
+/usr/local/bin/dockutil --remove 'Home' --allhomes --no-restart
+
 sleep 1
