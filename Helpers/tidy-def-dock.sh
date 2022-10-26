@@ -45,5 +45,9 @@ sleep .5
 /usr/local/bin/dockutil --remove 'zoom.us' --allhomes --no-restart
 sleep .5
 /usr/local/bin/dockutil --remove 'Home' --allhomes --no-restart
-
+sleep .5
+/usr/local/bin/dockutil --remove 'Microsoft Outlook' --allhomes --no-restart
+sleep .5
+/usr/local/bin/dockutil --remove 'Home' --allhomes --no-restart
+sleep 1
 sleep 1
