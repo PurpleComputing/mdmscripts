@@ -31,7 +31,7 @@ installer -applyChoiceChangesXML choices.xml -pkg Install%20TeamViewerHost-$TVPK
 
 echo "10 seconds wait"
 sleep 10
-echo "Assigning TeamViewer Device to our Account..." >> /var/tmp/depnotify.log
+echo "Assigning TeamViewer Device to our Account..." # >> /var/tmp/depnotify.log
 echo "Running the account assignment"
 
 sudo /Applications/TeamViewerHost.app/Contents/Helpers/TeamViewer_Assignment -api-token $TVAPITOKEN -alias $TVCOMPUTERNAME -group $TVCOMPUTERGROUP -grant-easy-access
