@@ -71,3 +71,10 @@ fi
 
 echo
 echo
+
+echo "Apple ID:"
+/usr/libexec/PlistBuddy -c "print :Accounts:0:AccountID" ~/Library/Preferences/MobileMeAccounts.plist
+
+echo
+echo
+
