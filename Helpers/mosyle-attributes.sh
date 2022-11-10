@@ -1,4 +1,5 @@
-
+echo
+echo 
 #KERNELPANICS
 PanicLogCount=$(/usr/bin/find /Library/Logs/DiagnosticReports -Btime -7 -name *.panic | grep . -c)
 /bin/echo Kernel Panics Logged":" "$PanicLogCount"
@@ -7,8 +8,17 @@ echo
 echo
 
 #TEAMVIEWER
-TVID=$(defaults read /Library/Preferences/com.teamviewer.teamviewer.preferences.plist ClientID)
-echo "TeamViewer ID: $TVID"
+DIR0="/Library/Preferences/com.teamviewer.teamviewer.preferences.plist"
+if [ -f "$DIR0" ]; then
+
+	TVID=$(defaults read /Library/Preferences/com.teamviewer.teamviewer.preferences.plist ClientID)
+	echo "TeamViewer ID: $TVID"
+	
+else
+
+	echo "TeamViewer is not installed"
+	
+fi
 
 echo
 echo
@@ -25,9 +35,9 @@ echo
 echo
 
 #Volumes
-volmount=$(cd /Volumes && ls)
-echo Volumes Mounted":" $volmount
-
+echo Volumes Mounted":"
+cd /Volumes && ls
+cd /tmp
 echo
 echo
 
@@ -73,8 +83,13 @@ echo
 echo
 
 echo "Apple ID:"
-/usr/libexec/PlistBuddy -c "print :Accounts:0:AccountID" ~/Library/Preferences/MobileMeAccounts.plist
+/usr/libexec/PlistBuddy -c "print :Accounts:0:AccountID" /Users/$(stat -f "%Su" /dev/console)/Library/Preferences/MobileMeAccounts.plist
 
 echo
 echo
 
+echo Users:
+dscl . list /Users | grep -v "^_"
+
+echo
+echo
