@@ -11,8 +11,17 @@ if [ ! -e "/Applications/Utilities/DEPNotify.app/Contents/MacOS/DEPNotify" ]; th
 	/usr/local/Installomator/Installomator.sh depnotify NOTIFY=silent BLOCKING_PROCESS_ACTION=kill
 fi
 
+if [ "$SHOWDIALOG" == "Y" ]; then
+	echo "Dialog will open"
+	/usr/local/bin/dialog dialog --title "Purple Managed macOS Updates" --message "**WARNING: Restart Required** \n\nYou are about to install an OS update which could take up to 1 hour 30 minutes to install. \n\n Please confirm you have saved all work and wish to continue?" --blurscreen --icon "https://www.apple.com/newsroom/images/product/os/macos/standard/Apple-WWDC22-macOS-Ventura-Spotlight-show-220606_big.jpg.large.jpg" --overlayicon warning --ontop --button1text "Continue" --button1shellaction "curl -s https://raw.githubusercontent.com/grahampugh/erase-install/main/erase-install.sh | sudo bash /dev/stdin --reinstall --depnotify --check-power --power-wait-limit 180" --button2text "Later"
+
+else
+	echo "Dialog will not open"
+	echo Continuing...
+	curl -s https://raw.githubusercontent.com/grahampugh/erase-install/main/erase-install.sh | sudo bash /dev/stdin --reinstall --depnotify --check-power --power-wait-limit 180
+fi
+
 #PROMPTS WITH INSTALL
-/usr/local/bin/dialog dialog --title "Purple Managed macOS Updates" --message "**WARNING: Restart Required** \n\nYou are about to install an OS update which could take up to 1 hour 30 minutes to install. \n\n Please confirm you have saved all work and wish to continue?" --blurscreen --icon "https://www.apple.com/newsroom/images/product/os/macos/standard/Apple-WWDC22-macOS-Ventura-Spotlight-show-220606_big.jpg.large.jpg" --overlayicon warning --ontop --button1text "Continue" --button1shellaction "curl -s https://raw.githubusercontent.com/grahampugh/erase-install/main/erase-install.sh | sudo bash /dev/stdin --reinstall --depnotify --check-power --power-wait-limit 180" --button2text "Later"
 
 #EXITS
 exit 0
