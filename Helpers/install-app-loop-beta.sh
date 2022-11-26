@@ -2,7 +2,7 @@
 
 # Installation using Installomator with Dialog showing progress (and posibility of adding to the Dock)
 
-prplwhatinstall=$(echo $MDMAPPLABEL | tr " " ",  ")
+prplwhatinstall=$(echo $MDMAPPLABEL | sed 's/ /, /g')
 
 LOGO="mosyleb" # "mosyleb", "mosylem", "addigy", "microsoft", "ws1"
 
