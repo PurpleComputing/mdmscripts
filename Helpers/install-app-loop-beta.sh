@@ -7,6 +7,7 @@ if [ "$SHOWDIALOG" == "Y" ]; then
 else
 	echo "Dialog will not open"
 	NOTIFY=silent
+	installomatorNotify="NOTIFY=silent"
 fi
 
 prplwhatinstall=$(echo $MDMAPPLABEL | sed 's/ /, /g')
@@ -129,6 +130,13 @@ if [[ $installomatorVersion -lt 10 ]] || [[ $(sw_vers -buildVersion | cut -c1-2)
     #echo "Installomator should be at least version 10 to support swiftDialog. Installed version $installomatorVersion."
     #echo "And macOS 11 Big Sur (build 20A) is required for swiftDialog. Installed build $(sw_vers -buildVersion)."
     installomatorNotify="NOTIFY=all"
+    if [ "$SHOWDIALOG" == "Y" ]; then
+	echo "Dialog will open"
+    else
+	echo "Dialog will not open"
+	NOTIFY=silent
+	installomatorNotify="NOTIFY=silent"
+    fi
 else
     installomatorNotify="NOTIFY=silent"
     # check for Swift Dialog
