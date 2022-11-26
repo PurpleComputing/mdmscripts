@@ -14,6 +14,7 @@ if [ "$SHOWDIALOG" == "Y" ]; then
 else
 	echo "Dialog will not open"
 	echo Continuing...
+	NOTIFY=silent
 fi
 
 # INSTALLS APPLICATION
