@@ -2,6 +2,13 @@
 
 # Installation using Installomator with Dialog showing progress (and posibility of adding to the Dock)
 
+if [ "$SHOWDIALOG" == "Y" ]; then
+	echo "Dialog will open"
+else
+	echo "Dialog will not open"
+	NOTIFY=silent
+fi
+
 prplwhatinstall=$(echo $MDMAPPLABEL | sed 's/ /, /g')
 
 LOGO="mosyleb" # "mosyleb", "mosylem", "addigy", "microsoft", "ws1"
