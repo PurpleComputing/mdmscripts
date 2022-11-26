@@ -18,7 +18,13 @@ item="$prplwhatinstall" # enter the software to install
 # Examples: microsoftofficebusinesspro, microsoftoffice365
 
 # Dialog icon
-icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/appinstalls.png"
+if [ -z "$MDMAPPICONURL" ]
+then
+      icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/appinstalls.png"
+else
+      icon="$MDMAPPICONURL"
+fi
+
 # icon should be a file system path or an URL to an online PNG.
 # In Mosyle an URL can be found by copy picture address from a Custom Command icon.
 
