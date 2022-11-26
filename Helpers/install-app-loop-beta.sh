@@ -299,3 +299,4 @@ fi
 echo "[$(DATE)][LOG-END]"
 
 caffexit $exitStatus
+dialogUpdate "quit:"
