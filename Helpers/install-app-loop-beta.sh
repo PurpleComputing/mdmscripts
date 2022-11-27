@@ -228,7 +228,7 @@ else
  if [ "$SHOWDIALOG" == "Y" ]; then
 	    # display first screen
     open -a "$dialogApp" --args \
-        --title none \
+        --title "Purple Managed Apps" \
         --icon "$icon" \
         --message "$message" \
         --mini \
