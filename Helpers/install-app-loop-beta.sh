@@ -2,14 +2,6 @@
 
 # Installation using Installomator with Dialog showing progress (and posibility of adding to the Dock)
 
-if [ "$SHOWDIALOG" == "Y" ]; then
-	echo "Dialog will open"
-else
-	echo "Dialog will not open"
-	NOTIFY=silent
-	installomatorNotify="NOTIFY=silent"
-fi
-
 prplwhatinstall=$(echo $MDMAPPLABEL | sed 's/ /, /g')
 
 LOGO="mosyleb" # "mosyleb", "mosylem", "addigy", "microsoft", "ws1"
@@ -136,13 +128,7 @@ if [[ $installomatorVersion -lt 10 ]] || [[ $(sw_vers -buildVersion | cut -c1-2)
     #echo "Installomator should be at least version 10 to support swiftDialog. Installed version $installomatorVersion."
     #echo "And macOS 11 Big Sur (build 20A) is required for swiftDialog. Installed build $(sw_vers -buildVersion)."
     installomatorNotify="NOTIFY=all"
-    if [ "$SHOWDIALOG" == "Y" ]; then
-	echo "Dialog will open"
-    else
-	echo "Dialog will not open"
-	NOTIFY=silent
-	installomatorNotify="NOTIFY=silent"
-    fi
+
 else
     installomatorNotify="NOTIFY=silent"
     # check for Swift Dialog
@@ -239,8 +225,8 @@ else
     fi
     echo "LOGO: $LOGO"
     echo "icon: ${icon}"
-
-    # display first screen
+ if [ "$SHOWDIALOG" == "Y" ]; then
+	    # display first screen
     open -a "$dialogApp" --args \
         --title none \
         --icon "$icon" \
@@ -253,6 +239,10 @@ else
 
     # give everything a moment to catch up
     sleep 0.1
+ else
+	echo "Dialog will not open"
+	installomatorNotify="NOTIFY=silent"
+ fi
 fi
 
 # Install software using Installomator
