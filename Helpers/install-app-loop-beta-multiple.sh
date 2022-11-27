@@ -3,24 +3,38 @@
 # Installation using Installomator with Dialog showing progress (and possibility of adding to the Dock)
 echo "*** USING BETA SCRIPT ***"
 
-curl -s https://raw.githubusercontent.com/Installomator/Installomator/main/MDM/install%20swiftDialog%20direct.sh | bash
-curl -s https://raw.githubusercontent.com/Installomator/Installomator/main/MDM/install%20Installomator%20direct.sh | bash
-
-prplwhatinstall=$(echo $MDMAPPLABEL | sed 's/ /, /g')
-
 LOGO="mosyleb" # "mosyleb", "mosylem", "addigy", "microsoft", "ws1"
 
-item="$prplwhatinstall" # enter the software to install
+item="$what" # enter the software to install
 # Examples: microsoftofficebusinesspro, microsoftoffice365
-echo "Running for $item"
-# Dialog icon
-if [ -z "$MDMAPPICONURL" ]
-then
-      icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/updates.png"
-else
-      icon="$MDMAPPICONURL"
-fi
 
+# Dialog icon
+
+
+if [ "$MDMINSTALLTYPE" == "UPDATE" ]; then
+    MDMINSTALLTEXT="Updating..."
+    icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/updates.png"
+fi
+if [ "$MDMINSTALLTYPE" == "INSTALL" ]; then
+    MDMINSTALLTEXT="Installing..."
+    icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/appinstalls.png"
+    if [ -z "$MDMAPPICONURL" ]
+    then
+          icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/appinstalls.png"
+    else
+          icon="$MDMAPPICONURL"
+    fi
+fi
+if [ -z "$MDMINSTALLTYPE" ]
+then
+      MDMINSTALLTEXT="Installing..."
+      if [ -z "$MDMAPPICONURL" ]
+      then
+            icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/appinstalls.png"
+      else
+            icon="$MDMAPPICONURL"
+      fi
+fi
 # icon should be a file system path or an URL to an online PNG.
 # In Mosyle an URL can be found by copy picture address from a Custom Command icon.
 
@@ -87,7 +101,7 @@ checkCmdOutput () {
         selectedOutput="$( echo "${checkOutput}" | grep --binary-files=text -E ": (REQ|ERROR|WARN)" || true )"
         echo "$selectedOutput"
     else
-        echo "ERROR Updating ${item}. Exit code ${exitStatus}"
+        echo "ERROR $MDMINSTALLTEXT ${item}. Exit code ${exitStatus}"
         echo "$checkOutput"
         #errorOutput="$( echo "${checkOutput}" | grep --binary-files=text -i "error" || true )"
         #echo "$errorOutput"
@@ -146,9 +160,9 @@ else
     # Configure and display swiftDialog
     itemName=$( ${destFile} ${item} RETURN_LABEL_NAME=1 LOGGING=REQ INSTALL=force | tail -1 || true )
     if [[ "$itemName" != "#" ]]; then
-        message="Updating ${itemName}…"
+        message="$MDMINSTALLTEXT ${itemName}…"
     else
-        message="Updating ${item}…"
+        message="$MDMINSTALLTEXT ${item}…"
     fi
     echo "$item $itemName"
     
@@ -232,7 +246,7 @@ else
  if [ "$SHOWDIALOG" == "Y" ]; then
 	    # display first screen
     open -a "$dialogApp" --args \
-        --title "Purple Managed App Updates" \
+        --title "Purple Managed Apps" \
         --icon "$icon" \
         --message "$message" \
         --mini \
@@ -279,7 +293,7 @@ if [[ $installomatorVersion -ge 10 && $(sw_vers -buildVersion | cut -c1-2) -ge 2
     dialogUpdate "progresstext: Done"
 
     # pause a moment
-    sleep 10
+    sleep 0.5
 
     dialogUpdate "quit:"
 
