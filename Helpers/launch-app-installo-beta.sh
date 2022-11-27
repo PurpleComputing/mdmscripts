@@ -7,15 +7,17 @@
 #sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
 #export CURL_SSL_BACKEND="secure-transport"
 
+# *** SILENCED ABOVE IN FAVOUR OF DIALOG THROUGH INSTALLOMATOR ***
 # CHECKS FOR DIALOG AND PRESENTS IF REQUESTED
-if [ "$SHOWDIALOG" == "Y" ]; then
-	echo "Dialog will open"
-	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/show-dialog-depnotify.sh?v=123$(date +%s) | bash
-else
-	echo "Dialog will not open"
-	echo Continuing...
-	NOTIFY=silent
-fi
+# if [ "$SHOWDIALOG" == "Y" ]; then
+# 	echo "Dialog will open"
+# 	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/show-dialog-depnotify.sh?v=123$(date +%s) | bash
+# else
+# 	echo "Dialog will not open"
+# 	echo Continuing...
+# 	NOTIFY=silent
+# fi
+# *** SILENCED ABOVE IN FAVOUR OF DIALOG THROUGH INSTALLOMATOR ***
 
 # INSTALLS APPLICATION
 sleep 5
@@ -32,19 +34,21 @@ else
 	echo Continuing...
 fi
 
-echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log
-
-if [ "$SHOWDIALOG" == "Y" ]; then
-	# MOVES DEPNOTIFY STATUS BAR
-	echo Command: MainTitle: Installed "$MDMAPPNAME" >> /var/tmp/depnotify.log
-	echo 'Command: Image: /Library/Application Support/Purple/logo.png' >> /var/tmp/depnotify.log
-	echo Command: MainText: "The install or update for $MDMAPPNAME has finished". >> /var/tmp/depnotify.log
-	
-	echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log
-	
-	echo 'Command: WindowStyle: Activate' >> /var/tmp/depnotify.log
-	echo 'Command: ContinueButton: Finish' >> /var/tmp/depnotify.log
-	echo "Status: Installed or Updated $MDMAPPNAME, click Finish!" >> /var/tmp/depnotify.log
-else
-echo 
-fi
+# *** SILENCED ABOVE IN FAVOUR OF DIALOG THROUGH INSTALLOMATOR ***
+# echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log
+# 
+# if [ "$SHOWDIALOG" == "Y" ]; then
+# 	# MOVES DEPNOTIFY STATUS BAR
+# 	echo Command: MainTitle: Installed "$MDMAPPNAME" >> /var/tmp/depnotify.log
+# 	echo 'Command: Image: /Library/Application Support/Purple/logo.png' >> /var/tmp/depnotify.log
+# 	echo Command: MainText: "The install or update for $MDMAPPNAME has finished". >> /var/tmp/depnotify.log
+# 	
+# 	echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log
+# 	
+# 	echo 'Command: WindowStyle: Activate' >> /var/tmp/depnotify.log
+# 	echo 'Command: ContinueButton: Finish' >> /var/tmp/depnotify.log
+# 	echo "Status: Installed or Updated $MDMAPPNAME, click Finish!" >> /var/tmp/depnotify.log
+# else
+# echo 
+# fi
+# *** SILENCED ABOVE IN FAVOUR OF DIALOG THROUGH INSTALLOMATOR ***
