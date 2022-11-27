@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Installation using Installomator with Dialog showing progress (and possibility of adding to the Dock)
-echo "*** USING BETA SCRIPT ***"
+echo "*** USING BETA SCRIPT: INSTALL for ($what) ***"
 
 LOGO="mosyleb" # "mosyleb", "mosylem", "addigy", "microsoft", "ws1"
 
