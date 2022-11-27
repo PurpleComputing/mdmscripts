@@ -27,7 +27,7 @@ if [ "$MDMINSTALLTYPE" == "INSTALL" ]; then
 fi
 if [ -z "$MDMINSTALLTYPE" ]
 then
-      MDMINSTALLTEXT="Installing..."
+      MDMINSTALLTEXT="Installing"
       if [ -z "$MDMAPPICONURL" ]
       then
             icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/appinstalls.png"
