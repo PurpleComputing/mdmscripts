@@ -11,7 +11,7 @@ whatList="$MDMAPPLABEL"
 for what in $whatList; do
 export what
 echo Installing ${what}
-curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/install-app-loop-beta-multple.sh?v=123$(date +%s) | bash
+curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/install-app-loop-beta-multiple.sh?v=123$(date +%s) | bash
 done
 
 
