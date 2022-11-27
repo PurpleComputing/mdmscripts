@@ -12,11 +12,11 @@ item="$what" # enter the software to install
 
 
 if [ "$MDMINSTALLTYPE" == "UPDATE" ]; then
-    MDMINSTALLTEXT="Updating..."
+    MDMINSTALLTEXT="Updating"
     icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/updates.png"
 fi
 if [ "$MDMINSTALLTYPE" == "INSTALL" ]; then
-    MDMINSTALLTEXT="Installing..."
+    MDMINSTALLTEXT="Installing"
     icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/appinstalls.png"
     if [ -z "$MDMAPPICONURL" ]
     then
