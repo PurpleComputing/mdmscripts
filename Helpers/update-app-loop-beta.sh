@@ -12,7 +12,7 @@ LOGO="mosyleb" # "mosyleb", "mosylem", "addigy", "microsoft", "ws1"
 
 item="$prplwhatinstall" # enter the software to install
 # Examples: microsoftofficebusinesspro, microsoftoffice365
-
+echo "Running for $item"
 # Dialog icon
 if [ -z "$MDMAPPICONURL" ]
 then
@@ -279,7 +279,7 @@ if [[ $installomatorVersion -ge 10 && $(sw_vers -buildVersion | cut -c1-2) -ge 2
     dialogUpdate "progresstext: Done"
 
     # pause a moment
-    sleep 0.5
+    sleep 10
 
     dialogUpdate "quit:"
 
