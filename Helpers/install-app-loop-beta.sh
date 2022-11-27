@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Installation using Installomator with Dialog showing progress (and posibility of adding to the Dock)
+# Installation using Installomator with Dialog showing progress (and possibility of adding to the Dock)
 
 prplwhatinstall=$(echo $MDMAPPLABEL | sed 's/ /, /g')
 
