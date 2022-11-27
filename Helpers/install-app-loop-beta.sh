@@ -248,7 +248,7 @@ fi
 # Install software using Installomator
 cmdOutput="$(${destFile} ${item} LOGO=$LOGO ${installomatorOptions} ${installomatorNotify} || true)"
 checkCmdOutput "${cmdOutput}"
-
+killall "Dialog" 2>/dev/null || true
 # Mark: dockutil stuff
 if [[ $addToDock -eq 1 ]]; then
     dialogUpdate "progresstext: Adding to Dock"
