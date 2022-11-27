@@ -283,7 +283,7 @@ iif [[ $installomatorVersion -ge 10 && $(sw_vers -buildVersion | cut -c1-2) -ge 
     sleep 0.5
 
     # just to be safe
-    #killall "Dialog" 2>/dev/null || true
+    killall "Dialog" 2>/dev/null || true
 fi
 
 echo "[$(DATE)][LOG-END]"
