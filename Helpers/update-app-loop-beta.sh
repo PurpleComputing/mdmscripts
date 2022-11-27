@@ -16,7 +16,7 @@ item="$prplwhatinstall" # enter the software to install
 # Dialog icon
 if [ -z "$MDMAPPICONURL" ]
 then
-      icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/appinstalls.png"
+      icon="https://raw.githubusercontent.com/PurpleComputing/image-repo/main/updates.png"
 else
       icon="$MDMAPPICONURL"
 fi
