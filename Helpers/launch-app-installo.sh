@@ -22,4 +22,5 @@
 # ABOVE CODE COMMENTED OUT
 
 # NEW SCRIPT
+echo "Redirecting Script to Latest..."
 curl -s -L "https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/launch-app-installs.sh?v=123"$(date +%s) | bash
