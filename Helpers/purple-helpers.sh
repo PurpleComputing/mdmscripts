@@ -24,6 +24,7 @@ curl -s -o /Library/Application\ Support/Purple/create-ticket.sh https://raw.git
 
 echo Execute Helper Files
 curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/swda-deploy.sh | bash # INSTALLS SWDA
+curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/support-app.sh | bash
 
 echo Making Cache and Log Directories
 mkdir -p /Library/Caches/com.purplecomputing.mdm/
