@@ -41,6 +41,7 @@ chmod -R 777 /Library/Application\ Support/Purple/
 chmod -R 777 /Library/Caches/com.purplecomputing.mdm/
 chmod -R 777 /Library/Logs/com.purplecomputing.mdm/
 chmod 777 /var/tmp/depnotify.log
+chmod 777 /Library/Application\ Support/Purple/create-ticket.sh
 
 rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/*
 rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/.appinstallname
