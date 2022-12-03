@@ -8,6 +8,7 @@ mkdir -p /Library/Application\ Support/Purple/
 echo Cleaning App Support Cache and Log Directories
 rm -rf /Library/Application\ Support/Purple/*
 cd /Library/Application\ Support/Purple/
+rm -rf /Library/Application\ Support/Purple/create-ticket.sh
 
 # Pull latest files
 echo Downloading Image Files
