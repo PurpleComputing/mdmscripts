@@ -20,6 +20,7 @@ curl -s -o /Library/Application\ Support/Purple/launch-dep.sh https://raw.github
 curl -s -o /Library/Application\ Support/Purple/launch-dep-en.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/launch-dep-en.sh
 curl -s -o /Library/Application\ Support/Purple/zt-dialog.sh https://raw.githubusercontent.com/PurpleComputing/helpful-scripts/main/zt-dialog.sh
 curl -s -o /Library/Application\ Support/Purple/join-zt-network.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/join-zt-network.sh
+curl -s -o /Library/Application\ Support/Purple/create-ticket.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/create-ticket.sh
 
 echo Execute Helper Files
 curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/swda-deploy.sh | bash # INSTALLS SWDA
