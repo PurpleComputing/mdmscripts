@@ -20,7 +20,7 @@ if [ "$SHOWDIALOG" == "Y" ]; then
 else
 	echo "Dialog will not open"
 	echo Continuing...
-	curl -s https://raw.githubusercontent.com/grahampugh/erase-install/main/erase-install.sh | sudo bash /dev/stdin --reinstall --depnotify --check-power --power-wait-limit 180 --update --os=$MOSVERSION
+	curl -s https://raw.githubusercontent.com/grahampugh/erase-install/main/erase-install.sh | sudo bash /dev/stdin --reinstall --depnotify --check-power --power-wait-limit 180 --update --os $MOSVERSION
 fi
 
 #PROMPTS WITH INSTALL
