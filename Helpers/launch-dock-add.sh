@@ -16,7 +16,7 @@ runAsUser() {
 
 if [ "$EMPTYDOCK" == "Y" ]; then
 	if [ "$ASUSER" == "Y" ]; then
-	runAsUser /usr/local/bin/dockutil --remove all
+	runAsUser /usr/local/bin/dockutil --remove all --homeloc /Users/$currentUser/
 else
 	/usr/local/bin/dockutil --remove all --allhomes
 fi
