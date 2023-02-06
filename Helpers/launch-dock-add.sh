@@ -19,6 +19,9 @@ fi
 if [ "$SHOWDIALOG" == "Y" ]; then
 	echo "Dialog will open"
 	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/show-dialog-depnotify.sh?v=123$(date +%s) | bash
+	echo Command: MainTitle: Changing Your Dock >> /var/tmp/depnotify.log
+	echo Command: MainText: We are updating your Dock with your applications. >> /var/tmp/depnotify.log
+	echo Command: WindowStyle: Activate >> /var/tmp/depnotify.log
 else
 	echo "Dialog will not open"
 	echo Continuing...
@@ -30,7 +33,6 @@ if [ "$ASUSER" == "Y" ]; then
 	sleep 2
 	killall Dock
 else
-	echo "Dialog will not open"
 	echo "SCRIPT WILL TRY TO ADD TO DOCK FOR ALL HOMES"
 	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/add-to-dock.sh?v=123$(date +%s) | bash
 	sleep 2
