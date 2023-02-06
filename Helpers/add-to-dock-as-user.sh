@@ -6,7 +6,7 @@
 prplappno=
 prplappcount=
 
-echo "*** BEGIN add-to-dock.SH ***"
+echo "*** BEGIN add-to-dock-as-user.SH ***"
 chmod 777 /var/tmp/depnotify.log
 
 whatDockList=$MDMAPPLABEL # RECEIVES VARIABLE FROM ENV
