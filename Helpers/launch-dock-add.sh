@@ -3,14 +3,17 @@
 
 # SERVICE SCRIPT CALLED BY OTHER SCRIPTS
 
-currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print $3 }' )
+currentUser=$(scutil <<< "show State:/Users/ConsoleUser" | awk '/Name :/ { print $3 }')
 uid=$(id -u "$currentUser")
+
 runAsUser() {  
   if [ "$currentUser" != "loginwindow" ]; then
-	launchctl asuser "$uid" sudo -u "$currentUser" "$@"
+    launchctl asuser "$uid" sudo -u "$currentUser" "$@"
   else
-	echo "no user logged in"
-	exit 1
+    echo "No user logged in."
+    # uncomment the exit command
+    # to make the function exit with an error when no user is logged in
+    # exit 1
   fi
 }
 
