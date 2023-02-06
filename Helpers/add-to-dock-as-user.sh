@@ -1,15 +1,6 @@
 #!/bin/zsh
 # add-to-dock.sh
-currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print $3 }' )
-uid=$(id -u "$currentUser")
-runAsUser() {  
-  if [ "$currentUser" != "loginwindow" ]; then
-    launchctl asuser "$uid" sudo -u "$currentUser" "$@"
-  else
-    echo "no user logged in"
-    exit 1
-  fi
-}
+
 # SERVICE SCRIPT CALLED BY OTHER SCRIPTS
 
 prplappno=
@@ -51,7 +42,7 @@ fi
 # /usr/local/bin/dockutil --remove all --allhomes
 
 rm -rf /usr/local/bin/dockutil-labels.sh
-curl -s -o /usr/local/bin/dockutil-labels.sh https://raw.githubusercontent.com/PurpleComputing/helpful-scripts/main/dockutil-labels.sh?v=123$(date +%s)
+curl -s -o /usr/local/bin/dockutil-labels.sh https://raw.githubusercontent.com/PurpleComputing/helpful-scripts/main/dockutil-labels-user.sh?v=123$(date +%s)
 chmod +x /usr/local/bin/dockutil-labels.sh
 
 
@@ -63,7 +54,7 @@ for what in $whatDockList; do
 	echo Running Dock Add for ${what}
 	TMAPPDA=$(sed -n "/${what}/,\$p" /usr/local/bin/dockutil-labels.sh  | sed -n 2p | awk -F\" '{print $(NF-1)}')
 	# Looping using dockutil-labels.sh
-	runAsUser cmdOutput="$(${dockdestFile} ${what} || true)"
+	cmdOutput="$(${dockdestFile} ${what} || true)"
 	# Check result
 	echo "Status: Dock addition for $TMAPPDA complete..." >> /var/tmp/depnotify.log
 	sleep 1
