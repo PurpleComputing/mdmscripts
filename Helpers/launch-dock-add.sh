@@ -7,6 +7,14 @@
 #sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
 #export CURL_SSL_BACKEND="secure-transport"
 
+if [ "$EMPTYDOCK" == "Y" ]; then
+	echo "Dock will reset"
+	/usr/local/bin/dockutil --remove all --allhomes
+else
+	echo "Dock will not reset"
+	echo Continuing...
+fi
+
 # CHECKS FOR DIALOG AND PRESENTS IF REQUESTED
 if [ "$SHOWDIALOG" == "Y" ]; then
 	echo "Dialog will open"
