@@ -3,13 +3,23 @@
 
 # SERVICE SCRIPT CALLED BY OTHER SCRIPTS
 
-# RUNS AS USER
-#sudo -u $(stat -f "%Su" /dev/console) /bin/sh <<'END'
-#export CURL_SSL_BACKEND="secure-transport"
+currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print $3 }' )
+uid=$(id -u "$currentUser")
+runAsUser() {  
+  if [ "$currentUser" != "loginwindow" ]; then
+	launchctl asuser "$uid" sudo -u "$currentUser" "$@"
+  else
+	echo "no user logged in"
+	exit 1
+  fi
+}
 
 if [ "$EMPTYDOCK" == "Y" ]; then
-	echo "Dock will reset"
+	if [ "$ASUSER" == "Y" ]; then
+	runAsUser /usr/local/bin/dockutil --remove all
+else
 	/usr/local/bin/dockutil --remove all --allhomes
+fi
 else
 	echo "Dock will not reset"
 	echo Continuing...
