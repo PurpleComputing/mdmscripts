@@ -24,10 +24,20 @@ else
 	echo Continuing...
 fi
 
-	echo "SCRIPT WILL TRY TO ADD TO DOCK"
+if [ "$ASUSER" == "Y" ]; then
+	echo "SCRIPT WILL TRY TO ADD TO DOCK AS USER"
+	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/add-to-dock-as-user.sh?v=123$(date +%s) | bash
+	sleep 2
+	killall Dock
+else
+	echo "Dialog will not open"
+	echo "SCRIPT WILL TRY TO ADD TO DOCK FOR ALL HOMES"
 	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/add-to-dock.sh?v=123$(date +%s) | bash
 	sleep 2
 	killall Dock
+fi
+
+
 
 echo "Command: DeterminateManualStep: 1" >> /var/tmp/depnotify.log
 
