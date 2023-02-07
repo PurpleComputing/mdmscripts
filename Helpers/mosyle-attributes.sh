@@ -93,3 +93,9 @@ dscl . list /Users | grep -v "^_"
 
 echo
 echo
+
+echo Printers:
+lpstat -p | awk '{print $2}'
+
+echo
+echo
