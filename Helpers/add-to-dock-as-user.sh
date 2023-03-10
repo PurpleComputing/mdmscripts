@@ -1,5 +1,5 @@
 #!/bin/zsh
-# add-to-dock.sh
+# add-to-dock-as-user.sh
 
 # SERVICE SCRIPT CALLED BY OTHER SCRIPTS
 
