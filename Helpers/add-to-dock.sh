@@ -2,7 +2,7 @@
 # add-to-dock.sh
 
 # SERVICE SCRIPT CALLED BY OTHER SCRIPTS
-
+prplappno=
 prplappno=
 prplappcount=
 
