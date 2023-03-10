@@ -1,5 +1,5 @@
 #!/bin/zsh
-# launch-app-installo.sh
+# launch-dock-add.sh
 
 # SERVICE SCRIPT CALLED BY OTHER SCRIPTS
 
