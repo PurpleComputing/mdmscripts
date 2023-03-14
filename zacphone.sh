@@ -38,11 +38,17 @@ url=$(/usr/bin/curl -s -A "$userAgent" https://www.zultys.com/zac-download/ | gr
 
 		/usr/bin/curl -L -o /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} ${url}
 		cp /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} /Library/Caches/com.purplecomputing.mdm/Apps/a${dmgfile}
-		sleep 20
+		sleep 5
+
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} -nobrowse -quiet
+		/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} -nobrowse
+		sleep 5
+		#/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/a${dmgfile} -nobrowse
+		sleep 5
+		/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} -nobrowse
+
 		/bin/echo "`date`: Installing..." >> ${logfile}
-		cd "/Volumes/zac_*"
+		cd /Volumes/zac_*
 		ditto -rsrc "zac.app" "/Applications/zac.app"
 
 		/bin/sleep 10
