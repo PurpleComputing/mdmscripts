@@ -37,7 +37,8 @@ echo "Status: Installing Zac Phone" >> ${logfile}
 url=$(/usr/bin/curl -s -A "$userAgent" https://www.zultys.com/zac-download/ | grep 'window.location' | sed -e 's/.* window.location="\(.*\)".*/\1/' -e 's/\"//' | /usr/bin/awk '{print $1}'| tail -n 1)
 
 		/usr/bin/curl -L -o /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} ${url}
-		cp /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} /Library/Caches/com.purplecomputing.mdm/Apps/a${dmgfile}
+		cp /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile}
+		sleep 20
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
 		/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/a${dmgfile} -nobrowse -quiet
 		/bin/echo "`date`: Installing..." >> ${logfile}
