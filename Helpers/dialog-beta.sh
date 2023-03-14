@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 # CHECKS IF INSTALLOMATOR IS INSTALLED AND INSTALLS IF NOT
 if [ ! -e "/usr/local/Installomator/Installomator.sh" ]; then
