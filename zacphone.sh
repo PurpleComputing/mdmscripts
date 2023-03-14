@@ -37,8 +37,9 @@ echo "Status: Installing Zac Phone" >> ${logfile}
 url=$(/usr/bin/curl -s -A "$userAgent" https://www.zultys.com/zac-download/ | grep 'window.location' | sed -e 's/.* window.location="\(.*\)".*/\1/' -e 's/\"//' | /usr/bin/awk '{print $1}'| tail -n 1)
 
 		/usr/bin/curl -L -o /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} ${url}
+		cp /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} /Library/Caches/com.purplecomputing.mdm/Apps/a${dmgfile}
 		/bin/echo "`date`: Mounting installer disk image." >> ${logfile}
-		/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} -nobrowse -quiet
+		/usr/bin/hdiutil attach /Library/Caches/com.purplecomputing.mdm/Apps/a${dmgfile} -nobrowse -quiet
 		/bin/echo "`date`: Installing..." >> ${logfile}
 		cd "/Volumes/zac_*"
 		ditto -rsrc "zac.app" "/Applications/zac.app"
@@ -48,7 +49,7 @@ url=$(/usr/bin/curl -s -A "$userAgent" https://www.zultys.com/zac-download/ | gr
 		umount -f /Volumes/zac*
 		/bin/sleep 10
 		/bin/echo "`date`: Deleting disk image." >> ${logfile}
-		/bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile}
+		/bin/rm /Library/Caches/com.purplecomputing.mdm/Apps/${dmgfile} /Library/Caches/com.purplecomputing.mdm/Apps/a${dmgfile}
 
 		#double check to see if the new version got updated
 			if [[ -e "/usr/local/bin/dockutil" ]]; then  
