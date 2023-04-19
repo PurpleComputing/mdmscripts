@@ -190,7 +190,25 @@ DIALOG_LIST_ITEM_NAME=""
 # listitem.
 # When the variable is unset, progress will be sent to Swift Dialog's main progress bar.
 
+ if [ "$SHOWDIALOG" == "Y" ]; then
+		# display first screen
+	open -a "$dialogApp" --args \
+		--title "Purple Managed Apps" \
+		--icon "$icon" \
+		--message "$message" \
+		--mini \
+		--progress 100 \
+		--position bottomright \
+		--movable \
+		--commandfile "$dialog_command_file"
 
+	# give everything a moment to catch up
+	sleep 0.1
+ else
+	echo "Dialog will not open"
+	installomatorNotify="NOTIFY=silent"
+ fi
+fi
 
 # NOTE: How labels work
 
