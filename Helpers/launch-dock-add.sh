@@ -31,7 +31,7 @@ fi
 # CHECKS FOR DIALOG AND PRESENTS IF REQUESTED
 if [ "$SHOWDIALOG" == "Y" ]; then
 	echo "Dialog will open"
-	curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/show-dialog-depnotify.sh?v=123$(date +%s) | bash
+	runAsUser curl -s https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/show-dialog-depnotify.sh?v=123$(date +%s) | bash
 	echo Command: MainTitle: Changing Your Dock >> /var/tmp/depnotify.log
 	echo Command: MainText: We are updating your Dock with your applications. >> /var/tmp/depnotify.log
 	echo Command: WindowStyle: Activate >> /var/tmp/depnotify.log
