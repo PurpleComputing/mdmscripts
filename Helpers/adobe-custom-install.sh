@@ -25,7 +25,6 @@
 echo "*** BEGIN adobe-custom-install.sh ***"
 sudo spctl --master-disable
 
-#!/bin/zsh
 label="customadobecc" # if no label is sent to the script, this will be used
 
 # Installomator
@@ -1531,14 +1530,6 @@ customadobecc)
 	elif [[ $(arch) == "i386" ]]; then
 		downloadURL="https://$CUSTOMSRVUSER:$CUSTOMSRVPASS@$CUSTOMSRVHOST/APPS/ADOBE/INTEL/INSTALL.pkg.zip"
 	fi
-
-	#downloadURL=$(curl -fs "https://helpx.adobe.com/download-install/kb/creative-cloud-desktop-app-download.html" | grep -o "https*.*dmg" | head -1)
-	#appNewVersion=$(curl -fs "https://helpx.adobe.com/creative-cloud/release-note/cc-release-notes.html" | grep "mandatory" | head -1 | grep -o "Version *.* released" | cut -d " " -f2)
-   #installerTool="Adobe Package Downloader.app"
-	#CLIInstaller="Adobe Package Downloader.app/Contents/MacOS/Install"
-	#CLIArguments=(--mode=silent)
-	#expectedTeamID="JQ525L2MZD"
-	#Company="Adobe"
 	;;
 1password7)
     name="1Password 7"
