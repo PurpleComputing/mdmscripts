@@ -207,7 +207,7 @@ DIALOG_LIST_ITEM_NAME=""
  else
 	echo "Dialog will not open"
 	installomatorNotify="NOTIFY=silent"
- fi
+
 fi
 
 # NOTE: How labels work
