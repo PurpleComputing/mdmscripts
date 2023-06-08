@@ -128,7 +128,6 @@ else
 	echo 
 	echo NO AUTH AUTHENTICATING...
 	runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale logout
-	killall Tailscale
 	sleep 5
 	runAsUser osascript -e 'tell application "Tailscale"' -e 'activate' -e 'end tell'
 	sleep 20
