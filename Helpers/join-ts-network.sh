@@ -68,3 +68,14 @@ runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey $TAI
 /usr/local/bin/dialog dialog --title "Tailscale Session Started" --message "**Session Control**\n\n Your session will end automatically based on the countdown below. \n\n **Leave this window open in the background whilst you are working...**" --alignment centre --centericon --big --icon warning --overlayicon "/Applications/Tailscale.app" --button1text "End Session Now" --timer $SESSIONEXPIRY --button1shellaction "launchctl asuser $(id -u "$currentUser") /Applications/Tailscale.app/Contents/MacOS/Tailscale logout && killall Tailscale"
 sleep 20
 runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale logout && killall Tailscale
+
+
+if [ -n "$ZTNETID" ]; then
+    echo "ZeroTier Variable found"
+    /usr/local/bin/zerotier-cli leave $ZTNETID
+    sleep 5
+    runAsUser /usr/local/bin/zerotier-cli leave $ZTNETID
+else
+    echo 
+    exit 0
+fi
