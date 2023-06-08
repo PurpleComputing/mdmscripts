@@ -35,6 +35,7 @@ fi
 
 
 currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print $3 }' )
+TSENGINEER=$(echo $currentUser)
 uid=$(id -u "$currentUser")
 runAsUser() {  
   if [ "$currentUser" != "loginwindow" ]; then
@@ -61,7 +62,7 @@ EOF
 sleep 5
 runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale logout
 sleep 5
-runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey $TAILSCALEAUTHKEY --hostname "purplesupportsession-ticket$ZDTICKETRAW-engineer%LastConsoleUser%" --reset
+runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey $TAILSCALEAUTHKEY --hostname "purplesupportsession-ticket$ZDTICKETRAW-engineer$TSENGINEER" --reset
 
 
 /usr/local/bin/dialog dialog --title "Tailscale Session Started" --message "**Session Control**\n\n Your session will end automatically based on the countdown below. \n\n **Leave this window open in the background whilst you are working...**" --alignment centre --centericon --big --icon warning --overlayicon "/Applications/Tailscale.app" --button1text "End Session Now" --timer $SESSIONEXPIRY --button1shellaction "launchctl asuser $(id -u "$currentUser") /Applications/Tailscale.app/Contents/MacOS/Tailscale logout && killall Tailscale"
