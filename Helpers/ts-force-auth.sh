@@ -66,7 +66,7 @@ fi
 runAsUser osascript -e 'tell application "Tailscale"' -e 'activate' -e 'end tell'
 
 # GIVES TAILSCALE TIME TO OPEN AND CONNECT IF EMPLOYEE AUTHED
-sleep 10
+sleep 20
 
 # PING GOOGLE FOR NEXT CHECK
 PING1=$(ping -c 1 "$IP1" | grep -c from)
@@ -107,7 +107,7 @@ else
 	killall Tailscale
 	sleep 5
 	runAsUser osascript -e 'tell application "Tailscale"' -e 'activate' -e 'end tell'
-	sleep 5
+	sleep 20
 	runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey "$TAILSCALEAUTHKEY" --reset
 	echo 
 fi
@@ -131,7 +131,7 @@ else
 	killall Tailscale
 	sleep 5
 	runAsUser osascript -e 'tell application "Tailscale"' -e 'activate' -e 'end tell'
-	sleep 5
+	sleep 20
 	runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey "$TAILSCALEAUTHKEY" --reset
 	echo 
 fi
