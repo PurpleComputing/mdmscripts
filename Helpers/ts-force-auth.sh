@@ -31,6 +31,7 @@ echo "Execution Record for $DT0"
 # SOURCES USER INFO FOR RUNASUSER COMMAND BELOW
 currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print $3 }' )
 uid=$(id -u "$currentUser")
+TSUSER=$(echo $currentUser)
 
 # SIMPLIFIES RUN AS USER COMMAND FOR STANDARD USER ACCOUNTS WITHOUT SUDO RIGHTS
 runAsUser() {
@@ -108,7 +109,7 @@ else
 	sleep 5
 	runAsUser osascript -e 'tell application "Tailscale"' -e 'activate' -e 'end tell'
 	sleep 20
-	runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey "$TAILSCALEAUTHKEY" --reset
+	runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey "$TAILSCALEAUTHKEY" --hostname "$TSUSER" --reset
 	echo 
 fi
 
@@ -131,7 +132,7 @@ else
 	sleep 5
 	runAsUser osascript -e 'tell application "Tailscale"' -e 'activate' -e 'end tell'
 	sleep 20
-	runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey "$TAILSCALEAUTHKEY" --reset
+	runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey "$TAILSCALEAUTHKEY" --hostname "$TSUSER" --reset
 	echo 
 fi
 
