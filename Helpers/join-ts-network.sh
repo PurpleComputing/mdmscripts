@@ -15,8 +15,8 @@ echo "*** PURPLE LAUNCH TAILSCALE SCRIPT ***"
 ############################################################################################### 
 # NOTICE: MAC SPECIFIC SCRIPT, USING MOSYLE VARIABLES
 ###############################################################################################
-#TAILSCALEAUTHKEY="tskey-auth-000000000000000"# UNCOMMENT IF USING STANDALONE
-#SESSIONEXPIRY=3600 # TIME IN SECONDS BEFORE BEKING KICKED ALSO UNCOMMENT IF USING STANDALONE
+#TAILSCALEAUTHKEY=
+#SESSIONEXPIRY=
 
 APPNA="Tailscale"
 DIR="/Applications/$APPNA.app"
