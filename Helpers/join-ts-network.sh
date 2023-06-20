@@ -60,7 +60,7 @@ tell application "Tailscale"
 end tell
 EOF
 sleep 5
-runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale logout
+#runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale logout
 sleep 5
 runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey $TAILSCALEAUTHKEY --hostname "purplesupportsession-ticket$ZDTICKETRAW-engineer$TSENGINEER" --reset
 
