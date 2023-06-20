@@ -52,6 +52,10 @@ ZDTICKETRAW=$(echo $ZDTICKETRAW0)
 
 echo 
 killall Tailscale
+killall dialog Dialog
+rm -rf /var/tmp/dialog.log
+touch /var/tmp/dialog.log
+chmod 777 /var/tmp/dialog.log
 sleep 5
 
 sudo -u $(stat -f "%Su" /dev/console) osascript <<EOF
