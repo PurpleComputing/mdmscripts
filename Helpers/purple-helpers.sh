@@ -53,3 +53,4 @@ rm -rf /Library/Caches/com.purplecomputing.mdm/Apps/pkg
 mkdir -p /Library/Caches/com.purplecomputing.mdm/Scripts/
 rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/$SCRIPTNAME
 rm -rf /Library/Caches/com.purplecomputing.mdm/Scripts/brandDEPinstall.sh
+rm -rf /Library/Application\ Support/Purple/__MACOSX
