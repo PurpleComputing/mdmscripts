@@ -15,6 +15,8 @@ echo Downloading Image Files
 curl -s -o /Library/Application\ Support/Purple/logo.png https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/PurpleLogos/logo.png
 curl -s -o /Library/Application\ Support/Purple/logo-dark.png https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/PurpleLogos/logo-dark.png
 curl -s -o /Library/Application\ Support/Purple/purple-icon.png https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/PurpleLogos/purple-icon.png
+curl -s -o /Library/Application\ Support/Purple/light-pmos.png https://raw.githubusercontent.com/PurpleComputing/image-repo/main/light-pmos.png
+curl -s -o /Library/Application\ Support/Purple/dark-pmos.png https://raw.githubusercontent.com/PurpleComputing/image-repo/main/dark-pmos.png
 
 echo Downloading Scripts
 curl -s -o /Library/Application\ Support/Purple/launch-dep.sh https://raw.githubusercontent.com/PurpleComputing/mdmscripts/main/Helpers/launch-dep.sh
