@@ -34,3 +34,7 @@ curl -s -L $DLURL -O
 installer -pkg Installomator*.pkg -target /
 rm -rf Installomator*
 /usr/local/Installomator/Installomator.sh longversion
+
+curl -LO https://github.com/Mac-Nerd/patchomator/raw/main/patchomator.sh
+chmod a+x patchomator.sh
+mv patchomator.sh /usr/local/Installomator/
