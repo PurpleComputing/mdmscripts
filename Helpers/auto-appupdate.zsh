@@ -38,7 +38,7 @@ echo "Patchomator is installed. Continuing."
 echo "Running \"patchomator.sh --yes --install --ignored --required\""
 zsh "$PatchomatorPath" --yes --install --ignored "$PIGNOREDAPPS" --required "$PREQUIREDAPPS"
 echo "Patchomator script has finished. Exiting."
-exit 0
+
 
 #
 # End of file.
