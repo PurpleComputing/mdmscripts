@@ -1,5 +1,11 @@
 echo
-echo 
+echo
+
+echo Self Service Version:
+defaults read /Applications/Self-Service.app/Contents/Info CFBundleShortVersionString
+
+echo
+echo
 #KERNELPANICS
 PanicLogCount=$(/usr/bin/find /Library/Logs/DiagnosticReports -Btime -7 -name *.panic | grep . -c)
 /bin/echo Kernel Panics Logged":" "$PanicLogCount"
