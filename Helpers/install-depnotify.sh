@@ -14,3 +14,5 @@ curl -o "$destinationDirectory/DEPNotify.pkg" "$downloadUrl"
 
 # Install the .pkg file
 installer -pkg "$destinationDirectory/DEPNotify.pkg" -target /
+
+rm -rf "$destinationDirectory/DEPNotify.pkg"
