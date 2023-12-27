@@ -56,23 +56,22 @@ killall dialog Dialog
 rm -rf /var/tmp/dialog.log
 touch /var/tmp/dialog.log
 chmod 777 /var/tmp/dialog.log
-sleep 5
+sleep 2
 
 sudo -u $(stat -f "%Su" /dev/console) osascript <<EOF
 tell application "Tailscale"
 	activate
 end tell
 EOF
-sleep 5
 #runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale logout
-sleep 5
-runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale up --authkey $TAILSCALEAUTHKEY --hostname "purplesupportsession-ticket$ZDTICKETRAW-engineer$TSENGINEER" --reset
+sleep 2
+runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale login --authkey $TAILSCALEAUTHKEY --hostname "purplesupportsession-ticket-$ZDTICKETRAW-engineer-$TSENGINEER"
 
 
-/usr/local/bin/dialog dialog --title "Tailscale Session Started" --message "**Session Control**\n\n Your session will end automatically based on the countdown below. \n\n **Leave this window open in the background whilst you are working...**" --alignment centre --centericon --big --icon warning --overlayicon "/Applications/Tailscale.app" --button1text "End Session Now" --timer $SESSIONEXPIRY --button1shellaction "launchctl asuser $(id -u "$currentUser") /Applications/Tailscale.app/Contents/MacOS/Tailscale logout && killall Tailscale"
-sleep 20
-runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale logout && killall Tailscale
-
+/usr/local/bin/dialog dialog --title "Tailscale Session Started" --message "**Session Control**\n\n Your session will end automatically based on the countdown below. \n\n **Leave this window open in the background whilst you are working...**" --alignment centre --centericon --big --icon warning --overlayicon "/Applications/Tailscale.app" --button1text "End Session Now" --timer $SESSIONEXPIRY --button1shellaction "launchctl asuser $(id -u "$currentUser") /Applications/Tailscale.app/Contents/MacOS/Tailscale logout"
+sleep 3
+runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale logout
+runAsUser /Applications/Tailscale.app/Contents/MacOS/Tailscale switch $TAILSCALENET
 
 if [ -n "$ZTNETID" ]; then
     echo "ZeroTier Variable found"
