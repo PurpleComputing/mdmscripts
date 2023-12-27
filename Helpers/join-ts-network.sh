@@ -51,7 +51,6 @@ ZDTICKETRAW0=$(echo $ZDTICKETNO | awk -F: '{print $2}')
 ZDTICKETRAW=$(echo $ZDTICKETRAW0)
 
 echo 
-killall Tailscale
 killall dialog Dialog
 rm -rf /var/tmp/dialog.log
 touch /var/tmp/dialog.log
