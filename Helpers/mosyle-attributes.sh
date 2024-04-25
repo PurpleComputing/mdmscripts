@@ -100,6 +100,18 @@ dscl . list /Users | grep -v "^_"
 echo
 echo
 
+echo Last Logins:
+last -10
+
+echo
+echo
+
+echo Uptime:
+uptime
+
+echo
+echo
+
 echo Printers:
 lpstat -p | awk '{print $2}'
 
