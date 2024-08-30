@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # URL of the .pkg file to download
-downloadUrl="https://store.prpl.it/DEPNotify.pkg"
+downloadUrl="https://store.prpl.uk/DEPNotify.pkg"
 
 # Destination directory to store the downloaded .pkg file
 destinationDirectory="/tmp/pkg-install"
